@@ -16,11 +16,11 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(Student::class);
             $table->date('date');
-            $table->integer('pet_bottles')->default(0);
-            $table->integer('packaging_of_cleaning_materials')->default(0);
-            $table->integer('tetra_pak')->default(0);
-            $table->integer('aluminum_cans')->default(0);
-            $table->integer('green_coin')->default(0);
+            $table->integer('pet_bottles')->nullable()->default(0);
+            $table->integer('packaging_of_cleaning_materials')->nullable()->default(0);
+            $table->integer('tetra_pak')->nullable()->default(0);
+            $table->integer('aluminum_cans')->nullable()->default(0);
+            $table->integer('green_coin')->nullable()->default(0);
             $table->timestamps();
         });
     }

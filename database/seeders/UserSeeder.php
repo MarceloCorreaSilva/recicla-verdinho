@@ -83,11 +83,11 @@ class UserSeeder extends Seeder
         Permission::factory()->create(['name' => 'swap_update']);
         Permission::factory()->create(['name' => 'swap_delete']);
 
-        Permission::factory()->create(['name' => 'sponsor_access']);
-        Permission::factory()->create(['name' => 'sponsor_read']);
-        Permission::factory()->create(['name' => 'sponsor_create']);
-        Permission::factory()->create(['name' => 'sponsor_update']);
-        Permission::factory()->create(['name' => 'sponsor_delete']);
+        // Permission::factory()->create(['name' => 'sponsor_access']);
+        // Permission::factory()->create(['name' => 'sponsor_read']);
+        // Permission::factory()->create(['name' => 'sponsor_create']);
+        // Permission::factory()->create(['name' => 'sponsor_update']);
+        // Permission::factory()->create(['name' => 'sponsor_delete']);
 
         // create roles and assign existing permissions
         $developer = Role::factory()->create(['name' => 'Developer']);
@@ -142,11 +142,11 @@ class UserSeeder extends Seeder
         $developer->givePermissionTo('swap_create');
         $developer->givePermissionTo('swap_update');
         $developer->givePermissionTo('swap_delete');
-        $developer->givePermissionTo('sponsor_access');
-        $developer->givePermissionTo('sponsor_read');
-        $developer->givePermissionTo('sponsor_create');
-        $developer->givePermissionTo('sponsor_update');
-        $developer->givePermissionTo('sponsor_delete');
+        // $developer->givePermissionTo('sponsor_access');
+        // $developer->givePermissionTo('sponsor_read');
+        // $developer->givePermissionTo('sponsor_create');
+        // $developer->givePermissionTo('sponsor_update');
+        // $developer->givePermissionTo('sponsor_delete');
 
         $admin = Role::factory()->create(['name' => 'Admin']);
         $admin->givePermissionTo('access_admin');
@@ -190,45 +190,6 @@ class UserSeeder extends Seeder
         $admin->givePermissionTo('swap_create');
         $admin->givePermissionTo('swap_update');
         $admin->givePermissionTo('swap_delete');
-        // $admin->givePermissionTo('sponsor_access');
-        // $admin->givePermissionTo('sponsor_read');
-        // $admin->givePermissionTo('sponsor_create');
-        // $admin->givePermissionTo('sponsor_update');
-        // $admin->givePermissionTo('sponsor_delete');
-
-
-        // $manager = Role::factory()->create(['name' => 'Manager']);
-        // $manager->givePermissionTo('access_admin');
-        // // $manager->givePermissionTo('city_access');
-        // // $manager->givePermissionTo('city_read');
-        // // $manager->givePermissionTo('city_create');
-        // // $manager->givePermissionTo('city_update');
-        // // $manager->givePermissionTo('city_delete');
-        // $manager->givePermissionTo('school_access');
-        // $manager->givePermissionTo('school_read');
-        // $manager->givePermissionTo('school_create');
-        // $manager->givePermissionTo('school_update');
-        // $manager->givePermissionTo('school_delete');
-        // $manager->givePermissionTo('school_class_access');
-        // $manager->givePermissionTo('school_class_read');
-        // // $manager->givePermissionTo('school_class_create');
-        // // $manager->givePermissionTo('school_class_update');
-        // // $manager->givePermissionTo('school_class_delete');
-        // $manager->givePermissionTo('student_access');
-        // $manager->givePermissionTo('student_read');
-        // $manager->givePermissionTo('student_create');
-        // $manager->givePermissionTo('student_update');
-        // $manager->givePermissionTo('student_delete');
-        // $manager->givePermissionTo('swap_access');
-        // $manager->givePermissionTo('swap_read');
-        // // $manager->givePermissionTo('swap_create');
-        // // $manager->givePermissionTo('swap_update');
-        // // $manager->givePermissionTo('swap_delete');
-        // $manager->givePermissionTo('sponsor_access');
-        // $manager->givePermissionTo('sponsor_read');
-        // // $manager->givePermissionTo('sponsor_create');
-        // // $manager->givePermissionTo('sponsor_update');
-        // // $manager->givePermissionTo('sponsor_delete');
 
         $coordinator = Role::factory()->create(['name' => 'Coordinator']);
         $coordinator->givePermissionTo('access_admin');
@@ -260,10 +221,10 @@ class UserSeeder extends Seeder
         $userAdmin = User::factory()->create(['name' => 'Admin', 'email' => 'admin@mail.com', 'password' => static::$password]);
         $userAdmin->assignRole($admin);
 
-        // $userManager = User::factory()->create(['name' => 'Manager', 'email' => 'manager@mail.com', 'password' => static::$password]);
-        // $userManager->assignRole($manager);
+        $userCoordinator = User::factory()->create(['name' => 'Coordenador 1', 'email' => 'coordenador@mail.com', 'password' => static::$password]);
+        $userCoordinator->assignRole($coordinator);
 
-        $userCoordinator = User::factory()->create(['name' => 'Coordenador', 'email' => 'coordenador@mail.com', 'password' => static::$password]);
+        $userCoordinator = User::factory()->create(['name' => 'Coordenador 2', 'email' => 'coordenador2@mail.com', 'password' => static::$password]);
         $userCoordinator->assignRole($coordinator);
     }
 }

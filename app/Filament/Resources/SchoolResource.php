@@ -89,7 +89,10 @@ class SchoolResource extends Resource
                             ->label('Inicio')
                             ->displayFormat('d/m/Y')
                             ->format('d/m/Y')
-                            ->icon('heroicon-o-calendar'),
+                            ->icon('heroicon-o-calendar')
+                            ->dehydrateStateUsing(fn ($state) => date('Y-m-d', strtotime($state)))
+                            ->dehydrated(fn ($state) => filled($state)),
+
                         Forms\Components\DatePicker::make('project_completed')
                             ->label('Conclusão')
                             ->displayFormat('d/m/Y')
@@ -156,5 +159,12 @@ class SchoolResource extends Resource
             'view' => Pages\ViewSchool::route('/{record}'),
             'edit' => Pages\EditSchool::route('/{record}/edit'),
         ];
+    }
+
+    public static function getEloquentQuery(): Builder
+    {
+        return auth()->user()->hasRole(['Developer', 'Admin'])
+            ? parent::getEloquentQuery()
+            : parent::getEloquentQuery()->where('coordinator_id', auth()->id());
     }
 }

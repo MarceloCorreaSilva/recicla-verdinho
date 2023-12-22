@@ -15,6 +15,8 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
+use function PHPUnit\Framework\isNull;
+
 class StudentResource extends Resource
 {
     protected static ?string $model = Student::class;
@@ -110,5 +112,21 @@ class StudentResource extends Resource
             'view' => Pages\ViewStudent::route('/{record}'),
             'edit' => Pages\EditStudent::route('/{record}/edit'),
         ];
+    }
+
+    public static function getEloquentQuery(): Builder
+    {
+        return auth()->user()->hasRole(['Developer', 'Admin'])
+            ? parent::getEloquentQuery()
+            : parent::getEloquentQuery()->whereHas(
+                relation: 'school_class',
+                callback: function (Builder $query) {
+                    if (isset(auth()->user()->coordinator->id)) {
+                        return $query->where('school_id', auth()->user()->coordinator->id);
+                    }
+
+                    return null;
+                }
+            );
     }
 }

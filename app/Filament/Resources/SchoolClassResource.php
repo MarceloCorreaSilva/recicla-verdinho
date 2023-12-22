@@ -41,9 +41,13 @@ class SchoolClassResource extends Resource
                 Forms\Components\Grid::make()
                     ->columns(1)
                     ->schema([
+                        // Forms\Components\TextInput::make('school.name')
+                        //     ->label('Escolas')
+                        //     ->hydrateState(fn (Builder $query) => $query->where('coordinator_id', auth()->id())->first()->name),
+
                         Forms\Components\Select::make('school_id')
                             ->label('Escolas')
-                            ->relationship('school', 'name')
+                            ->relationship('school', 'name', fn (Builder $query) => $query->where('coordinator_id', auth()->id()))
                             ->preload()
                             ->required()
                             ->searchable(),
@@ -127,5 +131,15 @@ class SchoolClassResource extends Resource
             'view' => Pages\ViewSchoolClass::route('/{record}'),
             'edit' => Pages\EditSchoolClass::route('/{record}/edit'),
         ];
+    }
+
+    public static function getEloquentQuery(): Builder
+    {
+        return auth()->user()->hasRole(['Developer', 'Admin'])
+            ? parent::getEloquentQuery()
+            : parent::getEloquentQuery()->whereHas(
+                relation: 'school',
+                callback: fn (Builder $query) => $query->where('coordinator_id', auth()->id())
+            );
     }
 }

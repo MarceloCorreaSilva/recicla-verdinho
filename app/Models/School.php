@@ -13,6 +13,7 @@ class School extends Model
 
     protected $fillable = [
         'city_id',
+        'coordinator_id',
         'name',
         'project_started',
         'project_completed',
