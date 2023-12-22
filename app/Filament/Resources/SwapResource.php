@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\SwapResource\Pages;
 use App\Filament\Resources\SwapResource\RelationManagers;
+use App\Models\SchoolClass;
 use App\Models\Student;
 use App\Models\Swap;
 use Closure;
@@ -13,7 +14,9 @@ use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection as EloquentCollection;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Support\Collection;
 
 class SwapResource extends Resource
 {
@@ -49,7 +52,11 @@ class SwapResource extends Resource
 
                         Forms\Components\Select::make('student_id')
                             ->label('Aluno')
-                            ->relationship('student', 'name')
+                            ->relationship(
+                                'student',
+                                'name',
+                                // fn (Builder $query) => $query->where('school_class_id', 21)
+                            )
                             ->preload()
                             ->required()
                             ->searchable()

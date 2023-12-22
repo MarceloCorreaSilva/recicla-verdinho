@@ -13,8 +13,8 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 class SchoolClassesRelationManager extends RelationManager
 {
     protected static string $relationship = 'school_classes';
-    protected static ?string $title = 'Turmas';
 
+    protected static ?string $title = 'Turmas';
     protected static ?string $modelLabel = 'Turma';
     protected static ?string $pluralModelLabel = 'Turmas';
 
@@ -31,11 +31,9 @@ class SchoolClassesRelationManager extends RelationManager
                             ->label('Ano Letivo')
                             ->required()
                             ->numeric()
-                            // ->mask('9999')
                             ->length(4),
 
                         Forms\Components\TextInput::make('name')
-                            // ->columnStart(2)
                             ->columnSpanFull()
                             ->label('Turma')
                             ->required()
@@ -52,17 +50,23 @@ class SchoolClassesRelationManager extends RelationManager
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('year')->label('Ano Letivo'),
-                Tables\Columns\TextColumn::make('name')->label('Turma'),
-                Tables\Columns\ToggleColumn::make('active')->label('Status')
+                Tables\Columns\TextColumn::make('year')
+                    ->label('Ano Letivo')
+                    ->sortable()
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('name')
+                    ->label('Turma')
+                    ->sortable()
+                    ->searchable(),
+                Tables\Columns\ToggleColumn::make('active')
+                    ->label('Status')
+                    ->sortable()
             ])
             ->filters([
                 //
             ])
             ->headerActions([
-                Tables\Actions\ViewAction::make(),
                 Tables\Actions\CreateAction::make(),
-                Tables\Actions\DeleteAction::make(),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),

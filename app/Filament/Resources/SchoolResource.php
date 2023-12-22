@@ -3,7 +3,6 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\SchoolResource\Pages;
-use App\Filament\Resources\SchoolResource\RelationManagers;
 use App\Filament\Resources\SchoolResource\RelationManagers\SchoolClassesRelationManager;
 use App\Models\City;
 use App\Models\School;
