@@ -84,12 +84,15 @@ class SchoolClassResource extends Resource
                 Tables\Columns\TextColumn::make('school.name')
                     ->label('Escola')
                     ->sortable(),
-                Tables\Columns\TextColumn::make('name')
-                    ->label('Turma')
-                    ->searchable(),
                 Tables\Columns\TextColumn::make('year')
                     ->label('Ano Letivo')
                     ->sortable(),
+                Tables\Columns\TextColumn::make('name')
+                    ->label('Turma')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('students_count')
+                    ->counts('students')
+                    ->label('Nº Alunos'),
                 Tables\Columns\ToggleColumn::make('active')
                     ->label('Status')
             ])

@@ -58,6 +58,9 @@ class SchoolClassesRelationManager extends RelationManager
                     ->label('Turma')
                     ->sortable()
                     ->searchable(),
+                Tables\Columns\TextColumn::make('students_count')
+                    ->counts('students')
+                    ->label('Nº Alunos'),
                 Tables\Columns\ToggleColumn::make('active')
                     ->label('Status')
                     ->sortable()
