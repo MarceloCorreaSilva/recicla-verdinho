@@ -75,10 +75,12 @@ class SchoolResource extends Resource
                     ->schema([
                         Forms\Components\DatePicker::make('project_started')
                             ->label('Inicio')
+                            ->displayFormat('d/m/Y')
                             ->format('d/m/Y')
                             ->icon('heroicon-o-calendar'),
                         Forms\Components\DatePicker::make('project_completed')
                             ->label('Conclusão')
+                            ->displayFormat('d/m/Y')
                             ->format('d/m/Y')
                             ->icon('heroicon-o-calendar'),
                     ]),

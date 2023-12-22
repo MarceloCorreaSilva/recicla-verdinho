@@ -45,6 +45,7 @@ class SwapResource extends Resource
                         Forms\Components\DatePicker::make('date')
                             ->label('Data')
                             ->default(now())
+                            ->displayFormat('d/m/Y')
                             ->format('d/m/Y')
                             ->dehydrateStateUsing(fn ($state) => date('Y-m-d', strtotime($state)))
                             ->dehydrated(fn ($state) => filled($state))
