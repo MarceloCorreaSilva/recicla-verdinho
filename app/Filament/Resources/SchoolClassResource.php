@@ -13,6 +13,7 @@ use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
+use Filament\Tables\Filters\SelectFilter;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
@@ -97,7 +98,9 @@ class SchoolClassResource extends Resource
                     ->label('Status')
             ])
             ->filters([
-                //
+                SelectFilter::make('Escola')
+                    ->relationship('school', 'name')
+                    ->searchable()
             ])
             ->actions([
                 Tables\Actions\ViewAction::make(),
