@@ -17,11 +17,17 @@ class EditSwap extends EditRecord
         ];
     }
 
+    protected function mutateFormDataBeforeFill(array $data): array
+    {
+        $data['total'] = $data['pet_bottles'] + $data['packaging_of_cleaning_materials'] + $data['tetra_pak'] + $data['aluminum_cans'];
+
+        return $data;
+    }
+
     protected function mutateFormDataBeforeSave(array $data): array
     {
-        $data['green_coin'] = ($data['pet_bottles'] + $data['packaging_of_cleaning_materials'] + $data['tetra_pak'] + $data['aluminum_cans']) / 10;
+        $data['green_coin'] = floor(($data['pet_bottles'] + $data['packaging_of_cleaning_materials'] + $data['tetra_pak'] + $data['aluminum_cans']) / 10);
 
-        // dd($data);
         return $data;
     }
 
