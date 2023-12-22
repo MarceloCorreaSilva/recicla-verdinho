@@ -142,6 +142,7 @@ class SchoolResource extends Resource
         return [
             'index' => Pages\ListSchools::route('/'),
             'create' => Pages\CreateSchool::route('/create'),
+            'view' => Pages\ViewSchool::route('/{record}'),
             'edit' => Pages\EditSchool::route('/{record}/edit'),
         ];
     }

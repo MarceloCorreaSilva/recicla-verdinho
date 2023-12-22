@@ -176,6 +176,7 @@ class SwapResource extends Resource
         return [
             'index' => Pages\ListSwaps::route('/'),
             'create' => Pages\CreateSwap::route('/create'),
+            'view' => Pages\ViewSwap::route('/{record}'),
             'edit' => Pages\EditSwap::route('/{record}/edit'),
         ];
     }

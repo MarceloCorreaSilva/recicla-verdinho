@@ -124,6 +124,7 @@ class SchoolClassResource extends Resource
         return [
             'index' => Pages\ListSchoolClasses::route('/'),
             'create' => Pages\CreateSchoolClass::route('/create'),
+            'view' => Pages\ViewSchoolClass::route('/{record}'),
             'edit' => Pages\EditSchoolClass::route('/{record}/edit'),
         ];
     }
