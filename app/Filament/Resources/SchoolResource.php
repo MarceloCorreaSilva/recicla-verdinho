@@ -11,6 +11,7 @@ use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
+use Filament\Tables\Filters\SelectFilter;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
@@ -98,6 +99,11 @@ class SchoolResource extends Resource
                     ->label('Escola')
                     ->sortable()
                     ->searchable(),
+
+                Tables\Columns\TextColumn::make('school_classes_count')
+                    ->counts('school_classes')
+                    ->label('Nº Turmas'),
+
                 Tables\Columns\TextColumn::make('project_started')
                     ->label('Inicio do Projeto ')
                     ->dateTime('d/m/Y')
@@ -110,7 +116,9 @@ class SchoolResource extends Resource
                     ->label('Status'),
             ])
             ->filters([
-                //
+                SelectFilter::make('Cidade')
+                    ->relationship('city', 'name')
+                    ->searchable()
             ])
             ->actions([
                 Tables\Actions\ViewAction::make(),
