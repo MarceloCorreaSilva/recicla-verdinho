@@ -13,6 +13,7 @@ use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
+use Filament\Tables\Filters\SelectFilter;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection as EloquentCollection;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -149,7 +150,9 @@ class SwapResource extends Resource
                     ->sortable(),
             ])
             ->filters([
-                //
+                SelectFilter::make('Aluno')
+                    ->relationship('student', 'name')
+                    ->searchable()
             ])
             ->actions([
                 Tables\Actions\ViewAction::make(),
