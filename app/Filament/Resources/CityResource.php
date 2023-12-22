@@ -12,6 +12,7 @@ use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class CityResource extends Resource
@@ -25,6 +26,15 @@ class CityResource extends Resource
     protected static ?int $navigationSort = 2;
     protected static ?string $navigationGroup = 'Estados / Cidades';
     protected static ?string $navigationIcon = 'heroicon-o-location-marker';
+
+    protected static ?string $recordTitleAttribute = 'name';
+
+    public static function getGlobalSearchResultDetails(Model $record): array
+    {
+        return [
+            'Estado' => $record->state->name
+        ];
+    }
 
     public static function getNavigationBadge(): ?string
     {

@@ -13,6 +13,7 @@ use Filament\Resources\Table;
 use Filament\Tables;
 use Filament\Tables\Filters\SelectFilter;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class SchoolResource extends Resource
@@ -27,6 +28,16 @@ class SchoolResource extends Resource
     protected static ?int $navigationSort = 1;
     protected static ?string $navigationGroup = 'Escolas';
     protected static ?string $navigationIcon = 'heroicon-o-academic-cap';
+
+    protected static ?string $recordTitleAttribute = 'name';
+
+    public static function getGlobalSearchResultDetails(Model $record): array
+    {
+        return [
+            'Cidade' => $record->city->name,
+            'Estado' => $record->city->state->name
+        ];
+    }
 
     public static function getNavigationBadge(): ?string
     {
