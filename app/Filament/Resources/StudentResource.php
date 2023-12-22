@@ -10,6 +10,7 @@ use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
+use Filament\Tables\Filters\SelectFilter;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
@@ -69,7 +70,9 @@ class StudentResource extends Resource
                     ->sortable(),
             ])
             ->filters([
-                //
+                SelectFilter::make('Turma')
+                    ->relationship('school_class', 'name')
+                    ->searchable()
             ])
             ->actions([
                 Tables\Actions\ViewAction::make(),
