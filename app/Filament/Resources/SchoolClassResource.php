@@ -29,10 +29,10 @@ class SchoolClassResource extends Resource
     protected static ?string $navigationGroup = 'Escolas';
     protected static ?string $navigationIcon = 'heroicon-o-book-open';
 
-    public static function getNavigationBadge(): ?string
-    {
-        return static::getModel()::where('active', true)->count() . '/' . static::getModel()::count();
-    }
+    // public static function getNavigationBadge(): ?string
+    // {
+    //     return static::getModel()::where('active', true)->count() . '/' . static::getModel()::count();
+    // }
 
     public static function form(Form $form): Form
     {

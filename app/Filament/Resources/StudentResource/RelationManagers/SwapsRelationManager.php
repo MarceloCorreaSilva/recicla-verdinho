@@ -2,6 +2,12 @@
 
 namespace App\Filament\Resources\StudentResource\RelationManagers;
 
+use App\Filament\Resources\SwapResource;
+use App\Models\Financial;
+use App\Models\Movement;
+use App\Models\School;
+use App\Models\SchoolClass;
+use App\Models\Student;
 use Closure;
 use Str;
 use Filament\Forms;
@@ -10,6 +16,7 @@ use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Resources\Table;
 use Filament\Tables;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class SwapsRelationManager extends RelationManager
@@ -32,6 +39,7 @@ class SwapsRelationManager extends RelationManager
                         Forms\Components\DatePicker::make('date')
                             ->label('Data')
                             ->default(now())
+                            ->displayFormat('d/m/Y')
                             ->format('d/m/Y')
                             ->dehydrateStateUsing(fn ($state) => date('Y-m-d', strtotime($state)))
                             ->dehydrated(fn ($state) => filled($state))
@@ -81,14 +89,14 @@ class SwapsRelationManager extends RelationManager
                         Forms\Components\TextInput::make('total')
                             ->label('Total')
                             ->suffix(' / 10')
-                            ->numeric(),
+                            ->numeric()
+                            ->disabled(),
 
                         Forms\Components\TextInput::make('green_coin')
                             ->label('Verdinhos')
                             // ->required()
-                            ->numeric(),
-
-
+                            ->numeric()
+                            ->disabled(),
                     ]),
             ]);
     }
@@ -123,7 +131,30 @@ class SwapsRelationManager extends RelationManager
                 //
             ])
             ->headerActions([
-                Tables\Actions\CreateAction::make(),
+                Tables\Actions\CreateAction::make()
+                    // ->beforeFormValidated(function (Model $record, array $data) {
+                    //     dd($data);
+                    // })
+                    ->after(function (Model $record, array $data) {
+                        // Runs after the form fields are saved to the database.
+
+                        $student = Student::all()->where('id', $record->student_id)->first();
+                        $schoolClass = SchoolClass::all()->where('id', $student->school_class_id)->first();
+                        $school = School::all()->where('id', $schoolClass->school_id)->first();
+
+                        $financial = Financial::all()->where('school_id', $school->id)->first();
+
+                        $movement = Movement::create([
+                            'financial_id' => $financial->id,
+                            'student_id' => $student->id,
+                            'date' => now(),
+                            'status' => 'output',
+                            'value' => $record->green_coin
+                        ]);
+
+                        $financial->balance = ($financial->balance - $movement->value);
+                        $financial->save();
+                    }),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),

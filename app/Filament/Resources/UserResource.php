@@ -25,13 +25,13 @@ class UserResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-user-group';
 
-    public static function getNavigationBadge(): ?string
-    {
-        return static::getModel()::whereHas(
-            relation: 'roles',
-            callback: fn (Builder $query) => $query->where('name', '<>', 'Developer')
-        )->count();
-    }
+    // public static function getNavigationBadge(): ?string
+    // {
+    //     return static::getModel()::whereHas(
+    //         relation: 'roles',
+    //         callback: fn (Builder $query) => $query->where('name', '<>', 'Developer')
+    //     )->count();
+    // }
 
     public static function form(Form $form): Form
     {

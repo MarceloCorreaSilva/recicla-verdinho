@@ -25,10 +25,10 @@ class PermissionResource extends Resource
     protected static ?string $navigationGroup = 'Configurações / ACL';
     protected static ?string $navigationIcon = 'heroicon-o-key';
 
-    public static function getNavigationBadge(): ?string
-    {
-        return static::getModel()::count();
-    }
+    // public static function getNavigationBadge(): ?string
+    // {
+    //     return static::getModel()::count();
+    // }
 
     public static function form(Form $form): Form
     {

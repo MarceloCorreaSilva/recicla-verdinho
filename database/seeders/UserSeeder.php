@@ -83,6 +83,18 @@ class UserSeeder extends Seeder
         Permission::factory()->create(['name' => 'swap_update']);
         Permission::factory()->create(['name' => 'swap_delete']);
 
+        Permission::factory()->create(['name' => 'financial_access']);
+        Permission::factory()->create(['name' => 'financial_read']);
+        Permission::factory()->create(['name' => 'financial_create']);
+        Permission::factory()->create(['name' => 'financial_update']);
+        Permission::factory()->create(['name' => 'financial_delete']);
+
+        Permission::factory()->create(['name' => 'movement_access']);
+        Permission::factory()->create(['name' => 'movement_read']);
+        Permission::factory()->create(['name' => 'movement_create']);
+        Permission::factory()->create(['name' => 'movement_update']);
+        Permission::factory()->create(['name' => 'movement_delete']);
+
         // Permission::factory()->create(['name' => 'sponsor_access']);
         // Permission::factory()->create(['name' => 'sponsor_read']);
         // Permission::factory()->create(['name' => 'sponsor_create']);
@@ -147,6 +159,17 @@ class UserSeeder extends Seeder
         // $developer->givePermissionTo('sponsor_create');
         // $developer->givePermissionTo('sponsor_update');
         // $developer->givePermissionTo('sponsor_delete');
+        $developer->givePermissionTo('financial_access');
+        $developer->givePermissionTo('financial_read');
+        $developer->givePermissionTo('financial_create');
+        $developer->givePermissionTo('financial_update');
+        $developer->givePermissionTo('financial_delete');
+        $developer->givePermissionTo('movement_access');
+        $developer->givePermissionTo('movement_read');
+        $developer->givePermissionTo('movement_create');
+        $developer->givePermissionTo('movement_update');
+        $developer->givePermissionTo('movement_delete');
+
 
         $admin = Role::factory()->create(['name' => 'Admin']);
         $admin->givePermissionTo('access_admin');
@@ -190,6 +213,16 @@ class UserSeeder extends Seeder
         $admin->givePermissionTo('swap_create');
         $admin->givePermissionTo('swap_update');
         $admin->givePermissionTo('swap_delete');
+        $admin->givePermissionTo('financial_access');
+        $admin->givePermissionTo('financial_read');
+        $admin->givePermissionTo('financial_create');
+        $admin->givePermissionTo('financial_update');
+        $admin->givePermissionTo('financial_delete');
+        $admin->givePermissionTo('movement_access');
+        $admin->givePermissionTo('movement_read');
+        $admin->givePermissionTo('movement_create');
+        $admin->givePermissionTo('movement_update');
+        $admin->givePermissionTo('movement_delete');
 
         $coordinator = Role::factory()->create(['name' => 'Coordinator']);
         $coordinator->givePermissionTo('access_admin');
@@ -213,6 +246,16 @@ class UserSeeder extends Seeder
         $coordinator->givePermissionTo('swap_create');
         $coordinator->givePermissionTo('swap_update');
         $coordinator->givePermissionTo('swap_delete');
+        $coordinator->givePermissionTo('financial_access');
+        $coordinator->givePermissionTo('financial_read');
+        $coordinator->givePermissionTo('financial_create');
+        $coordinator->givePermissionTo('financial_update');
+        $coordinator->givePermissionTo('financial_delete');
+        $coordinator->givePermissionTo('movement_access');
+        $coordinator->givePermissionTo('movement_read');
+        $coordinator->givePermissionTo('movement_create');
+        $coordinator->givePermissionTo('movement_update');
+        $coordinator->givePermissionTo('movement_delete');
 
         // create demo users
         $userDeveloper = User::factory()->create(['name' => 'Developer', 'email' => 'developer@mail.com', 'password' => static::$password]);

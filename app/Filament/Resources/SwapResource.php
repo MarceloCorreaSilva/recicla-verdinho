@@ -31,10 +31,15 @@ class SwapResource extends Resource
     protected static ?string $navigationGroup = 'Escolas';
     protected static ?string $navigationIcon = 'heroicon-o-switch-horizontal';
 
-    public static function getNavigationBadge(): ?string
+    protected static function shouldRegisterNavigation(): bool
     {
-        return static::getModel()::totalSwaps();
+        return auth()->user()->hasRole(['Developer', 'Admin']);
     }
+
+    // public static function getNavigationBadge(): ?string
+    // {
+    //     return static::getModel()::totalSwaps();
+    // }
 
     public static function form(Form $form): Form
     {
@@ -108,12 +113,14 @@ class SwapResource extends Resource
                         Forms\Components\TextInput::make('total')
                             ->label('Total')
                             ->suffix(' / 10')
-                            ->numeric(),
+                            ->numeric()
+                            ->disabled(),
 
                         Forms\Components\TextInput::make('green_coin')
                             ->label('Verdinhos')
                             // ->required()
-                            ->numeric(),
+                            ->numeric()
+                            ->disabled(),
                     ]),
             ]);
     }

@@ -19,7 +19,6 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 class SchoolResource extends Resource
 {
     protected static ?string $model = School::class;
-
     protected static ?string $modelLabel = 'Escola';
     protected static ?string $pluralModelLabel = 'Escolas';
 
@@ -39,10 +38,10 @@ class SchoolResource extends Resource
         ];
     }
 
-    public static function getNavigationBadge(): ?string
-    {
-        return static::getModel()::where('active', true)->count() . '/' . static::getModel()::count();
-    }
+    // public static function getNavigationBadge(): ?string
+    // {
+    //     return static::getModel()::where('active', true)->count() . '/' . static::getModel()::count();
+    // }
 
     public static function form(Form $form): Form
     {
@@ -135,9 +134,14 @@ class SchoolResource extends Resource
                     ->searchable()
             ])
             ->actions([
-                Tables\Actions\ViewAction::make(),
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
+                Tables\Actions\ActionGroup::make([
+                    Tables\Actions\ViewAction::make(),
+                    Tables\Actions\EditAction::make(),
+                    Tables\Actions\DeleteAction::make(),
+                ]),
+                // Tables\Actions\ViewAction::make(),
+                // Tables\Actions\EditAction::make(),
+                // Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),

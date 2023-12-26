@@ -26,10 +26,10 @@ class RoleResource extends Resource
     protected static ?string $navigationGroup = 'Configurações / ACL';
     protected static ?string $navigationIcon = 'heroicon-o-finger-print';
 
-    public static function getNavigationBadge(): ?string
-    {
-        return static::getModel()::count();
-    }
+    // public static function getNavigationBadge(): ?string
+    // {
+    //     return static::getModel()::count();
+    // }
 
     public static function form(Form $form): Form
     {
