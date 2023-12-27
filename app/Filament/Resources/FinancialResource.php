@@ -29,6 +29,13 @@ class FinancialResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-currency-dollar';
 
+    protected static function shouldRegisterNavigation(): bool
+    {
+        return auth()->user()->hasRole(['Developer', 'Admin'])
+            ? true
+            : (isset(auth()->user()->coordinator) ? true : false);
+    }
+
     public static function form(Form $form): Form
     {
         return $form
@@ -116,10 +123,12 @@ class FinancialResource extends Resource
                 relation: 'school',
                 callback: function (Builder $query) {
                     if (isset(auth()->user()->coordinator->id)) {
-                        return $query->where('school_id', auth()->user()->coordinator->id);
+                        return $query->where('school_id', '=', auth()->user()->coordinator->id);
+                    } else if (auth()->user()->coordinator->id === null) {
+                        return [];
                     }
 
-                    return null;
+                    return [];
                 }
             );
     }

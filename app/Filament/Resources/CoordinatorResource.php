@@ -29,13 +29,13 @@ class CoordinatorResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 
-    public static function getNavigationBadge(): ?string
-    {
-        return static::getModel()::whereHas(
-            'roles',
-            callback: fn (Builder $query) => $query->where('name', 'Coordinator')
-        )->count();
-    }
+    // public static function getNavigationBadge(): ?string
+    // {
+    //     return static::getModel()::whereHas(
+    //         'roles',
+    //         callback: fn (Builder $query) => $query->where('name', 'Coordinator')
+    //     )->count();
+    // }
 
     public static function form(Form $form): Form
     {
