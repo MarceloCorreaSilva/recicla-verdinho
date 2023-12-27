@@ -20,31 +20,33 @@ class StatsOverview extends BaseWidget
 
     protected function getCards(): array
     {
-        return [
-            Card::make(
-                'Municipios Participantes',
-                $this->formatNumberToStat(City::where('active', true)->count())
-            ),
+        return auth()->user()->hasRole(['Developer', 'Admin'])
+            ? [
+                Card::make(
+                    'Municipios Participantes',
+                    $this->formatNumberToStat(City::where('active', true)->count())
+                ),
 
-            Card::make(
-                'Escolas Participantes',
-                $this->formatNumberToStat(School::where('active', true)->count())
-            ),
+                Card::make(
+                    'Escolas Participantes',
+                    $this->formatNumberToStat(School::where('active', true)->count())
+                ),
 
-            Card::make(
-                'Alunos Atendidos',
-                $this->formatNumberToStat(Student::count())
-            ),
+                Card::make(
+                    'Alunos Atendidos',
+                    $this->formatNumberToStat(Student::count())
+                ),
 
-            Card::make(
-                'Volumes Trocados',
-                $this->formatNumberToStat(Swap::totalSwaps())
-            ),
+                Card::make(
+                    'Volumes Trocados',
+                    $this->formatNumberToStat(Swap::totalSwaps())
+                ),
 
-            Card::make(
-                'Verdinhos Distribuídos',
-                $this->formatNumberToStat(Swap::totalGreenCoins())
-            ),
-        ];
+                Card::make(
+                    'Verdinhos Distribuídos',
+                    $this->formatNumberToStat(Swap::totalGreenCoins())
+                ),
+            ] :
+            [];
     }
 }
