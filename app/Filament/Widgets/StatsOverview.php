@@ -17,7 +17,6 @@ class StatsOverview extends BaseWidget
         return number_format(intval($value), 0, '.', '.');
     }
 
-
     protected function getCards(): array
     {
         return auth()->user()->hasRole(['Developer', 'Admin'])
