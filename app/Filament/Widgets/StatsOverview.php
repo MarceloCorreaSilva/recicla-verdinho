@@ -22,8 +22,6 @@ class StatsOverview extends BaseWidget
         $totalSwaps = 0;
         $totalGreenCoins = 0;
 
-        dd(auth()->user()->coordinator);
-
         if (auth()->user()->hasRole('Coordinator')) {
             $swaps = Swap::selectRaw('
                 schools.name,
