@@ -58,7 +58,6 @@ class School extends Model
             SUM(swaps.aluminum_cans) as total_aluminum_cans,
             SUM(swaps.green_coin) as total_green_coin
         ')
-
             ->join('students', 'students.school_class_id', '=', 'school_classes.id')
             ->join('swaps', 'swaps.student_id', '=', 'students.id')
             ->get();

@@ -2,59 +2,54 @@
 
 namespace App\Filament\Widgets;
 
-use App\Models\School;
+use App\Models\Swap;
 use Closure;
-use Filament\Pages\Actions\CreateAction;
 use Filament\Tables;
 use Filament\Widgets\TableWidget as BaseWidget;
 use Illuminate\Contracts\View\View;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Database\Eloquent\Builder;
 
-class SchoolReports extends BaseWidget
+class SwapReports extends BaseWidget
 {
-    protected static ?int $sort = 2;
+    protected static ?int $sort = 3;
     protected int | string | array $columnSpan = 'full';
 
     public static function canView(): bool
     {
-        return auth()->user()->hasRole(['Developer', 'Admin']);
+        return auth()->user()->hasRole('Coordinator');
     }
 
     protected function getTableHeader(): View|Htmlable|null
     {
-        return view('admin.widgets.school');
+        return view('admin.widgets.swap');
     }
 
     protected function getTableQuery(): Builder
     {
-        return School::query();
+        return Swap::query()
+            ->join('students', 'students.id', '=', 'swaps.student_id')
+            ->join('school_classes', 'school_classes.id', '=', 'students.school_class_id')
+            ->join('schools', 'schools.id', '=', 'school_classes.school_id')
+            ->where('schools.id', '=', auth()->user()->coordinator->id)
+            ->groupBy('swaps.date')
+            ->orderBy('swaps.date', 'desc');
     }
 
     protected function getTableColumns(): array
     {
         return [
             Tables\Columns\TextColumn::make('id'),
-            Tables\Columns\TextColumn::make('name')
-                ->searchable()
+            Tables\Columns\TextColumn::make('date')
+                ->dateTime('d/m/Y')
                 ->sortable()
-                ->label('Escola'),
+                ->label('Data da Troca'),
             Tables\Columns\TextColumn::make('total_materials')
                 ->sortable()
                 ->label('Total de Materiais'),
-            Tables\Columns\TextColumn::make('total_green_coins')
+            Tables\Columns\TextColumn::make('total_green_coins_swap')
                 ->sortable()
                 ->label('Total de Verdinhos'),
-        ];
-    }
-
-    protected function getTableActions(): array
-    {
-        return [
-            Tables\Actions\Action::make('Relatório')
-                ->icon('heroicon-o-document-download')
-                ->url(fn (School $record) => route('school.pdf.download', $record))
-                ->openUrlInNewTab()
         ];
     }
 }
