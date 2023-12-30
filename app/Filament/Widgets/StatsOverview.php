@@ -19,6 +19,9 @@ class StatsOverview extends BaseWidget
 
     protected function getCards(): array
     {
+        $totalSwaps = 0;
+        $totalGreenCoins = 0;
+
         if (auth()->user()->hasRole('Coordinator')) {
             $swaps = Swap::selectRaw('
                 schools.name,
@@ -41,7 +44,7 @@ class StatsOverview extends BaseWidget
                 ]);
 
             $totalSwaps = $swaps[0]['total_pet_bottles'] + $swaps[0]['total_packaging_of_cleaning_materials'] + $swaps[0]['total_tetra_pak'] + $swaps[0]['total_aluminum_cans'];
-            $totalGreenCoins = $swaps[0]['total_green_coin'];
+            $totalGreenCoins = !is_null($swaps[0]['total_green_coin']) ? $swaps[0]['total_green_coin'] : 0;
         }
 
         return auth()->user()->hasRole(['Developer', 'Admin'])
@@ -78,7 +81,6 @@ class StatsOverview extends BaseWidget
                         Student::join('school_classes', 'school_classes.id', '=', 'students.school_class_id')
                             ->join('schools', 'schools.id', '=', 'school_classes.school_id')
                             ->where('schools.id', '=', auth()->user()->coordinator->id)
-                            // ->join('swaps', 'swaps.student_id', '=', 'students.id')
                             ->get()
                             ->count()
                     ),
