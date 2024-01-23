@@ -96,7 +96,9 @@ class SchoolResource extends Resource
                             ->label('Conclusão')
                             ->displayFormat('d/m/Y')
                             ->format('d/m/Y')
-                            ->icon('heroicon-o-calendar'),
+                            ->icon('heroicon-o-calendar')
+                            ->dehydrateStateUsing(fn ($state) => date('Y-m-d', strtotime($state)))
+                            ->dehydrated(fn ($state) => filled($state)),
                     ]),
             ]);
     }
