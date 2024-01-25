@@ -115,14 +115,14 @@ class MovementResource extends Resource
                     ->label('Verdinhos'),
             ])
             ->filters([
-                Tables\Filters\SelectFilter::make('status')
-                    ->options(StatusType::getKeyValues())
+                // Tables\Filters\SelectFilter::make('status')
+                //     ->options(StatusType::getKeyValues())
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                // Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\DeleteBulkAction::make(),
+                // Tables\Actions\DeleteBulkAction::make(),
             ]);
     }
 
