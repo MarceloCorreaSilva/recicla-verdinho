@@ -61,7 +61,12 @@ class SchoolClassesRelationManager extends RelationManager
                 Tables\Columns\TextColumn::make('students_count')
                     ->counts('students')
                     ->label('Nº Alunos'),
-                Tables\Columns\ToggleColumn::make('active')
+                // Tables\Columns\ToggleColumn::make('active')
+                //     ->label('Status')
+                //     ->sortable()
+
+                Tables\Columns\IconColumn::make('active')
+                    ->boolean()
                     ->label('Status')
                     ->sortable()
             ])
@@ -76,7 +81,8 @@ class SchoolClassesRelationManager extends RelationManager
                 Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\DeleteBulkAction::make(),
+                Tables\Actions\DeleteBulkAction::make()
+                    ->visible(auth()->user()->hasRole(['Developer', 'Admin']) == true),
             ]);
     }
 }

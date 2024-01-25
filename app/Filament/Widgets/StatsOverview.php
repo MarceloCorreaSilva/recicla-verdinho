@@ -22,7 +22,7 @@ class StatsOverview extends BaseWidget
         $totalSwaps = 0;
         $totalGreenCoins = 0;
 
-        if (auth()->user()->hasRole('Coordinator')) {
+        if (auth()->user()->hasRole('Coordenador')) {
             $swaps = Swap::selectRaw('
                 schools.name,
                 SUM(swaps.pet_bottles) as total_pet_bottles,

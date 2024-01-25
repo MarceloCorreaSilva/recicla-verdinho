@@ -60,7 +60,7 @@ class MovementsRelationManager extends RelationManager
             ->columns([
                 // Tables\Columns\TextColumn::make('financial.school.name')->label('Escola'),
                 Tables\Columns\TextColumn::make('student.name')->label('Aluno'),
-                Tables\Columns\TextColumn::make('date')->dateTime('d/m/Y H:i:s')->label('Data'),
+                Tables\Columns\TextColumn::make('date')->dateTime('d/m/Y')->label('Data'),
                 Tables\Columns\BadgeColumn::make('status')
                     ->enum([
                         'output' => 'Saida',
@@ -87,16 +87,18 @@ class MovementsRelationManager extends RelationManager
             ->filters([
                 Tables\Filters\SelectFilter::make('status')
                     ->options(StatusType::getKeyValues())
+                    ->visible(auth()->user()->hasRole(['Developer', 'Admin']) == true),
             ])
             ->headerActions([
-                Tables\Actions\CreateAction::make(),
+                // Tables\Actions\CreateAction::make(),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\DeleteBulkAction::make(),
+                Tables\Actions\DeleteBulkAction::make()
+                    ->visible(auth()->user()->hasRole(['Developer', 'Admin']) == true),
             ]);
     }
 }

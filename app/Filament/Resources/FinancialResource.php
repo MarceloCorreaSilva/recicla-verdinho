@@ -71,7 +71,9 @@ class FinancialResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                Tables\Actions\ViewAction::make(),
+                // Tables\Actions\EditAction::make(),
+
                 Tables\Actions\Action::make('saldo')
                     ->icon('heroicon-o-cash')
                     ->form([
@@ -93,9 +95,12 @@ class FinancialResource extends Resource
                         $record->balance = ($record->balance + $data['balance']);
                         $record->save();
                     })
+                    ->visible(auth()->user()->hasRole(['Developer', 'Admin']) == true)
+
             ])
             ->bulkActions([
-                Tables\Actions\DeleteBulkAction::make(),
+                Tables\Actions\DeleteBulkAction::make()
+                    ->visible(auth()->user()->hasRole(['Developer', 'Admin']) == true)
             ]);
     }
 
@@ -111,6 +116,7 @@ class FinancialResource extends Resource
         return [
             'index' => Pages\ListFinancials::route('/'),
             'create' => Pages\CreateFinancial::route('/create'),
+            'view' => Pages\ViewFinancial::route('/{record}'),
             'edit' => Pages\EditFinancial::route('/{record}/edit'),
         ];
     }

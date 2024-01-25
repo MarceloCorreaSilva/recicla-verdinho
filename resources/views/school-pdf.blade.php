@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tabela com Tailwind</title>
+    <title>Relatorio</title>
     <!-- Inclua o link para o arquivo CSS do Tailwind -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 
@@ -77,12 +77,12 @@ $mes = array('', 'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Ju
     @foreach ($report as $keyYear => $year)
     <section class="mb-6">
         @php
-        $total_pet_bottles_anual = 0;
-        $total_packaging_of_cleaning_materials_anual = 0;
-        $total_tetra_pak_anual = 0;
-        $total_aluminum_cans_anual = 0;
-        $total_materials_anual = 0;
-        $total_green_coin_anual = 0;
+        $total_pet_bottles_anual = $reportAnual[$keyYear]['pet_bottles'];
+        $total_packaging_of_cleaning_materials_anual = $reportAnual[$keyYear]['packaging_of_cleaning_materials'];
+        $total_tetra_pak_anual = $reportAnual[$keyYear]['tetra_pak'];
+        $total_aluminum_cans_anual = $reportAnual[$keyYear]['aluminum_cans'];
+        $total_materials_anual = $total_pet_bottles_anual + $total_packaging_of_cleaning_materials_anual + $total_tetra_pak_anual + $total_aluminum_cans_anual;
+        $total_green_coin_anual = $reportAnual[$keyYear]['green_coin'];
         @endphp
 
         @foreach ($year as $keyMonth => $month)
@@ -122,12 +122,7 @@ $mes = array('', 'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Ju
                 $total_materials_month = $total_materials_month + $total_materials_day;
                 $total_green_coin_month = $total_green_coin_month + $day['green_coin'];
 
-                $total_pet_bottles_anual = $total_pet_bottles_anual + $total_pet_bottles_month;
-                $total_packaging_of_cleaning_materials_anual = $total_packaging_of_cleaning_materials_anual + $total_packaging_of_cleaning_materials_month;
-                $total_tetra_pak_anual = $total_tetra_pak_anual + $total_tetra_pak_month;
-                $total_aluminum_cans_anual = $total_aluminum_cans_anual + $total_aluminum_cans_month;
-                $total_materials_anual = $total_aluminum_cans_anual + $total_aluminum_cans_month;
-                $total_green_coin_anual = $total_green_coin_anual + $total_green_coin_month;
+
                 @endphp
                 <tr>
                     <td class="text-center text-xs">{{ $day['data'] }}</td>

@@ -98,13 +98,17 @@ class SchoolClassResource extends Resource
                 Tables\Columns\TextColumn::make('students_count')
                     ->counts('students')
                     ->label('Nº Alunos'),
-                Tables\Columns\ToggleColumn::make('active')
+                // Tables\Columns\ToggleColumn::make('active')
+                //     ->label('Status'),
+                Tables\Columns\IconColumn::make('active')
+                    ->boolean()
                     ->label('Status')
             ])
             ->filters([
                 SelectFilter::make('Escola')
                     ->relationship('school', 'name')
                     ->searchable()
+                    ->visible(auth()->user()->hasRole(['Developer', 'Admin']) == true),
             ])
             ->actions([
                 Tables\Actions\ViewAction::make(),
@@ -112,7 +116,8 @@ class SchoolClassResource extends Resource
                 Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\DeleteBulkAction::make(),
+                Tables\Actions\DeleteBulkAction::make()
+                    ->visible(auth()->user()->hasRole(['Developer', 'Admin']) == true),
             ]);
     }
 

@@ -84,7 +84,13 @@ class StudentResource extends Resource
             ])
             ->filters([
                 SelectFilter::make('Turma')
-                    ->relationship('school_class', 'name')
+                    ->relationship('school_class', 'name', function (Builder $query) {
+                        if (isset(auth()->user()->coordinator->id)) {
+                            return $query->where('school_id', auth()->user()->coordinator->id);
+                        }
+
+                        return null;
+                    })
                     ->searchable()
             ])
             ->actions([
@@ -93,7 +99,8 @@ class StudentResource extends Resource
                 Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\DeleteBulkAction::make(),
+                Tables\Actions\DeleteBulkAction::make()
+                    ->visible(auth()->user()->hasRole(['Developer', 'Admin']) == true),
             ]);
     }
 

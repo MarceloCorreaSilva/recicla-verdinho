@@ -17,7 +17,7 @@ class SwapReports extends BaseWidget
 
     public static function canView(): bool
     {
-        return auth()->user()->hasRole('Coordinator');
+        return auth()->user()->hasRole('Coordenador');
     }
 
     protected function getTableHeader(): View|Htmlable|null

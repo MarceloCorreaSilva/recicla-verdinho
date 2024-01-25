@@ -33,7 +33,7 @@ class CoordinatorResource extends Resource
     // {
     //     return static::getModel()::whereHas(
     //         'roles',
-    //         callback: fn (Builder $query) => $query->where('name', 'Coordinator')
+    //         callback: fn (Builder $query) => $query->where('name', 'Coordenador')
     //     )->count();
     // }
 
@@ -60,7 +60,7 @@ class CoordinatorResource extends Resource
                 Forms\Components\Select::make('roles')
                     ->label('Função')
                     ->multiple()
-                    ->relationship('roles', 'name', fn (Builder $query) =>  auth()->user()->hasRole('Developer') ? null : $query->where('name', '=', 'Coordinator'))
+                    ->relationship('roles', 'name', fn (Builder $query) =>  auth()->user()->hasRole('Developer') ? null : $query->where('name', '=', 'Coordenador'))
                     ->preload(),
 
                 // Forms\Components\Select::make('role_id')
@@ -108,7 +108,7 @@ class CoordinatorResource extends Resource
                         fn (Builder $query): Builder => $query
                             ->whereHas(
                                 'roles',
-                                callback: fn (Builder $query) => $query->where('name', 'Coordinator')
+                                callback: fn (Builder $query) => $query->where('name', 'Coordenador')
                             )
                     )
             ])

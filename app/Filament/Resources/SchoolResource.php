@@ -76,7 +76,7 @@ class SchoolResource extends Resource
                                 fn (Builder $query): Builder => $query
                                     ->whereHas(
                                         'roles',
-                                        callback: fn (Builder $query) => $query->where('name', 'Coordinator')
+                                        callback: fn (Builder $query) => $query->where('name', 'Coordenador')
                                     )
                             ),
                     ]),
@@ -115,6 +115,10 @@ class SchoolResource extends Resource
                     ->sortable()
                     ->searchable(),
 
+                Tables\Columns\TextColumn::make('coordinator.name')
+                    // ->boolean()
+                    ->label('Coordenador'),
+
                 Tables\Columns\TextColumn::make('school_classes_count')
                     ->counts('school_classes')
                     ->label('Nº Turmas'),
@@ -127,13 +131,20 @@ class SchoolResource extends Resource
                     ->label('Conclusão do Projeto')
                     ->dateTime('d/m/Y')
                     ->sortable(),
-                Tables\Columns\ToggleColumn::make('active')
-                    ->label('Status'),
+
+                // Tables\Columns\ToggleColumn::make('active')
+                //     ->label('Status')
+                //     ->visible(auth()->user()->hasRole(['Developer', 'Admin']) == true),
+                Tables\Columns\IconColumn::make('active')
+                    ->boolean()
+                    ->label('Status')
+                // ->visible(auth()->user()->hasRole(['Coordenador']) == true)
             ])
             ->filters([
                 SelectFilter::make('Cidade')
                     ->relationship('city', 'name')
                     ->searchable()
+                    ->visible(auth()->user()->hasRole(['Developer', 'Admin']) == true),
             ])
             ->actions([
                 // Tables\Actions\ActionGroup::make([]),
@@ -142,7 +153,8 @@ class SchoolResource extends Resource
                 Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\DeleteBulkAction::make(),
+                Tables\Actions\DeleteBulkAction::make()
+                    ->visible(auth()->user()->hasRole(['Developer', 'Admin']) == true),
             ]);
     }
 

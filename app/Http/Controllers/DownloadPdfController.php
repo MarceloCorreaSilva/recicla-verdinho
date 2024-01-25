@@ -10,6 +10,7 @@ class DownloadPdfController extends Controller
     function download(School $record)
     {
         $report = [];
+        $reportAnual = [];
         $school = School::find($record->id);
         $school_classes = $school->school_classes()
             // ->with('school')
@@ -51,17 +52,36 @@ class DownloadPdfController extends Controller
             ];
         });
 
+        $school_classes->each(function ($item) use (&$reportAnual) {
+            $reportAnual[intval($item->year)]['pet_bottles'] = 0;
+            $reportAnual[intval($item->year)]['packaging_of_cleaning_materials'] = 0;
+            $reportAnual[intval($item->year)]['tetra_pak'] = 0;
+            $reportAnual[intval($item->year)]['aluminum_cans'] = 0;
+            $reportAnual[intval($item->year)]['green_coin'] = 0;
+        });
+
+        $school_classes->each(function ($item) use (&$reportAnual) {
+
+            $reportAnual[intval($item->year)] = [
+                // 'data' => $item->data,
+                'pet_bottles' => $reportAnual[intval($item->year)]['pet_bottles'] + $item->total_pet_bottles,
+                'packaging_of_cleaning_materials' => $reportAnual[intval($item->year)]['packaging_of_cleaning_materials'] + $item->total_packaging_of_cleaning_materials,
+                'tetra_pak' => $reportAnual[intval($item->year)]['tetra_pak'] + $item->total_tetra_pak,
+                'aluminum_cans' => $reportAnual[intval($item->year)]['aluminum_cans'] + $item->total_aluminum_cans,
+                'green_coin' => $reportAnual[intval($item->year)]['green_coin'] + $item->total_green_coin,
+            ];
+        });
+
+
         // $months = $school_classes->pluck('month')->sortBy('month')->unique();
 
-        // dd($report);
+        // dd($report, $reportAnual);
         // return view('school-pdf', ['report' => $report]);
 
-
-
-
-        $pdf = Pdf::loadView('school-pdf', ['school' => $school, 'report' => $report]);
+        $pdf = Pdf::loadView('school-pdf', ['school' => $school, 'report' => $report, 'reportAnual' => $reportAnual]);
         Pdf::setOption(['dpi' => 150, 'defaultFont' => 'sans-serif']);
         return $pdf->stream();
+
 
         // $report = [];
         // $cards = Jobcard::select([

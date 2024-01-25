@@ -147,7 +147,7 @@ class SwapsRelationManager extends RelationManager
                         $movement = Movement::create([
                             'financial_id' => $financial->id,
                             'student_id' => $student->id,
-                            'date' => now(),
+                            'date' => $record->date,
                             'status' => 'output',
                             'value' => $record->green_coin
                         ]);
@@ -161,7 +161,8 @@ class SwapsRelationManager extends RelationManager
                 Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\DeleteBulkAction::make(),
+                Tables\Actions\DeleteBulkAction::make()
+                    ->visible(auth()->user()->hasRole(['Developer', 'Admin']) == true),
             ]);
     }
 }
