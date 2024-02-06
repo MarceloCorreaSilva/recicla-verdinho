@@ -152,6 +152,7 @@ class SwapsRelationManager extends RelationManager
                             'value' => $record->green_coin
                         ]);
 
+
                         $financial->balance = ($financial->balance - $movement->value);
                         $financial->save();
                     }),
