@@ -243,7 +243,7 @@ class UserSeeder extends Seeder
         // $coordinator->givePermissionTo('student_delete');
         $coordinator->givePermissionTo('swap_access');
         $coordinator->givePermissionTo('swap_read');
-        // $coordinator->givePermissionTo('swap_create');
+        $coordinator->givePermissionTo('swap_create');
         // $coordinator->givePermissionTo('swap_update');
         // $coordinator->givePermissionTo('swap_delete');
         $coordinator->givePermissionTo('financial_access');

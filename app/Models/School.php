@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class School extends Model
 {
@@ -16,6 +17,7 @@ class School extends Model
         'city_id',
         'coordinator_id',
         'name',
+        'limit_per_swap',
         'project_started',
         'project_completed',
         'active'
@@ -147,5 +149,10 @@ class School extends Model
     public function school_classes(): HasMany
     {
         return $this->hasMany(SchoolClass::class);
+    }
+
+    public function financial(): HasOne
+    {
+        return $this->hasOne(Financial::class);
     }
 }

@@ -74,7 +74,12 @@ class StudentResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('name')
                     ->label('Nome Estudante')
+                    ->sortable()
                     ->searchable(),
+
+                Tables\Columns\TextColumn::make('swaps_count')->counts('swaps')->label('Nº de Trocas'),
+                Tables\Columns\TextColumn::make('itens_count')->label('Nº de Itens'),
+                Tables\Columns\TextColumn::make('greencoins_count')->label('Nº de Verdinhos'),
 
                 Tables\Columns\TextColumn::make('school_class.school.name')
                     ->label('Escola'),
@@ -109,6 +114,17 @@ class StudentResource extends Resource
         return [
             SwapsRelationManager::class
         ];
+
+        // $level = 1;
+        // $id = null;
+        // $lbl = 'Level 1';
+        // return [
+        //     app(QuestionsRelationManager::class, [
+        //         'id' => $id,
+        //         'level' => $level,
+        //         'lbl' => $lbl,
+        //     ]),
+        // ];
     }
 
     public static function getPages(): array

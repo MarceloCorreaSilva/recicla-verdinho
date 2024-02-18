@@ -49,6 +49,11 @@ class FinancialResource extends Resource
 
                 Forms\Components\TextInput::make('balance')
                     ->label('Saldo'),
+
+                Forms\Components\TextInput::make('total_items')
+                    ->label('Conversão - Itens'),
+                Forms\Components\TextInput::make('total_green_coins')
+                    ->label('Conversão - Verdinhos'),
             ]);
     }
 
@@ -62,6 +67,12 @@ class FinancialResource extends Resource
                     ->searchable(),
                 Tables\Columns\TextColumn::make('balance')
                     ->label('Saldo'),
+                Tables\Columns\TextColumn::make('total_items')
+                    ->label('Conversão - Itens'),
+                Tables\Columns\TextColumn::make('total_green_coins')
+                    ->label('Conversão - Verdinhos'),
+
+
                 // Tables\Columns\TextColumn::make('created_at')
                 //     ->dateTime(),
                 // Tables\Columns\TextColumn::make('updated_at')

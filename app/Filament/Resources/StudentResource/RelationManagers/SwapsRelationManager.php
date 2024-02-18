@@ -8,6 +8,7 @@ use App\Models\Movement;
 use App\Models\School;
 use App\Models\SchoolClass;
 use App\Models\Student;
+use App\Models\Swap;
 use Closure;
 use Str;
 use Filament\Forms;
@@ -18,6 +19,13 @@ use Filament\Tables;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Notifications\Actions\Action;
+use Filament\Notifications\Notification;
+use Filament\Pages\Actions\CreateAction;
+use Filament\Resources\Resource;
+use Illuminate\Database\Eloquent\Relations\Relation;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\URL;
 
 class SwapsRelationManager extends RelationManager
 {
@@ -46,57 +54,97 @@ class SwapsRelationManager extends RelationManager
                             ->required()
                     ]),
 
-                Forms\Components\Grid::make()
-                    ->columns(4)
+                Forms\Components\Section::make('Dados da Troca')
+                    ->description(function () {
+                        $totalReciclaveis = 200;
+                        return 'Cada ESTUDANTE, pode trocar até ' . $totalReciclaveis . ' RECICLÁVEIS por troca.';
+                    })
+                    ->columns(1)
                     ->schema([
-                        Forms\Components\TextInput::make('pet_bottles')
-                            ->label('Garrafas PET')
-                            ->numeric()
-                            ->afterStateUpdated(function (Closure $get, Closure $set, ?string $state) {
-                                $set('green_coin', floor(($get('pet_bottles') + $get('packaging_of_cleaning_materials') + $get('tetra_pak') + $get('aluminum_cans')) / 10));
-                                $set('total', $get('pet_bottles') + $get('packaging_of_cleaning_materials') + $get('tetra_pak') + $get('aluminum_cans')) / 10;
-                            })
-                            ->reactive(),
-                        Forms\Components\TextInput::make('packaging_of_cleaning_materials')
-                            ->label('Emb. Materiais de limpeza')
-                            ->numeric()
-                            ->afterStateUpdated(function (Closure $get, Closure $set, ?string $state) {
-                                $set('green_coin', floor(($get('pet_bottles') + $get('packaging_of_cleaning_materials') + $get('tetra_pak') + $get('aluminum_cans')) / 10));
-                                $set('total', $get('pet_bottles') + $get('packaging_of_cleaning_materials') + $get('tetra_pak') + $get('aluminum_cans')) / 10;
-                            })
-                            ->reactive(),
-                        Forms\Components\TextInput::make('tetra_pak')
-                            ->label('Tetra Pak')
-                            ->numeric()
-                            ->afterStateUpdated(function (Closure $get, Closure $set, ?string $state) {
-                                $set('green_coin', floor(($get('pet_bottles') + $get('packaging_of_cleaning_materials') + $get('tetra_pak') + $get('aluminum_cans')) / 10));
-                                $set('total', $get('pet_bottles') + $get('packaging_of_cleaning_materials') + $get('tetra_pak') + $get('aluminum_cans')) / 10;
-                            })
-                            ->reactive(),
-                        Forms\Components\TextInput::make('aluminum_cans')
-                            ->label('Latas de Alumínio')
-                            ->numeric()
-                            ->afterStateUpdated(function (Closure $get, Closure $set, ?string $state) {
-                                $set('green_coin', floor(($get('pet_bottles') + $get('packaging_of_cleaning_materials') + $get('tetra_pak') + $get('aluminum_cans')) / 10));
-                                $set('total', $get('pet_bottles') + $get('packaging_of_cleaning_materials') + $get('tetra_pak') + $get('aluminum_cans')) / 10;
-                            })
-                            ->reactive(),
-                    ]),
+                        Forms\Components\Grid::make()
+                            ->columns(4)
+                            ->schema([
+                                Forms\Components\TextInput::make('pet_bottles')
+                                    ->label('Garrafas PET')
+                                    ->numeric()
+                                    ->afterStateUpdated(function (Closure $get, Closure $set, ?string $state) {
+                                        $set('green_coin', floor(($get('pet_bottles') + $get('packaging_of_cleaning_materials') + $get('tetra_pak') + $get('aluminum_cans')) / 10));
+                                        $set('total', $get('pet_bottles') + $get('packaging_of_cleaning_materials') + $get('tetra_pak') + $get('aluminum_cans')) / 10;
+                                    })
+                                    ->reactive(),
+                                Forms\Components\TextInput::make('packaging_of_cleaning_materials')
+                                    ->label('Emb. Materiais de limpeza')
+                                    ->numeric()
+                                    ->afterStateUpdated(function (Closure $get, Closure $set, ?string $state) {
+                                        $set('green_coin', floor(($get('pet_bottles') + $get('packaging_of_cleaning_materials') + $get('tetra_pak') + $get('aluminum_cans')) / 10));
+                                        $set('total', $get('pet_bottles') + $get('packaging_of_cleaning_materials') + $get('tetra_pak') + $get('aluminum_cans')) / 10;
+                                    })
+                                    ->reactive(),
+                                Forms\Components\TextInput::make('tetra_pak')
+                                    ->label('Tetra Pak')
+                                    ->numeric()
+                                    ->afterStateUpdated(function (Closure $get, Closure $set, ?string $state) {
+                                        $set('green_coin', floor(($get('pet_bottles') + $get('packaging_of_cleaning_materials') + $get('tetra_pak') + $get('aluminum_cans')) / 10));
+                                        $set('total', $get('pet_bottles') + $get('packaging_of_cleaning_materials') + $get('tetra_pak') + $get('aluminum_cans')) / 10;
+                                    })
+                                    ->reactive(),
+                                Forms\Components\TextInput::make('aluminum_cans')
+                                    ->label('Latas de Alumínio')
+                                    ->numeric()
+                                    ->afterStateUpdated(function (Closure $get, Closure $set, ?string $state) {
+                                        $set('green_coin', floor(($get('pet_bottles') + $get('packaging_of_cleaning_materials') + $get('tetra_pak') + $get('aluminum_cans')) / 10));
+                                        $set('total', $get('pet_bottles') + $get('packaging_of_cleaning_materials') + $get('tetra_pak') + $get('aluminum_cans')) / 10;
+                                    })
+                                    ->reactive(),
+                            ]),
 
-                Forms\Components\Grid::make()
-                    ->columns(4)
-                    ->schema([
-                        Forms\Components\TextInput::make('total')
-                            ->label('Total')
-                            ->suffix(' / 10')
-                            ->numeric()
-                            ->disabled(),
+                        // Forms\Components\Grid::make()
+                        //     ->columns(4)
+                        //     ->schema([
+                        //         Forms\Components\TextInput::make('total')
+                        //             ->label('Total')
+                        //             ->suffix(' / 10')
+                        //             ->numeric()
+                        //             ->disabled(),
 
-                        Forms\Components\TextInput::make('green_coin')
-                            ->label('Verdinhos')
-                            // ->required()
-                            ->numeric()
-                            ->disabled(),
+                        //         // TextInput::make('slug')->rules([
+                        //         //     function () {
+                        //         //         return function (string $attribute, $value, Closure $fail) {
+                        //         //             if ($value === 'foo') {
+                        //         //                 $fail('The :attribute is invalid.');
+                        //         //             }
+                        //         //         };
+                        //         //     },
+                        //         // ])
+
+                        //         Forms\Components\TextInput::make('green_coin')
+                        //             ->label('Verdinhos')
+                        //             // ->required()
+                        //             ->numeric()
+                        //             ->disabled(),
+                        //     ]),
+
+                        Forms\Components\Grid::make()
+                            ->columns(4)
+                            ->schema([
+                                Forms\Components\TextInput::make('total')
+                                    ->label('Total')
+                                    ->suffix(' /')
+                                    ->numeric()
+                                    ->disabled(),
+
+                                Forms\Components\TextInput::make('convert_itens')
+                                    ->label('Conversão de Itens')
+                                    ->suffix(' =')
+                                    ->numeric()
+                                    ->disabled(),
+
+                                Forms\Components\TextInput::make('green_coin')
+                                    ->label('Verdinhos')
+                                    // ->required()
+                                    ->numeric()
+                                    ->disabled(),
+                            ]),
                     ]),
             ]);
     }
@@ -132,9 +180,58 @@ class SwapsRelationManager extends RelationManager
             ])
             ->headerActions([
                 Tables\Actions\CreateAction::make()
-                    // ->beforeFormValidated(function (Model $record, array $data) {
-                    //     dd($data);
+                    // ->beforeFormValidated(function (array $data) {
+                    //     if ($data['total'] == null) {
+                    //         Notification::make()
+                    //             ->warning()
+                    //             ->title('Recicláveis não informados!')
+                    //             ->body('Informe pelo menos um reciclável a ser trocado!')
+                    //             ->persistent()
+                    //             ->actions([
+                    //                 //     // Action::make('subscribe')->button()->url(route('subscribe'), shouldOpenInNewTab: true),
+                    //             ])
+                    //             ->send();
+
+                    //         // $this->halt();
+                    //         return;
+                    //     }
                     // })
+                    ->before(function (array $data) {
+
+                        // $student = Student::all()->where('id', $data['student_id'])->first();
+                        // $school = $student->school_class->school;
+
+                        // dd($data);
+
+                        // if ($data['total'] == null) {
+                        //     Notification::make()
+                        //         ->warning()
+                        //         ->title('Recicláveis não informados!')
+                        //         ->body('Informe pelo menos um reciclável a ser trocado!')
+                        //         ->persistent()
+                        //         ->actions([
+                        //             //     // Action::make('subscribe')->button()->url(route('subscribe'), shouldOpenInNewTab: true),
+                        //         ])
+                        //         ->send();
+
+                        //     $this->halt();
+                        //     return;
+                        // }
+
+                        // if (intval($data['total']) > intval($school['limit_per_swap'])) {
+                        //     Notification::make()
+                        //         ->warning()
+                        //         ->title('O limite de troca para esta escola é de ' . $school['limit_per_swap'] . ' recicláveis!')
+                        //         ->body('Diminua o numero de itens trocados!')
+                        //         ->persistent()
+                        //         ->actions([
+                        //             // Action::make('subscribe')->button()->url(route('subscribe'), shouldOpenInNewTab: true),
+                        //         ])
+                        //         ->send();
+
+                        //     $this->halt();
+                        // }
+                    })
                     ->after(function (Model $record, array $data) {
                         // Runs after the form fields are saved to the database.
 
@@ -151,7 +248,6 @@ class SwapsRelationManager extends RelationManager
                             'status' => 'output',
                             'value' => $record->green_coin
                         ]);
-
 
                         $financial->balance = ($financial->balance - $movement->value);
                         $financial->save();

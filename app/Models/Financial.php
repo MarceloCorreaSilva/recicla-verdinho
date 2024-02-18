@@ -14,7 +14,9 @@ class Financial extends Model
 
     protected $fillable = [
         'school_id',
-        'balance'
+        'balance',
+        'total_items',
+        'total_green_coins'
     ];
 
     public function school(): BelongsTo

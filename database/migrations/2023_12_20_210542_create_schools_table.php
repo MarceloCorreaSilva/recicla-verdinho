@@ -17,6 +17,8 @@ return new class extends Migration
             $table->foreignIdFor(City::class);
             $table->string('name');
 
+            $table->integer('limit_per_swap');
+
             $table->unsignedBigInteger('coordinator_id')->nullable();
             $table->foreign('coordinator_id')->references('id')->on('users');
 

@@ -80,7 +80,13 @@ class SchoolResource extends Resource
                                     )
                             ),
                     ]),
-
+                Forms\Components\Section::make('Limite Reciclaveis/Troca')
+                    ->columns(1)
+                    ->schema([
+                        Forms\Components\TextInput::make('limit_per_swap')
+                            ->label('Limite Reciclaveis/Troca')
+                            ->required(),
+                    ]),
                 Forms\Components\Section::make('Período do Projeto')
                     ->columns(2)
                     ->schema([
@@ -122,6 +128,9 @@ class SchoolResource extends Resource
                 Tables\Columns\TextColumn::make('school_classes_count')
                     ->counts('school_classes')
                     ->label('Nº Turmas'),
+
+                Tables\Columns\TextColumn::make('limit_per_swap')
+                    ->label('Limite Reciclaveis/Troca'),
 
                 Tables\Columns\TextColumn::make('project_started')
                     ->label('Inicio do Projeto ')

@@ -51,12 +51,13 @@ class Swap extends Model
         return static::getModel()::sum('green_coin');
     }
 
-
     protected function totalMaterials(): Attribute
     {
         $total = 0;
 
-        $swaps = School::find($this->school_id)
+        $school = Student::find($this->student_id)->school_class()->get();
+
+        $swaps = School::find($school[0]['school_id'])
             ->school_classes()
             ->selectRaw('
                 SUM(swaps.pet_bottles) as total_pet_bottles,
@@ -84,7 +85,9 @@ class Swap extends Model
     {
         $total = 0;
 
-        $swaps = School::find($this->school_id)
+        $school = Student::find($this->student_id)->school_class()->get();
+
+        $swaps = School::find($school[0]['school_id'])
             ->school_classes()
             ->selectRaw('
             SUM(swaps.pet_bottles) as total_pet_bottles,

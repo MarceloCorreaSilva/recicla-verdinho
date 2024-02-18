@@ -14,29 +14,36 @@ class SchoolClassSeeder extends Seeder
      */
     public function run(): void
     {
-        $schools = School::all();
+        // $schools = School::all();
 
-        foreach ($schools as $school) {
-            SchoolClass::factory()->create([
-                'school_id' => $school->id,
-                'name' => '5º Ano A',
-                'year' => 2023,
-                'active' => true
-            ]);
+        SchoolClass::factory()->create([
+            'school_id' => 1,
+            'name' => '5º Ano A',
+            'year' => 2023,
+            'active' => true
+        ]);
 
-            // SchoolClass::factory()->create([
-            //     'school_id' => $school->id,
-            //     'name' => '5º Ano B',
-            //     'year' => 2023,
-            //     'active' => true
-            // ]);
+        // foreach ($schools as $school) {
+        //     SchoolClass::factory()->create([
+        //         'school_id' => $school->id,
+        //         'name' => '5º Ano A',
+        //         'year' => 2023,
+        //         'active' => true
+        //     ]);
 
-            // SchoolClass::factory()->create([
-            //     'school_id' => $school->id,
-            //     'name' => '5º Ano C',
-            //     'year' => 2023,
-            //     'active' => true
-            // ]);
-        }
+        //     // SchoolClass::factory()->create([
+        //     //     'school_id' => $school->id,
+        //     //     'name' => '5º Ano B',
+        //     //     'year' => 2023,
+        //     //     'active' => true
+        //     // ]);
+
+        //     // SchoolClass::factory()->create([
+        //     //     'school_id' => $school->id,
+        //     //     'name' => '5º Ano C',
+        //     //     'year' => 2023,
+        //     //     'active' => true
+        //     // ]);
+        // }
     }
 }

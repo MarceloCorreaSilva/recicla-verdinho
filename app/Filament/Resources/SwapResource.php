@@ -31,18 +31,24 @@ class SwapResource extends Resource
     protected static ?string $navigationGroup = 'Escolas';
     protected static ?string $navigationIcon = 'heroicon-o-switch-horizontal';
 
-    protected static function shouldRegisterNavigation(): bool
-    {
-        return auth()->user()->hasRole(['Developer', 'Admin']);
-    }
+    // protected static function shouldRegisterNavigation(): bool
+    // {
+    //     return auth()->user()->hasRole(['Developer', 'Admin']);
+    // }
 
     // public static function getNavigationBadge(): ?string
     // {
     //     return static::getModel()::totalSwaps();
     // }
 
+
+
     public static function form(Form $form): Form
     {
+        // $convertItens = $form;
+
+        // dd($convertItens);
+
         return $form
             ->schema([
                 Forms\Components\Grid::make()
@@ -63,11 +69,25 @@ class SwapResource extends Resource
                                 'student',
                                 'name',
                                 // fn (Builder $query) => $query->where('school_class_id', 21)
+                                fn (Builder $query) => $query
+                                    ->select('students.*')
+                                    ->join('school_classes', 'school_classes.id', '=', 'students.school_class_id')
+                                    ->join('schools', 'schools.id', '=', 'school_classes.school_id')
+                                    ->where('school_id', auth()->user()->coordinator->id)
+                                    ->orderBy('school_classes.name')
                             )
                             ->preload()
                             ->required()
                             ->searchable()
-                            ->columnSpanFull(),
+                            ->columnSpanFull()
+                            ->afterStateUpdated(function (Closure $get, Closure $set, ?string $state) {
+                                $student = Student::all()->where('id', '=', $state)->first();
+                                $financial = $student->school_class->school->financial;
+                                // dd($financial);
+                                $set('convert_itens', $financial["total_items"]);
+                                $set('convert_green_coins', $financial["total_green_coins"]);
+                            })
+                            ->reactive(),
                     ]),
 
                 Forms\Components\Grid::make()
@@ -77,32 +97,88 @@ class SwapResource extends Resource
                             ->label('Garrafas PET')
                             ->numeric()
                             ->afterStateUpdated(function (Closure $get, Closure $set, ?string $state) {
-                                $set('green_coin', floor(($get('pet_bottles') + $get('packaging_of_cleaning_materials') + $get('tetra_pak') + $get('aluminum_cans')) / 10));
-                                $set('total', $get('pet_bottles') + $get('packaging_of_cleaning_materials') + $get('tetra_pak') + $get('aluminum_cans')) / 10;
+                                $student = $get('student_id');
+                                if ($student) {
+                                    $convertItens = $get('convert_itens');
+                                    $convertGreenCoins = $get('convert_green_coins');
+
+                                    $pet = intval($get('pet_bottles')) ?? 0;
+                                    $clear = intval($get('packaging_of_cleaning_materials')) ?? 0;
+                                    $tetra_pak = intval($get('tetra_pak')) ?? 0;
+                                    $aluminum_cans = intval($get('aluminum_cans')) ?? 0;
+
+                                    $totalReciclaveis = $pet + $clear  + $tetra_pak + $aluminum_cans;
+                                    $totalGreenCoins = floor(($totalReciclaveis) / $convertItens) * $convertGreenCoins;
+
+                                    $set('green_coin', $totalGreenCoins);
+                                    $set('total', $totalReciclaveis);
+                                }
                             })
                             ->reactive(),
                         Forms\Components\TextInput::make('packaging_of_cleaning_materials')
                             ->label('Emb. Materiais de limpeza')
                             ->numeric()
                             ->afterStateUpdated(function (Closure $get, Closure $set, ?string $state) {
-                                $set('green_coin', floor(($get('pet_bottles') + $get('packaging_of_cleaning_materials') + $get('tetra_pak') + $get('aluminum_cans')) / 10));
-                                $set('total', $get('pet_bottles') + $get('packaging_of_cleaning_materials') + $get('tetra_pak') + $get('aluminum_cans')) / 10;
+                                $student = $get('student_id');
+                                if ($student) {
+                                    $convertItens = $get('convert_itens');
+                                    $convertGreenCoins = $get('convert_green_coins');
+
+                                    $pet = intval($get('pet_bottles')) ?? 0;
+                                    $clear = intval($get('packaging_of_cleaning_materials')) ?? 0;
+                                    $tetra_pak = intval($get('tetra_pak')) ?? 0;
+                                    $aluminum_cans = intval($get('aluminum_cans')) ?? 0;
+
+                                    $totalReciclaveis = $pet + $clear  + $tetra_pak + $aluminum_cans;
+                                    $totalGreenCoins = floor(($totalReciclaveis) / $convertItens) * $convertGreenCoins;
+
+                                    $set('green_coin', $totalGreenCoins);
+                                    $set('total', $totalReciclaveis);
+                                }
                             })
                             ->reactive(),
                         Forms\Components\TextInput::make('tetra_pak')
                             ->label('Tetra Pak')
                             ->numeric()
                             ->afterStateUpdated(function (Closure $get, Closure $set, ?string $state) {
-                                $set('green_coin', floor(($get('pet_bottles') + $get('packaging_of_cleaning_materials') + $get('tetra_pak') + $get('aluminum_cans')) / 10));
-                                $set('total', $get('pet_bottles') + $get('packaging_of_cleaning_materials') + $get('tetra_pak') + $get('aluminum_cans')) / 10;
+                                $student = $get('student_id');
+                                if ($student) {
+                                    $convertItens = $get('convert_itens');
+                                    $convertGreenCoins = $get('convert_green_coins');
+
+                                    $pet = intval($get('pet_bottles')) ?? 0;
+                                    $clear = intval($get('packaging_of_cleaning_materials')) ?? 0;
+                                    $tetra_pak = intval($get('tetra_pak')) ?? 0;
+                                    $aluminum_cans = intval($get('aluminum_cans')) ?? 0;
+
+                                    $totalReciclaveis = $pet + $clear  + $tetra_pak + $aluminum_cans;
+                                    $totalGreenCoins = floor(($totalReciclaveis) / $convertItens) * $convertGreenCoins;
+
+                                    $set('green_coin', $totalGreenCoins);
+                                    $set('total', $totalReciclaveis);
+                                }
                             })
                             ->reactive(),
                         Forms\Components\TextInput::make('aluminum_cans')
                             ->label('Latas de Alumínio')
                             ->numeric()
                             ->afterStateUpdated(function (Closure $get, Closure $set, ?string $state) {
-                                $set('green_coin', floor(($get('pet_bottles') + $get('packaging_of_cleaning_materials') + $get('tetra_pak') + $get('aluminum_cans')) / 10));
-                                $set('total', $get('pet_bottles') + $get('packaging_of_cleaning_materials') + $get('tetra_pak') + $get('aluminum_cans')) / 10;
+                                $student = $get('student_id');
+                                if ($student) {
+                                    $convertItens = $get('convert_itens');
+                                    $convertGreenCoins = $get('convert_green_coins');
+
+                                    $pet = intval($get('pet_bottles')) ?? 0;
+                                    $clear = intval($get('packaging_of_cleaning_materials')) ?? 0;
+                                    $tetra_pak = intval($get('tetra_pak')) ?? 0;
+                                    $aluminum_cans = intval($get('aluminum_cans')) ?? 0;
+
+                                    $totalReciclaveis = $pet + $clear  + $tetra_pak + $aluminum_cans;
+                                    $totalGreenCoins = floor(($totalReciclaveis) / $convertItens) * $convertGreenCoins;
+
+                                    $set('green_coin', $totalGreenCoins);
+                                    $set('total', $totalReciclaveis);
+                                }
                             })
                             ->reactive(),
                     ]),
@@ -112,7 +188,19 @@ class SwapResource extends Resource
                     ->schema([
                         Forms\Components\TextInput::make('total')
                             ->label('Total')
-                            ->suffix(' / 10')
+                            ->suffix(' /')
+                            ->numeric()
+                            ->disabled(),
+
+                        Forms\Components\TextInput::make('convert_itens')
+                            ->label('Conversão de Itens')
+                            ->suffix(' *')
+                            ->numeric()
+                            ->disabled(),
+
+                        Forms\Components\TextInput::make('convert_green_coins')
+                            ->label('Conversão de Verdinhos')
+                            ->suffix(' =')
                             ->numeric()
                             ->disabled(),
 
@@ -157,8 +245,38 @@ class SwapResource extends Resource
                     ->sortable(),
             ])
             ->filters([
+                SelectFilter::make('Turma')
+                    ->relationship('student', 'name', function (Builder $query) {
+                        if (isset(auth()->user()->coordinator->id)) {
+                            return $query
+                                ->select('school_classes.*')
+                                ->join('school_classes', 'school_classes.id', '=', 'students.school_class_id')
+                                ->join('schools', 'schools.id', '=', 'school_classes.school_id')
+                                ->where('school_id', auth()->user()->coordinator->id)
+                                ->orderBy('school_classes.name');
+                        }
+
+                        return $query
+                            ->select('school_classes.*')
+                            ->join('school_classes', 'school_classes.id', '=', 'students.school_class_id')
+                            ->join('schools', 'schools.id', '=', 'school_classes.school_id')
+                            ->orderBy('school_classes.name');
+                    }),
+
                 SelectFilter::make('Aluno')
-                    ->relationship('student', 'name')
+                    // ->relationship('student', 'name')
+                    ->relationship('student', 'name', function (Builder $query) {
+                        if (isset(auth()->user()->coordinator->id)) {
+                            return $query
+                                ->select('students.*')
+                                ->join('school_classes', 'school_classes.id', '=', 'students.school_class_id')
+                                ->join('schools', 'schools.id', '=', 'school_classes.school_id')
+                                ->where('school_id', auth()->user()->coordinator->id)
+                                ->orderBy('school_classes.name');
+                        }
+
+                        return null;
+                    })
                     ->searchable()
             ])
             ->actions([
@@ -186,5 +304,32 @@ class SwapResource extends Resource
             'view' => Pages\ViewSwap::route('/{record}'),
             'edit' => Pages\EditSwap::route('/{record}/edit'),
         ];
+    }
+
+    public static function getEloquentQuery(): Builder
+    {
+        return auth()->user()->hasRole(['Developer', 'Admin'])
+            ? parent::getEloquentQuery()
+            : parent::getEloquentQuery()->whereHas(
+                relation: 'student',
+                callback: fn (Builder $query) => $query
+                    ->join('school_classes', 'school_classes.id', '=', 'students.school_class_id')
+                    ->join('schools', 'schools.id', '=', 'school_classes.school_id')
+                    ->where('school_id', auth()->user()->coordinator->id)
+            );
+
+
+        // ->relationship('student', 'name', function (Builder $query) {
+        //     if (isset(auth()->user()->coordinator->id)) {
+        //         return $query
+        //             ->select('students.*')
+        //             ->join('school_classes', 'school_classes.id', '=', 'students.school_class_id')
+        //             ->join('schools', 'schools.id', '=', 'school_classes.school_id')
+        //             ->where('school_id', auth()->user()->coordinator->id)
+        //             ->orderBy('school_classes.name');
+        //     }
+
+        //     return null;
+        // })
     }
 }

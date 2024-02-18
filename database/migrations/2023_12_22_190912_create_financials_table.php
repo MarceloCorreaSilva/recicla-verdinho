@@ -16,6 +16,8 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(School::class);
             $table->integer('balance')->nullable()->default(0);
+            $table->integer('total_items')->default(0);
+            $table->integer('total_green_coins')->default(0);
             $table->timestamps();
         });
     }

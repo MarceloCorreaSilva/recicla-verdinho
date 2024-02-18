@@ -3,11 +3,14 @@
 namespace App\Filament\Widgets;
 
 use App\Models\City;
+use App\Models\Financial;
 use App\Models\School;
 use App\Models\Student;
 use App\Models\Swap;
 use Filament\Widgets\StatsOverviewWidget as BaseWidget;
 use Filament\Widgets\StatsOverviewWidget\Card;
+
+use function PHPUnit\Framework\isNull;
 
 class StatsOverview extends BaseWidget
 {
@@ -21,9 +24,11 @@ class StatsOverview extends BaseWidget
     {
         $totalSwaps = 0;
         $totalGreenCoins = 0;
+        $totalBalance = 0;
 
         if (auth()->user()->hasRole('Coordenador')) {
             $swaps = Swap::selectRaw('
+                schools.id,
                 schools.name,
                 SUM(swaps.pet_bottles) as total_pet_bottles,
                 SUM(swaps.packaging_of_cleaning_materials) as total_packaging_of_cleaning_materials,
@@ -45,6 +50,19 @@ class StatsOverview extends BaseWidget
 
             $totalSwaps = $swaps[0]['total_pet_bottles'] + $swaps[0]['total_packaging_of_cleaning_materials'] + $swaps[0]['total_tetra_pak'] + $swaps[0]['total_aluminum_cans'];
             $totalGreenCoins = !is_null($swaps[0]['total_green_coin']) ? $swaps[0]['total_green_coin'] : 0;
+
+            $financial = Financial::where('school_id', '=', $swaps[0]['id'])->get();
+            // $school = School::all()->where('id', '=', $swaps[0]['id'])->first();
+
+            // dd([
+            //     $swaps,
+            //     $school,
+            //     $financial
+            // ]);
+
+            $totalBalance = !isNull($financial) ? $financial[0]['balance'] : 0;
+            // dd($financial[0]['balance']);
+            // dd($swaps);
         }
 
         return auth()->user()->hasRole(['Developer', 'Admin'])
@@ -93,6 +111,11 @@ class StatsOverview extends BaseWidget
                 Card::make(
                     'Verdinhos Distribuídos',
                     $this->formatNumberToStat($totalGreenCoins)
+                ),
+
+                Card::make(
+                    'Saldo Restante',
+                    $this->formatNumberToStat($totalBalance)
                 ),
             ];
     }
