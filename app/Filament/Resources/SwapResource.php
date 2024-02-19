@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\SwapResource\Pages;
 use App\Filament\Resources\SwapResource\RelationManagers;
+use App\Models\School;
 use App\Models\SchoolClass;
 use App\Models\Student;
 use App\Models\Swap;
@@ -63,24 +64,65 @@ class SwapResource extends Resource
                             ->dehydrated(fn ($state) => filled($state))
                             ->required(),
 
+                        Forms\Components\Select::make('schools')
+                            ->label('Escolas')
+                            ->options(function () {
+                                if (auth()->user()->coordinator) {
+                                    return School::where('coordinator_id', '=', auth()->user()->coordinator->coordinator_id)->pluck('name', 'id')->toArray();
+                                }
+
+                                return School::all()->pluck('name', 'id')->toArray();
+                            })
+                            ->afterStateUpdated(function (Closure $get, Closure $set, ?string $state) {
+                                $set('school_classes', '');
+                            })
+                            ->searchable()
+                            ->reactive(),
+
+                        Forms\Components\Select::make('school_classes')
+                            ->label('Turmas')
+                            ->options(function (Closure $get) {
+                                $school = School::find($get('schools'));
+
+                                if (!$school) {
+                                    return []; // SchoolClass::all()->pluck('name', 'id');
+                                }
+
+                                return $school->school_classes->pluck('name', 'id');
+                            })
+                            ->afterStateUpdated(function (Closure $get, Closure $set, ?string $state) {
+                                $set('student_id', '');
+                            })
+                            ->searchable()
+                            ->reactive(),
+
                         Forms\Components\Select::make('student_id')
                             ->label('Aluno')
-                            ->relationship(
-                                'student',
-                                'name',
-                                // fn (Builder $query) => $query->where('school_class_id', 21)
-                                fn (Builder $query) => auth()->user()->coordinator
-                                    ?
-                                    $query
-                                    ->select('students.*')
-                                    ->join('school_classes', 'school_classes.id', '=', 'students.school_class_id')
-                                    ->join('schools', 'schools.id', '=', 'school_classes.school_id')
-                                    ->where('school_id', auth()->user()->coordinator->id)
-                                    ->orderBy('school_classes.name')
-                                    :
-                                    $query
-                            )
-                            ->preload()
+                            // ->relationship(
+                            //     'student',
+                            //     'name',
+                            //     // fn (Builder $query) => $query->where('school_class_id', 21)
+                            //     fn (Builder $query) => auth()->user()->coordinator
+                            //         ?
+                            //         $query
+                            //         ->select('students.*')
+                            //         ->join('school_classes', 'school_classes.id', '=', 'students.school_class_id')
+                            //         ->join('schools', 'schools.id', '=', 'school_classes.school_id')
+                            //         ->where('school_id', auth()->user()->coordinator->id)
+                            //         ->orderBy('school_classes.name')
+                            //         :
+                            //         $query->orderBy('students.name')
+                            // )
+                            ->options(function (Closure $get) {
+                                $schoolClass = SchoolClass::find($get('school_classes'));
+
+                                if (!$schoolClass) {
+                                    return []; // Student::all()->pluck('name', 'id');
+                                }
+
+                                return $schoolClass->students()->orderBy('students.name')->pluck('name', 'id');
+                            })
+                            // ->preload()
                             ->required()
                             ->searchable()
                             ->columnSpanFull()
