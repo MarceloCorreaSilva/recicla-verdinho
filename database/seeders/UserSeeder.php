@@ -264,10 +264,10 @@ class UserSeeder extends Seeder
         $userAdmin = User::factory()->create(['name' => 'Admin', 'email' => 'admin@mail.com', 'password' => static::$password]);
         $userAdmin->assignRole($admin);
 
-        $userCoordinator = User::factory()->create(['name' => 'Coordenador 1', 'email' => 'coordenador@mail.com', 'password' => static::$password]);
-        $userCoordinator->assignRole($coordinator);
+        // $userCoordinator = User::factory()->create(['name' => 'Coordenador 1', 'email' => 'coordenador@mail.com', 'password' => static::$password]);
+        // $userCoordinator->assignRole($coordinator);
 
-        $userCoordinator = User::factory()->create(['name' => 'Coordenador 2', 'email' => 'coordenador2@mail.com', 'password' => static::$password]);
-        $userCoordinator->assignRole($coordinator);
+        // $userCoordinator = User::factory()->create(['name' => 'Coordenador 2', 'email' => 'coordenador2@mail.com', 'password' => static::$password]);
+        // $userCoordinator->assignRole($coordinator);
     }
 }

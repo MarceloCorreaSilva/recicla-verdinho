@@ -27,9 +27,9 @@ class DatabaseSeeder extends Seeder
             StateSeeder::class,
             CitySeeder::class,
             SchoolSeeder::class,
-            SchoolClassSeeder::class,
-            StudentSeeder::class,
-            SwapSeeder::class,
+            // SchoolClassSeeder::class,
+            // StudentSeeder::class,
+            // SwapSeeder::class,
         ]);
         // SponsorSeeder::class
         Model::reguard();
