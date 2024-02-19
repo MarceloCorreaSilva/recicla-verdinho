@@ -180,6 +180,7 @@ class SwapsRelationManager extends RelationManager
             ])
             ->headerActions([
                 Tables\Actions\CreateAction::make()
+                    ->authorize(false)
                     // ->beforeFormValidated(function (array $data) {
                     //     if ($data['total'] == null) {
                     //         Notification::make()

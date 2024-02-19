@@ -69,12 +69,16 @@ class SwapResource extends Resource
                                 'student',
                                 'name',
                                 // fn (Builder $query) => $query->where('school_class_id', 21)
-                                fn (Builder $query) => $query
+                                fn (Builder $query) => auth()->user()->coordinator
+                                    ?
+                                    $query
                                     ->select('students.*')
                                     ->join('school_classes', 'school_classes.id', '=', 'students.school_class_id')
                                     ->join('schools', 'schools.id', '=', 'school_classes.school_id')
                                     ->where('school_id', auth()->user()->coordinator->id)
                                     ->orderBy('school_classes.name')
+                                    :
+                                    $query
                             )
                             ->preload()
                             ->required()
