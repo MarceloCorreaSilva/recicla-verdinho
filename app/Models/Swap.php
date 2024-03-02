@@ -21,6 +21,17 @@ class Swap extends Model
         'green_coin',
     ];
 
+
+    /**
+     * The attributes that should be hidden for serialization.
+     *
+     * @var array<int, string>
+     */
+    protected $hidden = [
+        'created_at',
+        'updated_at',
+    ];
+
     protected function getTotalSwaps(): Attribute
     {
         $pet_bottles = static::getModel()->pet_bottles;
