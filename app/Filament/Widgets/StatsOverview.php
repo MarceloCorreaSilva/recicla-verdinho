@@ -54,13 +54,11 @@ class StatsOverview extends BaseWidget
             $financial = Financial::where('school_id', '=', $swaps[0]['id'])->get();
             // $school = School::all()->where('id', '=', $swaps[0]['id'])->first();
 
-            // dd([
-            //     $swaps,
-            //     $school,
-            //     $financial
-            // ]);
+            // dd(
+            //     $financial[0]['balance']
+            // );
 
-            $totalBalance = !isNull($financial) ? $financial[0]['balance'] : 0;
+            $totalBalance = !!isNull($financial) ? $financial[0]['balance'] : 0;
             // dd($financial[0]['balance']);
             // dd($swaps);
         }
