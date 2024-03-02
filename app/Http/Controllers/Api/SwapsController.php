@@ -12,7 +12,7 @@ class SwapsController extends Controller
      */
     public function index()
     {
-        return Swap::orderBy('date', 'desc')->first();
+        return Swap::all();
     }
 
     /**

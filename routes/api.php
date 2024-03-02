@@ -1,8 +1,13 @@
 <?php
 
+use App\Http\Controllers\Api\CitiesController;
+use App\Http\Controllers\Api\SchoolsController;
+use App\Http\Controllers\Api\StudentsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\SwapsController;
+use App\Models\School;
+use App\Models\Student;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +24,36 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::get('cities', [CitiesController::class, 'index']);
+Route::get('cities/count', [CitiesController::class, 'count']);
+Route::get('cities/{city}', [CitiesController::class, 'show']);
+
+Route::get('schools', [SchoolsController::class, 'index']);
+Route::get('schools/count', [SchoolsController::class, 'count']);
+Route::get('schools/{school}', [SchoolsController::class, 'show']);
+
+Route::get('students', [StudentsController::class, 'index']);
+Route::get('students/count', [StudentsController::class, 'count']);
+Route::get('students/{student}', [StudentsController::class, 'show']);
+
 Route::get('swaps', [SwapsController::class, 'index']);
 Route::get('swaps/today', [SwapsController::class, 'today']);
 Route::get('swaps/{swap}', [SwapsController::class, 'show']);
+
+
+
+// API Cidades
+// https://painel.reciclaverdinho.com.br/api/cites
+// https://painel.reciclaverdinho.com.br/api/cites/couunt
+
+// API Escolas
+// https://painel.reciclaverdinho.com.br/api/schools
+// https://painel.reciclaverdinho.com.br/api/schools/count
+
+// API Aluns
+// https://painel.reciclaverdinho.com.br/api/students
+// https://painel.reciclaverdinho.com.br/api/students/count
+
+// API Trocas
+// https://painel.reciclaverdinho.com.br/api/swaps
+// https://painel.reciclaverdinho.com.br/api/swaps/today

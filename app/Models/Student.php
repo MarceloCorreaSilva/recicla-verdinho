@@ -17,6 +17,16 @@ class Student extends Model
         'name'
     ];
 
+    /**
+     * The attributes that should be hidden for serialization.
+     *
+     * @var array<int, string>
+     */
+    protected $hidden = [
+        'created_at',
+        'updated_at',
+    ];
+
     public function school_class(): BelongsTo
     {
         return $this->belongsTo(SchoolClass::class);

@@ -21,7 +21,6 @@ class Swap extends Model
         'green_coin',
     ];
 
-
     /**
      * The attributes that should be hidden for serialization.
      *

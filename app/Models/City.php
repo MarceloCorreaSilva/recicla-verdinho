@@ -18,6 +18,16 @@ class City extends Model
         'active'
     ];
 
+    /**
+     * The attributes that should be hidden for serialization.
+     *
+     * @var array<int, string>
+     */
+    protected $hidden = [
+        'created_at',
+        'updated_at',
+    ];
+
     public function state(): BelongsTo
     {
         return $this->belongsTo(State::class);
