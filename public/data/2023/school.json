@@ -1,0 +1,472 @@
+[
+    {
+        "id": 1,
+        "city_id": 5102678,
+        "name": "Centro Educacional Paulo Freire",
+        "limit_per_swap": 200,
+        "coordinator_id": 3,
+        "project_started": "2020-08-01",
+        "project_completed": null,
+        "active": 1
+    },
+    {
+        "id": 2,
+        "city_id": 5104104,
+        "name": "Escola Municipal 13 de Maio",
+        "limit_per_swap": 200,
+        "coordinator_id": 4,
+        "project_started": "2021-05-26",
+        "project_completed": null,
+        "active": 1
+    },
+    {
+        "id": 3,
+        "city_id": 5106307,
+        "name": "Escola Municipal 03 de Maio",
+        "limit_per_swap": 200,
+        "coordinator_id": null,
+        "project_started": "2021-07-04 00:00:00",
+        "project_completed": null,
+        "active": 1
+    },
+    {
+        "id": 4,
+        "city_id": 5007208,
+        "name": "Centro Educacional Crian\u00e7a Esperan\u00e7a VI",
+        "limit_per_swap": 200,
+        "coordinator_id": null,
+        "project_started": "2021-09-07 00:00:00",
+        "project_completed": null,
+        "active": 1
+    },
+    {
+        "id": 5,
+        "city_id": 5100201,
+        "name": "Escola Municipal Guaruj\u00e1",
+        "limit_per_swap": 200,
+        "coordinator_id": null,
+        "project_started": "2022-05-29 00:00:00",
+        "project_completed": null,
+        "active": 1
+    },
+    {
+        "id": 6,
+        "city_id": 5100201,
+        "name": "Ermindo Mendel",
+        "limit_per_swap": 200,
+        "coordinator_id": null,
+        "project_started": "2023-06-25 00:00:00",
+        "project_completed": null,
+        "active": 1
+    },
+    {
+        "id": 7,
+        "city_id": 5105580,
+        "name": "Escola Municipal Castro Alves",
+        "limit_per_swap": 200,
+        "coordinator_id": null,
+        "project_started": "2021-10-29 00:00:00",
+        "project_completed": "2022-12-31 00:00:00",
+        "active": 0
+    },
+    {
+        "id": 8,
+        "city_id": 5105580,
+        "name": "Escola Municipal Santa Terezinha",
+        "limit_per_swap": 200,
+        "coordinator_id": null,
+        "project_started": "2021-10-29 00:00:00",
+        "project_completed": "2022-12-31 00:00:00",
+        "active": 0
+    },
+    {
+        "id": 9,
+        "city_id": 5005400,
+        "name": "Escola Municipal Professora Maur\u00edcia Par\u00e9 Gomes",
+        "limit_per_swap": 200,
+        "coordinator_id": null,
+        "project_started": "2022-04-09 00:00:00",
+        "project_completed": null,
+        "active": 1
+    },
+    {
+        "id": 10,
+        "city_id": 5003256,
+        "name": "Escola Municipal Vale do Amanhecer",
+        "limit_per_swap": 200,
+        "coordinator_id": null,
+        "project_started": null,
+        "project_completed": null,
+        "active": 1
+    },
+    {
+        "id": 11,
+        "city_id": 5006200,
+        "name": "Escola Municipal Brincando de Aprender",
+        "limit_per_swap": 200,
+        "coordinator_id": null,
+        "project_started": "2022-04-03 00:00:00",
+        "project_completed": null,
+        "active": 1
+    },
+    {
+        "id": 12,
+        "city_id": 5006200,
+        "name": "Escola Municipal Arco Iris",
+        "limit_per_swap": 200,
+        "coordinator_id": null,
+        "project_started": "2023-09-21 00:00:00",
+        "project_completed": null,
+        "active": 1
+    },
+    {
+        "id": 13,
+        "city_id": 5003702,
+        "name": "Escola Municipal Clori Benedetti de Freitas",
+        "limit_per_swap": 200,
+        "coordinator_id": null,
+        "project_started": "2022-06-29 00:00:00",
+        "project_completed": null,
+        "active": 1
+    },
+    {
+        "id": 14,
+        "city_id": 5000609,
+        "name": "Escola Municipal Professora Maria Bataglin Machado",
+        "limit_per_swap": 200,
+        "coordinator_id": null,
+        "project_started": "2022-06-22 00:00:00",
+        "project_completed": null,
+        "active": 1
+    },
+    {
+        "id": 15,
+        "city_id": 5000609,
+        "name": "Escola Municipal Ant\u00f4nio Pinto da Silva",
+        "limit_per_swap": 200,
+        "coordinator_id": null,
+        "project_started": "2023-07-12 00:00:00",
+        "project_completed": null,
+        "active": 1
+    },
+    {
+        "id": 16,
+        "city_id": 5007406,
+        "name": "Escola Municipal Jos\u00e9 Duailibi",
+        "limit_per_swap": 200,
+        "coordinator_id": null,
+        "project_started": "2022-09-14 00:00:00",
+        "project_completed": null,
+        "active": 1
+    },
+    {
+        "id": 17,
+        "city_id": 5007406,
+        "name": "Escola Municipal Polo Mariza Ferzelli",
+        "limit_per_swap": 200,
+        "coordinator_id": null,
+        "project_started": "2023-05-31 00:00:00",
+        "project_completed": null,
+        "active": 1
+    },
+    {
+        "id": 18,
+        "city_id": 5004403,
+        "name": "CEI Professor Olivalto Elias da Silva",
+        "limit_per_swap": 200,
+        "coordinator_id": null,
+        "project_started": "2022-08-21 00:00:00",
+        "project_completed": null,
+        "active": 1
+    },
+    {
+        "id": 19,
+        "city_id": 5107925,
+        "name": "Escola Municipal Prof\u00aa Ivete Lourdes Arenhardt",
+        "limit_per_swap": 200,
+        "coordinator_id": null,
+        "project_started": "2022-08-20 00:00:00",
+        "project_completed": "2022-12-31 00:00:00",
+        "active": 0
+    },
+    {
+        "id": 20,
+        "city_id": 5107248,
+        "name": "Escola Municipal Selvino Damian Preve",
+        "limit_per_swap": 200,
+        "coordinator_id": null,
+        "project_started": "2022-08-19 00:00:00",
+        "project_completed": null,
+        "active": 1
+    },
+    {
+        "id": 21,
+        "city_id": 5103056,
+        "name": "Escola Municipal Daniel Titton",
+        "limit_per_swap": 200,
+        "coordinator_id": null,
+        "project_started": "2022-08-10 00:00:00",
+        "project_completed": "2022-12-31 00:00:00",
+        "active": 0
+    },
+    {
+        "id": 22,
+        "city_id": 5006275,
+        "name": "Escola Municipal Lizete Rivelli Alpe",
+        "limit_per_swap": 200,
+        "coordinator_id": null,
+        "project_started": "2022-10-20 00:00:00",
+        "project_completed": null,
+        "active": 1
+    },
+    {
+        "id": 23,
+        "city_id": 5107958,
+        "name": "Centro Municipal de Ensino Fausto Eug\u00eanio Masson",
+        "limit_per_swap": 200,
+        "coordinator_id": null,
+        "project_started": "2022-11-23 00:00:00",
+        "project_completed": null,
+        "active": 1
+    },
+    {
+        "id": 24,
+        "city_id": 5006002,
+        "name": "Escola Ires Brunetto",
+        "limit_per_swap": 200,
+        "coordinator_id": null,
+        "project_started": "2022-09-17 00:00:00",
+        "project_completed": null,
+        "active": 1
+    },
+    {
+        "id": 25,
+        "city_id": 5006002,
+        "name": "Escola Adenisaldo Ara\u00fajo de Rezende",
+        "limit_per_swap": 200,
+        "coordinator_id": null,
+        "project_started": "2023-06-03 00:00:00",
+        "project_completed": null,
+        "active": 1
+    },
+    {
+        "id": 26,
+        "city_id": 5104609,
+        "name": "Escola Municipal Anfil\u00f3fio de Souza Campos",
+        "limit_per_swap": 200,
+        "coordinator_id": null,
+        "project_started": "2022-09-14 00:00:00",
+        "project_completed": null,
+        "active": 1
+    },
+    {
+        "id": 27,
+        "city_id": 5104609,
+        "name": "Escola Municipal Jos\u00e9 Rodrigues da Silva",
+        "limit_per_swap": 200,
+        "coordinator_id": null,
+        "project_started": "2022-09-14 00:00:00",
+        "project_completed": null,
+        "active": 1
+    },
+    {
+        "id": 28,
+        "city_id": 5103502,
+        "name": "Escola Municipal Br\u00e1s Maimoni",
+        "limit_per_swap": 200,
+        "coordinator_id": null,
+        "project_started": "2022-11-23 00:00:00",
+        "project_completed": null,
+        "active": 1
+    },
+    {
+        "id": 29,
+        "city_id": 5106505,
+        "name": "Escola Municipal Jo\u00e3o Godofredo da Silva",
+        "limit_per_swap": 200,
+        "coordinator_id": null,
+        "project_started": "2023-05-12 00:00:00",
+        "project_completed": null,
+        "active": 1
+    },
+    {
+        "id": 30,
+        "city_id": 5106505,
+        "name": "Escola Municipal Juscelino Kubitschek de Oliveira",
+        "limit_per_swap": 200,
+        "coordinator_id": null,
+        "project_started": "2023-05-12 00:00:00",
+        "project_completed": null,
+        "active": 1
+    },
+    {
+        "id": 31,
+        "city_id": 5106109,
+        "name": "Escola Municipal Professora D\u00e9lia Galdina Duarte",
+        "limit_per_swap": 200,
+        "coordinator_id": null,
+        "project_started": "2023-05-20 00:00:00",
+        "project_completed": null,
+        "active": 1
+    },
+    {
+        "id": 32,
+        "city_id": 5101605,
+        "name": "Escola Municipal Cuiab\u00e1 Mirim",
+        "limit_per_swap": 200,
+        "coordinator_id": null,
+        "project_started": "2023-06-13 00:00:00",
+        "project_completed": null,
+        "active": 1
+    },
+    {
+        "id": 33,
+        "city_id": 5101605,
+        "name": "Escola Municipal Estir\u00e3o Comprido",
+        "limit_per_swap": 200,
+        "coordinator_id": null,
+        "project_started": "2023-06-13 00:00:00",
+        "project_completed": null,
+        "active": 1
+    },
+    {
+        "id": 34,
+        "city_id": 5102504,
+        "name": "Escola Municipal Jardim Para\u00edso",
+        "limit_per_swap": 200,
+        "coordinator_id": null,
+        "project_started": "2023-06-25 00:00:00",
+        "project_completed": null,
+        "active": 1
+    },
+    {
+        "id": 35,
+        "city_id": 5102702,
+        "name": "Escola Municipal ...",
+        "limit_per_swap": 200,
+        "coordinator_id": null,
+        "project_started": "2023-07-02 00:00:00",
+        "project_completed": null,
+        "active": 1
+    },
+    {
+        "id": 36,
+        "city_id": 5005707,
+        "name": "Escola Municipal Professor Milton Dias Porto",
+        "limit_per_swap": 200,
+        "coordinator_id": null,
+        "project_started": "2023-07-02 00:00:00",
+        "project_completed": null,
+        "active": 1
+    },
+    {
+        "id": 37,
+        "city_id": 5002100,
+        "name": "Escola Municipal Jarbas Passarinho",
+        "limit_per_swap": 200,
+        "coordinator_id": null,
+        "project_started": "2023-07-06 00:00:00",
+        "project_completed": null,
+        "active": 1
+    },
+    {
+        "id": 38,
+        "city_id": 5002407,
+        "name": "Escola Municipal Professor Moacir Franco de Carvalho",
+        "limit_per_swap": 200,
+        "coordinator_id": null,
+        "project_started": "2023-07-13 00:00:00",
+        "project_completed": null,
+        "active": 1
+    },
+    {
+        "id": 39,
+        "city_id": 5006606,
+        "name": "Escola Municipal Jo\u00e3o Carlos Pinheiro Marques",
+        "limit_per_swap": 200,
+        "coordinator_id": null,
+        "project_started": "2023-08-09 00:00:00",
+        "project_completed": null,
+        "active": 1
+    },
+    {
+        "id": 40,
+        "city_id": 5105234,
+        "name": "Escola Municipal ...",
+        "limit_per_swap": 200,
+        "coordinator_id": null,
+        "project_started": "2023-08-16 00:00:00",
+        "project_completed": null,
+        "active": 1
+    },
+    {
+        "id": 41,
+        "city_id": 5007554,
+        "name": "Escola Municipal Raimundo C\u00e2ndido de Ara\u00fajo",
+        "limit_per_swap": 200,
+        "coordinator_id": null,
+        "project_started": "2023-09-02 00:00:00",
+        "project_completed": null,
+        "active": 1
+    },
+    {
+        "id": 42,
+        "city_id": 5001904,
+        "name": "Escola Municipal Marechal Rondon",
+        "limit_per_swap": 200,
+        "coordinator_id": null,
+        "project_started": "2023-09-03 00:00:00",
+        "project_completed": null,
+        "active": 1
+    },
+    {
+        "id": 43,
+        "city_id": 5101407,
+        "name": "Escola Municipal Maria Luiza do Nascimento Silva",
+        "limit_per_swap": 200,
+        "coordinator_id": null,
+        "project_started": "2023-09-15 00:00:00",
+        "project_completed": null,
+        "active": 1
+    },
+    {
+        "id": 44,
+        "city_id": 5003306,
+        "name": "Escola Municipal Escola Municipal Marechal Rondon \u2013 Extens\u00e3o S\u00edlvio Ferreira",
+        "limit_per_swap": 200,
+        "coordinator_id": null,
+        "project_started": "2023-09-28 00:00:00",
+        "project_completed": null,
+        "active": 1
+    },
+    {
+        "id": 45,
+        "city_id": 5002308,
+        "name": "Escola Municipal Paulo Sim\u00f5es Braga",
+        "limit_per_swap": 200,
+        "coordinator_id": null,
+        "project_started": "2023-10-04 00:00:00",
+        "project_completed": null,
+        "active": 1
+    },
+    {
+        "id": 46,
+        "city_id": 5005806,
+        "name": "Escola Municipal Guilherme Corr\u00eaa da Silva",
+        "limit_per_swap": 200,
+        "coordinator_id": null,
+        "project_started": "2023-10-07 00:00:00",
+        "project_completed": null,
+        "active": 1
+    },
+    {
+        "id": 47,
+        "city_id": 5000609,
+        "name": "Escola Teste",
+        "limit_per_swap": 100,
+        "coordinator_id": 3,
+        "project_started": "2024-02-18",
+        "project_completed": null,
+        "active": 1
+    }
+]

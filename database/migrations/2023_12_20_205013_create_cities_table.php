@@ -16,6 +16,10 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(State::class);
             $table->string('name');
+
+            $table->unsignedBigInteger('secretary_id')->nullable();
+            $table->foreign('secretary_id')->references('id')->on('users');
+
             $table->boolean('active');
             $table->timestamps();
         });

@@ -15,6 +15,7 @@ class School extends Model
 
     protected $fillable = [
         'city_id',
+        'manager_id',
         'coordinator_id',
         'name',
         'limit_per_swap',
@@ -151,6 +152,11 @@ class School extends Model
         return $this->belongsTo(City::class);
     }
 
+    public function manager(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
+
     public function coordinator(): BelongsTo
     {
         return $this->belongsTo(User::class);
@@ -159,6 +165,11 @@ class School extends Model
     public function school_classes(): HasMany
     {
         return $this->hasMany(SchoolClass::class);
+    }
+
+    public function students(): HasMany
+    {
+        return $this->hasMany(Student::class);
     }
 
     public function financial(): HasOne

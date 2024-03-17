@@ -1,0 +1,1884 @@
+[
+    {
+        "nro": "1",
+        "school_id": "1",
+        "school_class_id": "1",
+        "nome": "ALVARO LIMA MOURA",
+        "sexo": "M",
+        "matric": "7193"
+    },
+    {
+        "nro": "2",
+        "school_id": "1",
+        "school_class_id": "1",
+        "nome": "ANA CLARA GOUVEIA REIS",
+        "sexo": "F",
+        "matric": "7209"
+    },
+    {
+        "nro": "3",
+        "school_id": "1",
+        "school_class_id": "1",
+        "nome": "CAROLINY PAOLA SIRQUEIRA DA SILVA",
+        "sexo": "F",
+        "matric": "7206"
+    },
+    {
+        "nro": "4",
+        "school_id": "1",
+        "school_class_id": "1",
+        "nome": "DAVI EMANUEL MARQUES SANTOS",
+        "sexo": "M",
+        "matric": "7201"
+    },
+    {
+        "nro": "5",
+        "school_id": "1",
+        "school_class_id": "1",
+        "nome": "DAVI GABRIEL FERREIRA DA SILVA",
+        "sexo": "M",
+        "matric": "7194"
+    },
+    {
+        "nro": "6",
+        "school_id": "1",
+        "school_class_id": "1",
+        "nome": "DAVI LORENZO SOUZA SILVA",
+        "sexo": "M",
+        "matric": "7195"
+    },
+    {
+        "nro": "7",
+        "school_id": "1",
+        "school_class_id": "1",
+        "nome": "JOAO PAULO BARBOSA SANTANA DE MORAIS",
+        "sexo": "M",
+        "matric": "7205"
+    },
+    {
+        "nro": "8",
+        "school_id": "1",
+        "school_class_id": "1",
+        "nome": "JULIANA GOMES DE SOUZA",
+        "sexo": "F",
+        "matric": "7208"
+    },
+    {
+        "nro": "9",
+        "school_id": "1",
+        "school_class_id": "1",
+        "nome": "KAREN MELISSA RIBEIRO CAVALCANTE",
+        "sexo": "F",
+        "matric": "7203"
+    },
+    {
+        "nro": "10",
+        "school_id": "1",
+        "school_class_id": "1",
+        "nome": "KARIELY BARBOSA RIBEIRO",
+        "sexo": "F",
+        "matric": "7200"
+    },
+    {
+        "nro": "11",
+        "school_id": "1",
+        "school_class_id": "1",
+        "nome": "KAWAN SANTOS SOARES",
+        "sexo": "M",
+        "matric": "7198"
+    },
+    {
+        "nro": "12",
+        "school_id": "1",
+        "school_class_id": "1",
+        "nome": "KEMILLY DE FREITAS PEREIRA",
+        "sexo": "F",
+        "matric": "7197"
+    },
+    {
+        "nro": "13",
+        "school_id": "1",
+        "school_class_id": "1",
+        "nome": "LARYSSA MONOELA MORAES PEREIRA",
+        "sexo": "F",
+        "matric": "7204"
+    },
+    {
+        "nro": "14",
+        "school_id": "1",
+        "school_class_id": "1",
+        "nome": "MARIA EDUARDA FEDRIGO NOGUEIRA DA CRUZ",
+        "sexo": "F",
+        "matric": "7202"
+    },
+    {
+        "nro": "15",
+        "school_id": "1",
+        "school_class_id": "1",
+        "nome": "NICOLY FERNANDES APARECIDA DA SILVA",
+        "sexo": "F",
+        "matric": "7191"
+    },
+    {
+        "nro": "16",
+        "school_id": "1",
+        "school_class_id": "1",
+        "nome": "RHAVYLLA MICAELLY DE FARIAS ROSA",
+        "sexo": "F",
+        "matric": "7199"
+    },
+    {
+        "nro": "17",
+        "school_id": "1",
+        "school_class_id": "1",
+        "nome": "RICKARDO AUGUSTO LAUREANO GONÇALVES",
+        "sexo": "M",
+        "matric": "7207"
+    },
+    {
+        "nro": "18",
+        "school_id": "1",
+        "school_class_id": "1",
+        "nome": "SOFHIA SILVA SOUSA",
+        "sexo": "F",
+        "matric": "7192"
+    },
+    {
+        "nro": "19",
+        "school_id": "1",
+        "school_class_id": "1",
+        "nome": "SOPHIA SOUZA OLIVEIRA",
+        "sexo": "F",
+        "matric": "7190"
+    },
+    {
+        "Nro": "20",
+        "school_id": "1",
+        "nchool_class_id": "2",
+        "school_id": "1",
+        "school_class_id": "1",
+        "nome": "WABHYNNER GOMES PARREIRA GONÇALVES",
+        "sexo": "M",
+        "matric": "7196"
+    },
+    {
+        "nro": "1",
+        "school_id": "1",
+        "school_class_id": "2",
+        "nome": "WABHYNNER GOMES PARREIRA GONÇALVES",
+        "sexo": "F",
+        "matric": "7170"
+    },
+    {
+        "nro": "2",
+        "school_id": "1",
+        "school_class_id": "2",
+        "nome": "DAMARYS GABRYELLA SANTOS MARTINS",
+        "sexo": "F",
+        "matric": "7171"
+    },
+    {
+        "nro": "3",
+        "school_id": "1",
+        "school_class_id": "2",
+        "nome": "EMILY MARCULINO ANANIAS",
+        "sexo": "F",
+        "matric": "7168"
+    },
+    {
+        "nro": "4",
+        "school_id": "1",
+        "school_class_id": "2",
+        "nome": "ENZO RODRIGUES DOS SANTOS SOUSA",
+        "sexo": "M",
+        "matric": "7180"
+    },
+    {
+        "nro": "5",
+        "school_id": "1",
+        "school_class_id": "2",
+        "nome": "GUILHERME FILINTO PRADO",
+        "sexo": "M",
+        "matric": "7179"
+    },
+    {
+        "nro": "6",
+        "school_id": "1",
+        "school_class_id": "2",
+        "nome": "HEITOR HENRIQUE PEREIRA DE ALENCAR",
+        "sexo": "M",
+        "matric": "7178"
+    },
+    {
+        "nro": "7",
+        "school_id": "1",
+        "school_class_id": "2",
+        "nome": "HENRIQUE GABRIEL MORAES DOS SANTOS",
+        "sexo": "M",
+        "matric": "7184"
+    },
+    {
+        "nro": "8",
+        "school_id": "1",
+        "school_class_id": "2",
+        "nome": "ISABELLY KAROLLAYNE RAMOS ALVES",
+        "sexo": "F",
+        "matric": "7188"
+    },
+    {
+        "nro": "9",
+        "school_id": "1",
+        "school_class_id": "2",
+        "nome": "JOSE PEDRO DE SOUZA SILVA",
+        "sexo": "M",
+        "matric": "7174"
+    },
+    {
+        "nro": "10",
+        "school_id": "1",
+        "school_class_id": "2",
+        "nome": "KAIO BARBOSA DE JESUS",
+        "sexo": "M",
+        "matric": "7183"
+    },
+    {
+        "nro": "11",
+        "school_id": "1",
+        "school_class_id": "2",
+        "nome": "KAYRON HENRIQUE SANTOS SANTANA",
+        "sexo": "M",
+        "matric": "7176"
+    },
+    {
+        "nro": "12",
+        "school_id": "1",
+        "school_class_id": "2",
+        "nome": "LORENA SOUZA NOVAIS",
+        "sexo": "F",
+        "matric": "7172"
+    },
+    {
+        "nro": "13",
+        "school_id": "1",
+        "school_class_id": "2",
+        "nome": "LUIS FERNANDO RODRIGUES DE OLIVEIRA",
+        "sexo": "M",
+        "matric": "7167"
+    },
+    {
+        "nro": "14",
+        "school_id": "1",
+        "school_class_id": "2",
+        "nome": "MARCOS PAULLO ALVES GALDIOLI",
+        "sexo": "M",
+        "matric": "7182"
+    },
+    {
+        "nro": "15",
+        "school_id": "1",
+        "school_class_id": "2",
+        "nome": "MARIAH NATALY CASTRO GOMES",
+        "sexo": "F",
+        "matric": "7185"
+    },
+    {
+        "nro": "16",
+        "school_id": "1",
+        "school_class_id": "2",
+        "nome": "MILENA FERNANDES PAIVA",
+        "sexo": "F",
+        "matric": "7175"
+    },
+    {
+        "nro": "17",
+        "school_id": "1",
+        "school_class_id": "2",
+        "nome": "NICOLLY BEATRIZ LIRA COSTA",
+        "sexo": "F",
+        "matric": "7177"
+    },
+    {
+        "nro": "18",
+        "school_id": "1",
+        "school_class_id": "2",
+        "nome": "RANIELLY OLIVEIRA DOS SANTOS",
+        "sexo": "F",
+        "matric": "7169"
+    },
+    {
+        "nro": "19",
+        "school_id": "1",
+        "school_class_id": "2",
+        "nome": "RANNY SOPHIA DE ARAUJO GOMES",
+        "sexo": "F",
+        "matric": "7173"
+    },
+    {
+        "nro": "20",
+        "school_id": "1",
+        "school_class_id": "2",
+        "nome": "RENAN EDUARDO BORGES DE ANDRADE",
+        "sexo": "M",
+        "matric": "7189"
+    },
+    {
+        "nro": "21",
+        "school_id": "1",
+        "school_class_id": "2",
+        "nome": "THALYTA MARCIELLY CINTRA MELO",
+        "sexo": "F",
+        "matric": "7181"
+    },
+    {
+        "nro": "22",
+        "school_id": "1",
+        "school_class_id": "2",
+        "nome": "THARSYLLA TEIXEIRA CONFESSOR",
+        "sexo": "F",
+        "matric": "7187"
+    },
+    {
+        "nro": "23",
+        "school_id": "1",
+        "school_class_id": "2",
+        "nome": "YASMIN VIEIRA DA SILVA",
+        "sexo": "F",
+        "matric": "7186"
+    },
+    {
+        "nro": "24",
+        "school_id": "1",
+        "school_class_id": "2",
+        "nome": "ANA LIVIA DOS SANTOS FAGUNDES DE MELO",
+        "sexo": "F",
+        "matric": "7328"
+    },
+    {
+        "nro": "1",
+        "school_id": "1",
+        "school_class_id": "3",
+        "nome": "AKEMI LORENZA DE SOUZA ZEFERINO",
+        "sexo": "F",
+        "matric": "7280"
+    },
+    {
+        "nro": "2",
+        "school_id": "1",
+        "school_class_id": "3",
+        "nome": "ALESSANDRO LOPES BARROS",
+        "sexo": "M",
+        "matric": "7218"
+    },
+    {
+        "nro": "3",
+        "school_id": "1",
+        "school_class_id": "3",
+        "nome": "ANA CLARA PEREIRA DALLABRIDA",
+        "sexo": "F",
+        "matric": "7279"
+    },
+    {
+        "nro": "4",
+        "school_id": "1",
+        "school_class_id": "3",
+        "nome": "ANNA LUCIA MARTINS SOUSA",
+        "sexo": "F",
+        "matric": "7220"
+    },
+    {
+        "nro": "5",
+        "school_id": "1",
+        "school_class_id": "3",
+        "nome": "ARTHUR ZAMBENEDETTI",
+        "sexo": "M",
+        "matric": "7222"
+    },
+    {
+        "nro": "6",
+        "school_id": "1",
+        "school_class_id": "3",
+        "nome": "DAVI AUGUSTO TEIXEIRA DOS SANTOS MACIEL",
+        "sexo": "M",
+        "matric": "7281"
+    },
+    {
+        "nro": "7",
+        "school_id": "1",
+        "school_class_id": "3",
+        "nome": "DAVI HENRIQUE VITORINO DOS SANTOS SILVA",
+        "sexo": "M",
+        "matric": "7217"
+    },
+    {
+        "nro": "8",
+        "school_id": "1",
+        "school_class_id": "3",
+        "nome": "EDRYELL SANTOS BRITO",
+        "sexo": "M",
+        "matric": "7215"
+    },
+    {
+        "nro": "9",
+        "school_id": "1",
+        "school_class_id": "3",
+        "nome": "EMANUELLY VITORIA SILVA BONOMO",
+        "sexo": "F",
+        "matric": "7278"
+    },
+    {
+        "nro": "10",
+        "school_id": "1",
+        "school_class_id": "3",
+        "nome": "EMILLY CRISTINA FERREIRA LIMA",
+        "sexo": "F",
+        "matric": "7277"
+    },
+    {
+        "nro": "11",
+        "school_id": "1",
+        "school_class_id": "3",
+        "nome": "JOSE HENRIQUE SOUSA DE OLIVEIRA",
+        "sexo": "M",
+        "matric": "7213"
+    },
+    {
+        "nro": "12",
+        "school_id": "1",
+        "school_class_id": "3",
+        "nome": "LARA SANTOS MARTINS",
+        "sexo": "F",
+        "matric": "7214"
+    },
+    {
+        "nro": "13",
+        "school_id": "1",
+        "school_class_id": "3",
+        "nome": "MARIA CLARA BATISTA RODRIGUES",
+        "sexo": "F",
+        "matric": "7212"
+    },
+    {
+        "nro": "14",
+        "school_id": "1",
+        "school_class_id": "3",
+        "nome": "MARIA CLARA RODRIGUES DOS SANTOS",
+        "sexo": "F",
+        "matric": "7219"
+    },
+    {
+        "nro": "15",
+        "school_id": "1",
+        "school_class_id": "3",
+        "nome": "MILTON TSERENHIPTSI TSERENEEWE XAVANTE",
+        "sexo": "M",
+        "matric": "7282"
+    },
+    {
+        "nro": "16",
+        "school_id": "1",
+        "school_class_id": "3",
+        "nome": "RHUAN BRUNO FERREIRA DE BRITO",
+        "sexo": "M",
+        "matric": "7223"
+    },
+    {
+        "nro": "17",
+        "school_id": "1",
+        "school_class_id": "3",
+        "nome": "VICTORYA EMANUELLY VILARIM DE NOVAIS",
+        "sexo": "F",
+        "matric": "7221"
+    },
+    {
+        "nro": "18",
+        "school_id": "1",
+        "school_class_id": "3",
+        "nome": "VITORIA ALVES AGUIAR",
+        "sexo": "F",
+        "matric": "7210"
+    },
+    {
+        "nro": "19",
+        "school_id": "1",
+        "school_class_id": "3",
+        "nome": "YASMIM VITORIA DA SILVA SANTOS",
+        "sexo": "F",
+        "matric": "7211"
+    },
+    {
+        "nro": "20",
+        "school_id": "1",
+        "school_class_id": "3",
+        "nome": "YHASMIN MADEIRA NEVES",
+        "sexo": "F",
+        "matric": "7216"
+    },
+    {
+        "nro": "21",
+        "school_id": "1",
+        "school_class_id": "3",
+        "nome": "HENRICK GABRIEL SILVA FERREIRA",
+        "sexo": "M",
+        "matric": "7329"
+    },
+    {
+        "nro": "22",
+        "school_id": "1",
+        "school_class_id": "3",
+        "nome": "YASMIN VITORIA MARTINS DE BARROS",
+        "sexo": "F",
+        "matric": "7461"
+    },
+    {
+        "nro": "1",
+        "school_id": "1",
+        "school_class_id": "4",
+        "nome": "ABNER SILVA OLIVEIRA",
+        "sexo": "M",
+        "matric": "7156"
+    },
+    {
+        "nro": "2",
+        "school_id": "1",
+        "school_class_id": "4",
+        "nome": "ALISON PEREIRA RODRIGUES",
+        "sexo": "M",
+        "matric": "7162"
+    },
+    {
+        "nro": "3",
+        "school_id": "1",
+        "school_class_id": "4",
+        "nome": "ANDRIELLY VALLE LEAL",
+        "sexo": "F",
+        "matric": "7163"
+    },
+    {
+        "nro": "4",
+        "school_id": "1",
+        "school_class_id": "4",
+        "nome": "CAMYLLA RODRIGUES DE LIMA",
+        "sexo": "F",
+        "matric": "7149"
+    },
+    {
+        "nro": "5",
+        "school_id": "1",
+        "school_class_id": "4",
+        "nome": "CICINATO SANTOS PEREIRA",
+        "sexo": "F",
+        "matric": "7152"
+    },
+    {
+        "nro": "6",
+        "school_id": "1",
+        "school_class_id": "4",
+        "nome": "CLARA BEATRIZ CAVALCANTE MARQUES",
+        "sexo": "F",
+        "matric": "7154"
+    },
+    {
+        "nro": "7",
+        "school_id": "1",
+        "school_class_id": "4",
+        "nome": "DANIEL KAIO DE SANTANA WANDERLEY",
+        "sexo": "M",
+        "matric": "7153"
+    },
+    {
+        "nro": "8",
+        "school_id": "1",
+        "school_class_id": "4",
+        "nome": "DAVILA SOFIA SILVA DOS SANTOS",
+        "sexo": "F",
+        "matric": "7157"
+    },
+    {
+        "nro": "9",
+        "school_id": "1",
+        "school_class_id": "4",
+        "nome": "EDSON LUCAS SOUZA OLIVEIRA",
+        "sexo": "M",
+        "matric": "7155"
+    },
+    {
+        "nro": "10",
+        "school_id": "1",
+        "school_class_id": "4",
+        "nome": "ELIZA BARBOSA DOS SANTOS",
+        "sexo": "F",
+        "matric": "7147"
+    },
+    {
+        "nro": "11",
+        "school_id": "1",
+        "school_class_id": "4",
+        "nome": "FLAVIO EDUARDO DA COSTA BORGES",
+        "sexo": "M",
+        "matric": "7160"
+    },
+    {
+        "nro": "12",
+        "school_id": "1",
+        "school_class_id": "4",
+        "nome": "JONNES BATISTA DOS SANTOS FILHO",
+        "sexo": "M",
+        "matric": "7158"
+    },
+    {
+        "nro": "13",
+        "school_id": "1",
+        "school_class_id": "4",
+        "nome": "JUSCELIO SANTOS PEREIRA",
+        "sexo": "M",
+        "matric": "7150"
+    },
+    {
+        "nro": "14",
+        "school_id": "1",
+        "school_class_id": "4",
+        "nome": "LAYSLA MARIA VILELA",
+        "sexo": "F",
+        "matric": "7151"
+    },
+    {
+        "nro": "15",
+        "school_id": "1",
+        "school_class_id": "4",
+        "nome": "LUIS OTAVIO CORREIA GRAEFF",
+        "sexo": "M",
+        "matric": "7161"
+    },
+    {
+        "nro": "16",
+        "school_id": "1",
+        "school_class_id": "4",
+        "nome": "MARCUS ALEXANDRE DA SILVA VIANA",
+        "sexo": "M",
+        "matric": "7164"
+    },
+    {
+        "nro": "17",
+        "school_id": "1",
+        "school_class_id": "4",
+        "nome": "PEDRO ANTONIO BRITO NOGUEIRA BARBOSA",
+        "sexo": "M",
+        "matric": "7165"
+    },
+    {
+        "nro": "18",
+        "school_id": "1",
+        "school_class_id": "4",
+        "nome": "SAMUEL RICHARDS ARAUJO MACHADO FILHO",
+        "sexo": "M",
+        "matric": "7148"
+    },
+    {
+        "nro": "19",
+        "school_id": "1",
+        "school_class_id": "4",
+        "nome": "THANNIELLE EVANGELISTA BORGES DA SILVA",
+        "sexo": "F",
+        "matric": "7159"
+    },
+    {
+        "nro": "20",
+        "school_id": "1",
+        "school_class_id": "4",
+        "nome": "VANESSA VITORIA SOUSA MEDRADO",
+        "sexo": "F",
+        "matric": "7166"
+    },
+    {
+        "nro": "1",
+        "school_id": "2",
+        "school_class_id": "5",
+        "nome": "ALICE VITORIA LUZ LIMA",
+        "sexo": "F",
+        "matric": "3258"
+    },
+    {
+        "nro": "2",
+        "school_id": "2",
+        "school_class_id": "5",
+        "nome": "ALICE VITÓRIA SOARES DOS SANTOS",
+        "sexo": "F",
+        "matric": "3259"
+    },
+    {
+        "nro": "3",
+        "school_id": "2",
+        "school_class_id": "5",
+        "nome": "ANA GABRIELA FERREIRA DE SOUZA",
+        "sexo": "F",
+        "matric": "3260"
+    },
+    {
+        "nro": "4",
+        "school_id": "2",
+        "school_class_id": "5",
+        "nome": "ANA GABRIELA LIMA DE OLIVEIRA",
+        "sexo": "F",
+        "matric": "3607"
+    },
+    {
+        "nro": "5",
+        "school_id": "2",
+        "school_class_id": "5",
+        "nome": "ANA JULIA MARTINS DE SOUZA SANTOS",
+        "sexo": "F",
+        "matric": "3261"
+    },
+    {
+        "nro": "6",
+        "school_id": "2",
+        "school_class_id": "5",
+        "nome": "ANA JULIA SILVA LOPES",
+        "sexo": "F",
+        "matric": "3279"
+    },
+    {
+        "nro": "7",
+        "school_id": "2",
+        "school_class_id": "5",
+        "nome": "ANA VITORIA LIMA SOARES",
+        "sexo": "F",
+        "matric": "3262"
+    },
+    {
+        "nro": "8",
+        "school_id": "2",
+        "school_class_id": "5",
+        "nome": "ANNA ALYCE GOMES DE OLIVEIRA VALADARES",
+        "sexo": "F",
+        "matric": "3263"
+    },
+    {
+        "nro": "9",
+        "school_id": "2",
+        "school_class_id": "5",
+        "nome": "CECILIA GABRIELA OLIVEIRA NOGUEIRA",
+        "sexo": "F",
+        "matric": "3264"
+    },
+    {
+        "nro": "10",
+        "school_id": "2",
+        "school_class_id": "5",
+        "nome": "CLARA WALLENTINA DE SOUZA CEVADA",
+        "sexo": "F",
+        "matric": "3265"
+    },
+    {
+        "nro": "11",
+        "school_id": "2",
+        "school_class_id": "5",
+        "nome": "DAMARES SILVA DE CARVALHO",
+        "sexo": "F",
+        "matric": "3266"
+    },
+    {
+        "nro": "12",
+        "school_id": "2",
+        "school_class_id": "5",
+        "nome": "DANIELL HENRIQUE LOPES ROCHA",
+        "sexo": "M",
+        "matric": "3267"
+    },
+    {
+        "nro": "13",
+        "school_id": "2",
+        "school_class_id": "5",
+        "nome": "DAVI LUCAS HARTMANN GUIMARAES",
+        "sexo": "M",
+        "matric": "3596"
+    },
+    {
+        "nro": "14",
+        "school_id": "2",
+        "school_class_id": "5",
+        "nome": "EMANUELLY DOS SANTOS REICHERT",
+        "sexo": "F",
+        "matric": "3268"
+    },
+    {
+        "nro": "15",
+        "school_id": "2",
+        "school_class_id": "5",
+        "nome": "ENZO SALOMÃO BRUM RODRIGUES",
+        "sexo": "M",
+        "matric": "3269"
+    },
+    {
+        "nro": "16",
+        "school_id": "2",
+        "school_class_id": "5",
+        "nome": "FELIPE GABRIEL DA SILVA LUZ",
+        "sexo": "M",
+        "matric": "3604"
+    },
+    {
+        "nro": "17",
+        "school_id": "2",
+        "school_class_id": "5",
+        "nome": "GEOVANNA RESENDE BIEGER",
+        "sexo": "F",
+        "matric": "3270"
+    },
+    {
+        "nro": "18",
+        "school_id": "2",
+        "school_class_id": "5",
+        "nome": "IASMYN CECILIA GOMES SOUZA",
+        "sexo": "F",
+        "matric": "3280"
+    },
+    {
+        "nro": "19",
+        "school_id": "2",
+        "school_class_id": "5",
+        "nome": "ISABELLY PINHO SILVA DE BARROS",
+        "sexo": "F",
+        "matric": "3271"
+    },
+    {
+        "nro": "20",
+        "school_id": "2",
+        "school_class_id": "5",
+        "nome": "JULIA LEVISKI CAMARGO",
+        "sexo": "F",
+        "matric": "3272"
+    },
+    {
+        "nro": "21",
+        "school_id": "2",
+        "school_class_id": "5",
+        "nome": "LUYNE ZAMPIERI MOTA",
+        "sexo": "F",
+        "matric": "3274"
+    },
+    {
+        "nro": "22",
+        "school_id": "2",
+        "school_class_id": "5",
+        "nome": "MARIA EDUARDA OLIVEIRA PESSOA",
+        "sexo": "F",
+        "matric": "3605"
+    },
+    {
+        "nro": "23",
+        "school_id": "2",
+        "school_class_id": "5",
+        "nome": "MARIA FERNANDA MARTINS SANTOS",
+        "sexo": "F",
+        "matric": "3275"
+    },
+    {
+        "nro": "24",
+        "school_id": "2",
+        "school_class_id": "5",
+        "nome": "MARIA IZABELLA SANTOS",
+        "sexo": "F",
+        "matric": "3608"
+    },
+    {
+        "nro": "25",
+        "school_id": "2",
+        "school_class_id": "5",
+        "nome": "MARIA VALLENTINA ALLEN DA ROCHA",
+        "sexo": "F",
+        "matric": "3603"
+    },
+    {
+        "nro": "26",
+        "school_id": "2",
+        "school_class_id": "5",
+        "nome": "THAIS BACHELADENSKI ROCHA",
+        "sexo": "F",
+        "matric": "3276"
+    },
+    {
+        "nro": "27",
+        "school_id": "2",
+        "school_class_id": "5",
+        "nome": "THAUANY CAETANO DE MIRANDA",
+        "sexo": "F",
+        "matric": "3277"
+    },
+    {
+        "nro": "28",
+        "school_id": "2",
+        "school_class_id": "5",
+        "nome": "YASMIN VITORIA ALVES PARREIRA",
+        "sexo": "F",
+        "matric": "3278"
+    },
+    {
+        "nro": "29",
+        "school_id": "2",
+        "school_class_id": "5",
+        "nome": "YUDI CESAR SANTOS FERNANDES",
+        "sexo": "M",
+        "matric": "3606"
+    },
+    {
+        "nro": "1",
+        "school_id": "2",
+        "school_class_id": "6",
+        "nome": "ALICE ALMEIDA COSTA",
+        "sexo": "F",
+        "matric": "3307"
+    },
+    {
+        "nro": "2",
+        "school_id": "2",
+        "school_class_id": "6",
+        "nome": "ANNY VITORIA DA SILVA COSTA",
+        "sexo": "F",
+        "matric": "3304"
+    },
+    {
+        "nro": "3",
+        "school_id": "2",
+        "school_class_id": "6",
+        "nome": "ANTONIO VICTOR DE OLIVEIRA SARAIVA",
+        "sexo": "M",
+        "matric": "3288"
+    },
+    {
+        "nro": "4",
+        "school_id": "2",
+        "school_class_id": "6",
+        "nome": "CALEBE MACHADO DE AQUINO ALMEIDA",
+        "sexo": "M",
+        "matric": "3295"
+    },
+    {
+        "nro": "5",
+        "school_id": "2",
+        "school_class_id": "6",
+        "nome": "DAVI LUIZ DE OLIVEIRA BARBOSA",
+        "sexo": "M",
+        "matric": "3306"
+    },
+    {
+        "nro": "6",
+        "school_id": "2",
+        "school_class_id": "6",
+        "nome": "DAVI RODRIGUES LIMA",
+        "sexo": "M",
+        "matric": "3300"
+    },
+    {
+        "nro": "7",
+        "school_id": "2",
+        "school_class_id": "6",
+        "nome": "DAVID LUIS CARVALHO MARTINS",
+        "sexo": "M",
+        "matric": "3298"
+    },
+    {
+        "nro": "8",
+        "school_id": "2",
+        "school_class_id": "6",
+        "nome": "HEITOR SETUBA CARDOSO SILVA",
+        "sexo": "M",
+        "matric": "3293"
+    },
+    {
+        "nro": "9",
+        "school_id": "2",
+        "school_class_id": "6",
+        "nome": "HUGO GABRIEL DANTAS",
+        "sexo": "M",
+        "matric": "3289"
+    },
+    {
+        "nro": "10",
+        "school_id": "2",
+        "school_class_id": "6",
+        "nome": "IARA PATRICIA DE SOUZA BORGES",
+        "sexo": "F",
+        "matric": "3296"
+    },
+    {
+        "nro": "11",
+        "school_id": "2",
+        "school_class_id": "6",
+        "nome": "ISAAC ALVARES FERNANDES",
+        "sexo": "M",
+        "matric": "3282"
+    },
+    {
+        "nro": "12",
+        "school_id": "2",
+        "school_class_id": "6",
+        "nome": "ISADORA DE LIMA AMORIM CERQUEIRA",
+        "sexo": "F",
+        "matric": "3303"
+    },
+    {
+        "nro": "13",
+        "school_id": "2",
+        "school_class_id": "6",
+        "nome": "JOAO PYEDRO MENDANHA DA SILVA",
+        "sexo": "M",
+        "matric": "3283"
+    },
+    {
+        "nro": "14",
+        "school_id": "2",
+        "school_class_id": "6",
+        "nome": "JULIA GABRIELLY WEBER SOKOLOWSKI",
+        "sexo": "F",
+        "matric": "3299"
+    },
+    {
+        "nro": "15",
+        "school_id": "2",
+        "school_class_id": "6",
+        "nome": "MARIA CLARA AGUIAR DE SOUSA CLEMENTE",
+        "sexo": "F",
+        "matric": "3292"
+    },
+    {
+        "nro": "16",
+        "school_id": "2",
+        "school_class_id": "6",
+        "nome": "REBECA SOARES DE SOUSA",
+        "sexo": "F",
+        "matric": "3285"
+    },
+    {
+        "nro": "17",
+        "school_id": "2",
+        "school_class_id": "6",
+        "nome": "SOFIA MORAIS DE BRITO",
+        "sexo": "F",
+        "matric": "3287"
+    },
+    {
+        "nro": "18",
+        "school_id": "2",
+        "school_class_id": "6",
+        "nome": "SOPHIA BUENO FERREIRA",
+        "sexo": "F",
+        "matric": "3301"
+    },
+    {
+        "nro": "19",
+        "school_id": "2",
+        "school_class_id": "6",
+        "nome": "VYCTOR MANOEL SOUZA MARINHO",
+        "sexo": "M",
+        "matric": "3290"
+    },
+    {
+        "nro": "20",
+        "school_id": "2",
+        "school_class_id": "6",
+        "nome": "YASMIM COSTA FORTALEZA",
+        "sexo": "F",
+        "matric": "3297"
+    },
+    {
+        "nro": "21",
+        "school_id": "2",
+        "school_class_id": "6",
+        "nome": "CARLOS EMANUEL SOARES DA SILVA",
+        "sexo": "M",
+        "matric": "3609"
+    },
+    {
+        "nro": "22",
+        "school_id": "2",
+        "school_class_id": "6",
+        "nome": "MARIA IZABELLA SANTOS",
+        "sexo": "F",
+        "matric": "3623"
+    },
+    {
+        "nro": "1",
+        "school_id": "2",
+        "school_class_id": "7",
+        "nome": "EVYLLE LAYANNE CARVALHO DA SILVA",
+        "sexo": "F",
+        "matric": "3436"
+    },
+    {
+        "nro": "2",
+        "school_id": "2",
+        "school_class_id": "7",
+        "nome": "APARECIDO JHORDY MENEZES DA SILVA",
+        "sexo": "M",
+        "matric": "3281"
+    },
+    {
+        "nro": "3",
+        "school_id": "2",
+        "school_class_id": "7",
+        "nome": "DAVIH LUCAS DE ANDRADE SILVA",
+        "sexo": "M",
+        "matric": "3309"
+    },
+    {
+        "nro": "4",
+        "school_id": "2",
+        "school_class_id": "7",
+        "nome": "DAVY RODRIGUES TEIXEIRA",
+        "sexo": "M",
+        "matric": "3062"
+    },
+    {
+        "nro": "5",
+        "school_id": "2",
+        "school_class_id": "7",
+        "nome": "FELIPE GABRIEL MICHELS DE SOUZA",
+        "sexo": "M",
+        "matric": "3308"
+    },
+    {
+        "nro": "6",
+        "school_id": "2",
+        "school_class_id": "7",
+        "nome": "FRANCISCO CESARIO SOUZA",
+        "sexo": "M",
+        "matric": "3286"
+    },
+    {
+        "nro": "7",
+        "school_id": "2",
+        "school_class_id": "7",
+        "nome": "HELISA DE LIMA CASTRO",
+        "sexo": "F",
+        "matric": "3302"
+    },
+    {
+        "nro": "8",
+        "school_id": "2",
+        "school_class_id": "7",
+        "nome": "JOAO MIGUEL GONÇALVES SOARES",
+        "sexo": "M",
+        "matric": "3068"
+    },
+    {
+        "nro": "9",
+        "school_id": "2",
+        "school_class_id": "7",
+        "nome": "JOAO VICTOR DO NASCIMENTO RAMOS",
+        "sexo": "M",
+        "matric": "3482"
+    },
+    {
+        "nro": "10",
+        "school_id": "2",
+        "school_class_id": "7",
+        "nome": "LUIZ OTAVIO CORREIA DE FREITAS",
+        "sexo": "M",
+        "matric": "3069"
+    },
+    {
+        "nro": "11",
+        "school_id": "2",
+        "school_class_id": "7",
+        "nome": "NARUMY VICTORYA DA SILVA SCHMIDT",
+        "sexo": "F",
+        "matric": "3384"
+    },
+    {
+        "nro": "12",
+        "school_id": "2",
+        "school_class_id": "7",
+        "nome": "OTTAVYO TAVARES ALMEIDA",
+        "sexo": "M",
+        "matric": "3284"
+    },
+    {
+        "nro": "13",
+        "school_id": "2",
+        "school_class_id": "7",
+        "nome": "PEDRO HENRIQUE SILVA COSTA",
+        "sexo": "M",
+        "matric": "3294"
+    },
+    {
+        "nro": "14",
+        "school_id": "2",
+        "school_class_id": "7",
+        "nome": "PIEDRO HENRIQUE FERREIRA DA COSTA ROQUE PEREIRA",
+        "sexo": "M",
+        "matric": "3053"
+    },
+    {
+        "nro": "15",
+        "school_id": "2",
+        "school_class_id": "7",
+        "nome": "SARAH LUIZA CARDOSO DE SOUZA",
+        "sexo": "F",
+        "matric": "3305"
+    },
+    {
+        "nro": "16",
+        "school_id": "2",
+        "school_class_id": "7",
+        "nome": "THAIRINI ROSANGELA ALVES SOARES LEITE",
+        "sexo": "F",
+        "matric": "3381"
+    },
+    {
+        "nro": "17",
+        "school_id": "2",
+        "school_class_id": "7",
+        "nome": "LUCAS DANIEL PORTO MARTINS",
+        "sexo": "M",
+        "matric": "3610"
+    },
+    {
+        "nro": "18",
+        "school_id": "2",
+        "school_class_id": "7",
+        "nome": "EYSHILLA OLIVEIRA BRITO",
+        "sexo": "M",
+        "matric": "3611"
+    },
+    {
+        "nro": "19",
+        "school_id": "2",
+        "school_class_id": "7",
+        "nome": "DAVYLLA ELOISY DA PAIXÃO",
+        "sexo": "F",
+        "matric": "3612"
+    },
+    {
+        "nro": "20",
+        "school_id": "2",
+        "school_class_id": "7",
+        "nome": "ISABELLY NUNES FERREIRA",
+        "sexo": "F",
+        "matric": "3613"
+    },
+    {
+        "nro": "21",
+        "school_id": "2",
+        "school_class_id": "7",
+        "nome": "JEAN CARLLOS RIBEIRO MACHADO",
+        "sexo": "M",
+        "matric": "3614"
+    },
+    {
+        "nro": "22",
+        "school_id": "2",
+        "school_class_id": "7",
+        "nome": "JOAO GUILHERME LOPES FARIAS",
+        "sexo": "M",
+        "matric": "3618"
+    },
+    {
+        "nro": "1",
+        "school_id": "3",
+        "school_class_id": "8",
+        "nome": "ARANZA VALENTINA PINO GONZALEZ",
+        "sexo": "F",
+        "matric": "9049"
+    },
+    {
+        "nro": "2",
+        "school_id": "3",
+        "school_class_id": "8",
+        "nome": "EVILLYN REGINA FERNANDES DA SILVA",
+        "sexo": "F",
+        "matric": "9050"
+    },
+    {
+        "nro": "3",
+        "school_id": "3",
+        "school_class_id": "8",
+        "nome": "EYSHILLA VITORIA PAES GONÇALVES",
+        "sexo": "F",
+        "matric": "9051"
+    },
+    {
+        "nro": "4",
+        "school_id": "3",
+        "school_class_id": "8",
+        "nome": "FABIO AUGUSTO GOMES SANTOS",
+        "sexo": "M",
+        "matric": "9052"
+    },
+    {
+        "nro": "5",
+        "school_id": "3",
+        "school_class_id": "8",
+        "nome": "FRANCISCO ROBERTO FERREIRA",
+        "sexo": "M",
+        "matric": "9066"
+    },
+    {
+        "nro": "6",
+        "school_id": "3",
+        "school_class_id": "8",
+        "nome": "HELOYZA VITÓRIA DE ALMEIDA SILVA",
+        "sexo": "F",
+        "matric": "9667"
+    },
+    {
+        "nro": "7",
+        "school_id": "3",
+        "school_class_id": "8",
+        "nome": "ISABELLA ROCHA PIMENTEL",
+        "sexo": "F",
+        "matric": "9053"
+    },
+    {
+        "nro": "8",
+        "school_id": "3",
+        "school_class_id": "8",
+        "nome": "JOSE SOARES DA SILVA",
+        "sexo": "M",
+        "matric": "9054"
+    },
+    {
+        "nro": "9",
+        "school_id": "3",
+        "school_class_id": "8",
+        "nome": "JULIA VITORIA OLIVEIRA SILVA",
+        "sexo": "F",
+        "matric": "9055"
+    },
+    {
+        "nro": "10",
+        "school_id": "3",
+        "school_class_id": "8",
+        "nome": "KAUAN ARAUJO RIBEIRO",
+        "sexo": "M",
+        "matric": "9056"
+    },
+    {
+        "nro": "11",
+        "school_id": "3",
+        "school_class_id": "8",
+        "nome": "LUIS FERNANDO PIRES BARBOSA",
+        "sexo": "M",
+        "matric": "9057"
+    },
+    {
+        "nro": "12",
+        "school_id": "3",
+        "school_class_id": "8",
+        "nome": "MIQUEIAS NATAN CARVALHO ALVES",
+        "sexo": "M",
+        "matric": "9058"
+    },
+    {
+        "nro": "13",
+        "school_id": "3",
+        "school_class_id": "8",
+        "nome": "MIRYAM CAETANO OLIVEIRA",
+        "sexo": "F",
+        "matric": "9059"
+    },
+    {
+        "nro": "14",
+        "school_id": "3",
+        "school_class_id": "8",
+        "nome": "MYLENA MACHADO MUHL",
+        "sexo": "F",
+        "matric": "9060"
+    },
+    {
+        "nro": "15",
+        "school_id": "3",
+        "school_class_id": "8",
+        "nome": "NICOLY ALVES SCHWANTES",
+        "sexo": "F",
+        "matric": "9061"
+    },
+    {
+        "nro": "16",
+        "school_id": "3",
+        "school_class_id": "8",
+        "nome": "RICARDO JUNIOR DOURADO SANTOS",
+        "sexo": "M",
+        "matric": "9064"
+    },
+    {
+        "nro": "17",
+        "school_id": "3",
+        "school_class_id": "8",
+        "nome": "SAMUEL DO CARMO PEREIRA",
+        "sexo": "M",
+        "matric": "9068"
+    },
+    {
+        "nro": "18",
+        "school_id": "3",
+        "school_class_id": "8",
+        "nome": "SOFIA VITORIA ZAINSKOSKI WAGNER",
+        "sexo": "F",
+        "matric": "9062"
+    },
+    {
+        "nro": "19",
+        "school_id": "3",
+        "school_class_id": "8",
+        "nome": "VITOR HUGO SOUZA DARUI PRACHEDES",
+        "sexo": "M",
+        "matric": "9063"
+    },
+    {
+        "nro": "20",
+        "school_id": "3",
+        "school_class_id": "8",
+        "nome": "YONAH VASCONCELOS DE FREITAS",
+        "sexo": "F",
+        "matric": "9065"
+    },
+    {
+        "nro": "1",
+        "school_id": "3",
+        "school_class_id": "9",
+        "nome": "ADRYAN LINDENMAYR DOS SANTOS",
+        "sexo": "M",
+        "matric": "9069"
+    },
+    {
+        "nro": "2",
+        "school_id": "3",
+        "school_class_id": "9",
+        "nome": "ALLAN FELIPE DA LUZ SOUZA",
+        "sexo": "M",
+        "matric": "9070"
+    },
+    {
+        "nro": "3",
+        "school_id": "3",
+        "school_class_id": "9",
+        "nome": "ANA KLARA DE SOUSA CARVALHO",
+        "sexo": "F",
+        "matric": "9075"
+    },
+    {
+        "nro": "4",
+        "school_id": "3",
+        "school_class_id": "9",
+        "nome": "CRISTIELY NUNES DE OLIVEIRA",
+        "sexo": "F",
+        "matric": "9071"
+    },
+    {
+        "nro": "5",
+        "school_id": "3",
+        "school_class_id": "9",
+        "nome": "DAVI BRYAN GOMES AZEVEDO",
+        "sexo": "M",
+        "matric": "9076"
+    },
+    {
+        "nro": "6",
+        "school_id": "3",
+        "school_class_id": "9",
+        "nome": "ENZO ROMERO ARAUJO",
+        "sexo": "M",
+        "matric": "9082"
+    },
+    {
+        "nro": "7",
+        "school_id": "3",
+        "school_class_id": "9",
+        "nome": "ÉRICKA ELOÁ GOMES SILVA",
+        "sexo": "F",
+        "matric": "9083"
+    },
+    {
+        "nro": "8",
+        "school_id": "3",
+        "school_class_id": "9",
+        "nome": "GABRIELLY FERREIRA DA SILVA VICENTE",
+        "sexo": "F",
+        "matric": "9079"
+    },
+    {
+        "nro": "9",
+        "school_id": "3",
+        "school_class_id": "9",
+        "nome": "GUILHERME VIEIRA ROCHA CARVALHO",
+        "sexo": "M",
+        "matric": "9072"
+    },
+    {
+        "nro": "10",
+        "school_id": "3",
+        "school_class_id": "9",
+        "nome": "ISABELLA RYHANNY RODRIGUES JORGE",
+        "sexo": "F",
+        "matric": "9080"
+    },
+    {
+        "nro": "11",
+        "school_id": "3",
+        "school_class_id": "9",
+        "nome": "JULIA PEREIRA ARAUJO",
+        "sexo": "F",
+        "matric": "9081"
+    },
+    {
+        "nro": "12",
+        "school_id": "3",
+        "school_class_id": "9",
+        "nome": "KAROLLYNE VITORYA BATISTA BRITO",
+        "sexo": "F",
+        "matric": "9077"
+    },
+    {
+        "nro": "13",
+        "school_id": "3",
+        "school_class_id": "9",
+        "nome": "MARIA VITORIA ANTUNES ALVES GOUVEIA",
+        "sexo": "F",
+        "matric": "9073"
+    },
+    {
+        "nro": "14",
+        "school_id": "3",
+        "school_class_id": "9",
+        "nome": "MARIANA RIBEIRO DA SILVA",
+        "sexo": "F",
+        "matric": "9084"
+    },
+    {
+        "nro": "15",
+        "school_id": "3",
+        "school_class_id": "9",
+        "nome": "WALMYR MIGUEL DA SILVA ROCHA",
+        "sexo": "M",
+        "matric": "9078"
+    },
+    {
+        "nro": "16",
+        "school_id": "3",
+        "school_class_id": "9",
+        "nome": "YASMIN CRISTINA INÁCIO FARIAS",
+        "sexo": "F",
+        "matric": "9074"
+    },
+    {
+        "nro": "1",
+        "school_id": "3",
+        "school_class_id": "10",
+        "nome": "ANA JÚLIA FREITAS DA SILVA",
+        "sexo": "F",
+        "matric": "9087"
+    },
+    {
+        "nro": "2",
+        "school_id": "3",
+        "school_class_id": "10",
+        "nome": "DANILLO THIAGO GUEDES PEREIRA",
+        "sexo": "M",
+        "matric": "9088"
+    },
+    {
+        "nro": "3",
+        "school_id": "3",
+        "school_class_id": "10",
+        "nome": "EMANUEL KIYOSHI MENDOZA PEÑA",
+        "sexo": "M",
+        "matric": "9089"
+    },
+    {
+        "nro": "4",
+        "school_id": "3",
+        "school_class_id": "10",
+        "nome": "EMANUELLE VITORIA FIRMINO DE ALMEIDA",
+        "sexo": "F",
+        "matric": "9097"
+    },
+    {
+        "nro": "5",
+        "school_id": "3",
+        "school_class_id": "10",
+        "nome": "EMANUELLY RODRIGUES RINALDI",
+        "sexo": "F",
+        "matric": "9098"
+    },
+    {
+        "nro": "6",
+        "school_id": "3",
+        "school_class_id": "10",
+        "nome": "FERNANDA INÁCIO MAIA",
+        "sexo": "F",
+        "matric": "9099"
+    },
+    {
+        "nro": "7",
+        "school_id": "3",
+        "school_class_id": "10",
+        "nome": "GEOVANI GABRIEL LIMA ZANDONADI",
+        "sexo": "M",
+        "matric": "9100"
+    },
+    {
+        "nro": "8",
+        "school_id": "3",
+        "school_class_id": "10",
+        "nome": "GEOVANNA VITORIA SILVA SANTOS",
+        "sexo": "F",
+        "matric": "9085"
+    },
+    {
+        "nro": "9",
+        "school_id": "3",
+        "school_class_id": "10",
+        "nome": "IKARO RODRIGUES DE SOUZA",
+        "sexo": "M",
+        "matric": "9090"
+    },
+    {
+        "nro": "10",
+        "school_id": "3",
+        "school_class_id": "10",
+        "nome": "JHENNIFER RAYLLANE PINTO ALVES",
+        "sexo": "F",
+        "matric": "9105"
+    },
+    {
+        "nro": "11",
+        "school_id": "3",
+        "school_class_id": "10",
+        "nome": "JOSE IGOR RIBEIRO FERREIRA",
+        "sexo": "M",
+        "matric": "9091"
+    },
+    {
+        "nro": "12",
+        "school_id": "3",
+        "school_class_id": "10",
+        "nome": "KALLEBY RODRIGUES MUNIR",
+        "sexo": "M",
+        "matric": "9086"
+    },
+    {
+        "nro": "13",
+        "school_id": "3",
+        "school_class_id": "10",
+        "nome": "LUIZ FERNANDO FERREIRA JAVAE",
+        "sexo": "M",
+        "matric": "9101"
+    },
+    {
+        "nro": "14",
+        "school_id": "3",
+        "school_class_id": "10",
+        "nome": "MARIA VITORIA DUARTE GONÇALVES",
+        "sexo": "F",
+        "matric": "9092"
+    },
+    {
+        "nro": "15",
+        "school_id": "3",
+        "school_class_id": "10",
+        "nome": "MIRIAN EDUARDA MARTINS NONATO",
+        "sexo": "F",
+        "matric": "9102"
+    },
+    {
+        "nro": "16",
+        "school_id": "3",
+        "school_class_id": "10",
+        "nome": "NATHALIA MORAIS MIRANDA",
+        "sexo": "F",
+        "matric": "9093"
+    },
+    {
+        "nro": "17",
+        "school_id": "3",
+        "school_class_id": "10",
+        "nome": "RAFAELLA CRISTINY SILVA ALVES",
+        "sexo": "F",
+        "matric": "9094"
+    },
+    {
+        "nro": "18",
+        "school_id": "3",
+        "school_class_id": "10",
+        "nome": "RENAN REGIS GUEDES MOURA",
+        "sexo": "M",
+        "matric": "9103"
+    },
+    {
+        "nro": "19",
+        "school_id": "3",
+        "school_class_id": "10",
+        "nome": "SAMUEL ANTÔNIO GRACIANO DA SILVA",
+        "sexo": "M",
+        "matric": "9095"
+    },
+    {
+        "nro": "20",
+        "school_id": "3",
+        "school_class_id": "10",
+        "nome": "TAYRO EDUARDO HECK ALCANTU",
+        "sexo": "M",
+        "matric": "9096"
+    },
+    {
+        "nro": "21",
+        "school_id": "3",
+        "school_class_id": "10",
+        "nome": "THALLYS ADRIEL ALMEIDA SIRQUEIRA",
+        "sexo": "F",
+        "matric": "9104"
+    },
+    {
+        "nro": "1",
+        "school_id": "3",
+        "school_class_id": "11",
+        "nome": "ADRIEL BIBERG DA SILVA",
+        "sexo": "M",
+        "matric": "9112"
+    },
+    {
+        "nro": "2",
+        "school_id": "3",
+        "school_class_id": "11",
+        "nome": "ALÍCIA DE PAULA BERALDO",
+        "sexo": "F",
+        "matric": "9121"
+    },
+    {
+        "nro": "3",
+        "school_id": "3",
+        "school_class_id": "11",
+        "nome": "ANNY ISABELLY DE JESUS EVANGELISTA",
+        "sexo": "F",
+        "matric": "9106"
+    },
+    {
+        "nro": "4",
+        "school_id": "3",
+        "school_class_id": "11",
+        "nome": "BRENO LUAN NERIS DA SILVA",
+        "sexo": "M",
+        "matric": "9107"
+    },
+    {
+        "nro": "5",
+        "school_id": "3",
+        "school_class_id": "11",
+        "nome": "DAVI AURELIO COSTA MELO",
+        "sexo": "M",
+        "matric": "9113"
+    },
+    {
+        "nro": "6",
+        "school_id": "3",
+        "school_class_id": "11",
+        "nome": "DHIENNYFER LUIZA NUNES SANTOS",
+        "sexo": "F",
+        "matric": "9114"
+    },
+    {
+        "nro": "7",
+        "school_id": "3",
+        "school_class_id": "11",
+        "nome": "EMERSON VITOR TORRES DE ARAÚJO",
+        "sexo": "M",
+        "matric": "9108"
+    },
+    {
+        "nro": "8",
+        "school_id": "3",
+        "school_class_id": "11",
+        "nome": "GUSTAVO HENRICK CASTRO DA SILVA CARVALHO",
+        "sexo": "M",
+        "matric": "9115"
+    },
+    {
+        "nro": "9",
+        "school_id": "3",
+        "school_class_id": "11",
+        "nome": "GUSTAVO HENRIQUE ALVES DE ABREU",
+        "sexo": "M",
+        "matric": "9116"
+    },
+    {
+        "nro": "10",
+        "school_id": "3",
+        "school_class_id": "11",
+        "nome": "HULLICIS EMANUEL MATIAS ALVES",
+        "sexo": "M",
+        "matric": "9117"
+    },
+    {
+        "nro": "11",
+        "school_id": "3",
+        "school_class_id": "11",
+        "nome": "JOÃO MIGUEL PARODO ROCHA",
+        "sexo": "M",
+        "matric": "9122"
+    },
+    {
+        "nro": "12",
+        "school_id": "3",
+        "school_class_id": "11",
+        "nome": "JOÃO PEDRO MARINO DOS SANTOS",
+        "sexo": "M",
+        "matric": "9109"
+    },
+    {
+        "nro": "13",
+        "school_id": "3",
+        "school_class_id": "11",
+        "nome": "JOSE MIGUEL TAVARES BORGES",
+        "sexo": "M",
+        "matric": "9118"
+    },
+    {
+        "nro": "14",
+        "school_id": "3",
+        "school_class_id": "11",
+        "nome": "LARISSA FELIX DE SOUZA",
+        "sexo": "F",
+        "matric": "9123"
+    },
+    {
+        "nro": "15",
+        "school_id": "3",
+        "school_class_id": "11",
+        "nome": "LUZÉRENO TSEREPRO",
+        "sexo": "M",
+        "matric": "9110"
+    },
+    {
+        "nro": "16",
+        "school_id": "3",
+        "school_class_id": "11",
+        "nome": "NIKOLAS PIETRO BATISTA DE MELO",
+        "sexo": "M",
+        "matric": "9119"
+    },
+    {
+        "nro": "17",
+        "school_id": "3",
+        "school_class_id": "11",
+        "nome": "RYAN LUCAS ARAUJO SANTOS",
+        "sexo": "M",
+        "matric": "9120"
+    },
+    {
+        "nro": "18",
+        "school_id": "3",
+        "school_class_id": "11",
+        "nome": "THAYNE VITORIA OLIVEIRA ARAUJO",
+        "sexo": "F",
+        "matric": "9111"
+    },
+    {
+        "nro": "19",
+        "school_id": "3",
+        "school_class_id": "11",
+        "nome": "LILIAN TEIXEIRA DE OLIVEIRA",
+        "sexo": "F",
+        "matric": "9124"
+    }
+]

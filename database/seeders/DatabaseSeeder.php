@@ -23,12 +23,12 @@ class DatabaseSeeder extends Seeder
 
         Model::unguard();
         $this->call([
-            UserSeeder::class,
             StateSeeder::class,
             CitySeeder::class,
+            UserSeeder::class,
             SchoolSeeder::class,
-            // SchoolClassSeeder::class,
-            // StudentSeeder::class,
+            SchoolClassSeeder::class,
+            StudentSeeder::class,
             // SwapSeeder::class,
         ]);
         // SponsorSeeder::class

@@ -6,6 +6,8 @@ namespace App\Models;
 
 use Filament\Models\Contracts\FilamentUser;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -50,6 +52,31 @@ class User extends Authenticatable implements FilamentUser
     public function canAccessFilament(): bool
     {
         return $this->hasPermissionTo('access_admin');
+    }
+
+    public function city(): BelongsTo
+    {
+        return $this->belongsTo(City::class);
+    }
+
+    // public function cities(): BelongsToMany
+    // {
+    //     return $this->belongsToMany(City::class, 'city_has_users');
+    // }
+
+    // public function city(): BelongsToMany
+    // {
+    //     return $this->belongsToMany(City::class, 'city_has_users');
+    // }
+
+    public function secretary(): ?HasOne
+    {
+        return $this->hasOne(City::class, 'manager_id');
+    }
+
+    public function manager(): ?HasOne
+    {
+        return $this->hasOne(School::class, 'manager_id');
     }
 
     public function coordinator(): ?HasOne

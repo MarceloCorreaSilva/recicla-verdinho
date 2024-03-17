@@ -139,17 +139,32 @@ class StudentResource extends Resource
 
     public static function getEloquentQuery(): Builder
     {
-        return auth()->user()->hasRole(['Developer', 'Admin'])
-            ? parent::getEloquentQuery()
-            : parent::getEloquentQuery()->whereHas(
+        if (auth()->user()->hasRole(['Developer', 'Admin'])) {
+            return parent::getEloquentQuery();
+        } else if (auth()->user()->hasRole(['Secretario'])) {
+            return parent::getEloquentQuery()->whereHas(
                 relation: 'school_class',
-                callback: function (Builder $query) {
-                    if (isset(auth()->user()->coordinator->id)) {
-                        return $query->where('school_id', auth()->user()->coordinator->id);
-                    }
-
-                    return null;
-                }
+                callback: fn (Builder $query) => $query
+                    ->join('schools', 'schools.id', '=', 'school_classes.school_id')
+                    ->join('cities', 'cities.id', '=', 'schools.city_id')
+                    ->where('cities.secretary_id', auth()->user()->id)
             );
+        } else if (auth()->user()->hasRole(['Gerente'])) {
+            return parent::getEloquentQuery()->whereHas(
+                relation: 'school_class',
+                callback: fn (Builder $query) => $query
+                    ->join('schools', 'schools.id', '=', 'school_classes.school_id')
+                    ->where('schools.manager_id', auth()->user()->id)
+            );
+        } else if (auth()->user()->hasRole(['Coordenador'])) {
+            return parent::getEloquentQuery()->whereHas(
+                relation: 'school_class',
+                callback: fn (Builder $query) => $query
+                    ->join('schools', 'schools.id', '=', 'school_classes.school_id')
+                    ->where('schools.coordinator_id', auth()->user()->id)
+            );
+        }
+
+        return parent::getEloquentQuery();
     }
 }

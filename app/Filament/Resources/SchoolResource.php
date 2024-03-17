@@ -24,7 +24,7 @@ class SchoolResource extends Resource
 
     protected static ?string $slug = 'escolas';
 
-    protected static ?int $navigationSort = 1;
+    protected static ?int $navigationSort = 2;
     protected static ?string $navigationGroup = 'Escolas';
     protected static ?string $navigationIcon = 'heroicon-o-academic-cap';
 
@@ -65,9 +65,21 @@ class SchoolResource extends Resource
                             ->required(),
                     ]),
 
-                Forms\Components\Section::make('Coordenador')
-                    ->columns(1)
+                Forms\Components\Section::make('Gerente / Coordenador')
+                    ->columns(2)
                     ->schema([
+                        Forms\Components\Select::make('manager')
+                            ->label('Gerente')
+                            ->relationship(
+                                'manager',
+                                'name',
+                                fn (Builder $query): Builder => $query
+                                    ->whereHas(
+                                        'roles',
+                                        callback: fn (Builder $query) => $query->where('name', 'Gerente')
+                                    )
+                            ),
+
                         Forms\Components\Select::make('coordinator')
                             ->label('Coordenador')
                             ->relationship(
@@ -113,13 +125,18 @@ class SchoolResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('city.name')
-                    ->label('Cidade')
-                    ->sortable(),
+                // Tables\Columns\TextColumn::make('city.name')
+                //     ->label('Cidade')
+                //     ->sortable(),
                 Tables\Columns\TextColumn::make('name')
+                    ->description(fn (School $record): string => 'Municipio: ' . $record->city->name)
                     ->label('Escola')
                     ->sortable()
                     ->searchable(),
+
+                Tables\Columns\TextColumn::make('manager.name')
+                    // ->boolean()
+                    ->label('Gerente'),
 
                 Tables\Columns\TextColumn::make('coordinator.name')
                     // ->boolean()
@@ -128,6 +145,10 @@ class SchoolResource extends Resource
                 Tables\Columns\TextColumn::make('school_classes_count')
                     ->counts('school_classes')
                     ->label('Nº Turmas'),
+
+                Tables\Columns\TextColumn::make('students_count')
+                    ->counts('students')
+                    ->label('Nº Aluno'),
 
                 Tables\Columns\TextColumn::make('limit_per_swap')
                     ->label('Limite Reciclaveis/Troca'),
@@ -186,8 +207,20 @@ class SchoolResource extends Resource
 
     public static function getEloquentQuery(): Builder
     {
-        return auth()->user()->hasRole(['Developer', 'Admin'])
-            ? parent::getEloquentQuery()
-            : parent::getEloquentQuery()->where('coordinator_id', auth()->id());
+        if (auth()->user()->hasRole(['Developer', 'Admin'])) {
+            return parent::getEloquentQuery();
+        } else if (auth()->user()->hasRole(['Secretario'])) {
+            return parent::getEloquentQuery()->whereHas(
+                relation: 'city',
+                callback: fn (Builder $query) => $query
+                    ->where('cities.secretary_id', auth()->user()->id)
+            );
+        } else if (auth()->user()->hasRole(['Gerente'])) {
+            return parent::getEloquentQuery()->where('manager_id', auth()->user()->id);
+        } else if (auth()->user()->hasRole(['Coordenador'])) {
+            return parent::getEloquentQuery()->where('coordinator_id', auth()->user()->id);
+        }
+
+        return parent::getEloquentQuery();
     }
 }

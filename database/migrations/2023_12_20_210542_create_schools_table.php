@@ -19,6 +19,9 @@ return new class extends Migration
 
             $table->integer('limit_per_swap');
 
+            $table->unsignedBigInteger('manager_id')->nullable();
+            $table->foreign('manager_id')->references('id')->on('users');
+
             $table->unsignedBigInteger('coordinator_id')->nullable();
             $table->foreign('coordinator_id')->references('id')->on('users');
 

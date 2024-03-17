@@ -13,8 +13,11 @@ class Student extends Model
     use HasFactory;
 
     protected $fillable = [
+        'school_id',
         'school_class_id',
-        'name'
+        'registration',
+        'name',
+        'gender'
     ];
 
     /**
@@ -26,6 +29,11 @@ class Student extends Model
         'created_at',
         'updated_at',
     ];
+
+    public function school(): BelongsTo
+    {
+        return $this->belongsTo(School::class);
+    }
 
     public function school_class(): BelongsTo
     {

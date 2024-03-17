@@ -57,3 +57,9 @@ Route::get('swaps/{swap}', [SwapsController::class, 'show']);
 // API Trocas
 // https://painel.reciclaverdinho.com.br/api/swaps
 // https://painel.reciclaverdinho.com.br/api/swaps/today
+
+
+// https://medium.com/@miladev95/how-to-create-rest-api-crud-in-laravel-10-8a5d09cd7901
+
+// How to document your Laravel API with Swagger and PHP attributes
+// https://medium.com/@nelsonisioma1/how-to-document-your-laravel-api-with-swagger-and-php-attributes-1564fc11c305

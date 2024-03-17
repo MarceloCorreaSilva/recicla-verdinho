@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\SwapResource\Pages;
 use App\Filament\Resources\SwapResource\RelationManagers;
+use App\Models\City;
 use App\Models\School;
 use App\Models\SchoolClass;
 use App\Models\Student;
@@ -67,11 +68,19 @@ class SwapResource extends Resource
                         Forms\Components\Select::make('schools')
                             ->label('Escolas')
                             ->options(function () {
-                                if (auth()->user()->coordinator) {
-                                    return School::where('coordinator_id', '=', auth()->user()->coordinator->coordinator_id)->pluck('name', 'id')->toArray();
+                                if (auth()->user()->hasRole(['Developer', 'Admin'])) {
+                                    return School::all()->pluck('name', 'id')->toArray();
                                 }
-
-                                return School::all()->pluck('name', 'id')->toArray();
+                                if (auth()->user()->hasRole(['Secretario'])) {
+                                    $city = City::where('secretary_id', '=', auth()->user()->id)->first();
+                                    return $city->schools->pluck('name', 'id')->toArray() ?? [];
+                                }
+                                if (auth()->user()->hasRole(['Gerente'])) {
+                                    return School::where('manager_id', '=', auth()->user()->id)->pluck('name', 'id')->toArray();
+                                }
+                                if (auth()->user()->hasRole(['Coordenador'])) {
+                                    return School::where('coordinator_id', '=', auth()->user()->id)->pluck('name', 'id')->toArray();
+                                }
                             })
                             ->afterStateUpdated(function (Closure $get, Closure $set, ?string $state) {
                                 $set('school_classes', '');
@@ -290,41 +299,79 @@ class SwapResource extends Resource
                     ->label('Verdinhos')
                     ->sortable(),
             ])
-            ->filters([
-                SelectFilter::make('Turma')
-                    ->relationship('student', 'name', function (Builder $query) {
-                        if (isset(auth()->user()->coordinator->id)) {
-                            return $query
-                                ->select('school_classes.*')
-                                ->join('school_classes', 'school_classes.id', '=', 'students.school_class_id')
-                                ->join('schools', 'schools.id', '=', 'school_classes.school_id')
-                                ->where('school_id', auth()->user()->coordinator->id)
-                                ->orderBy('school_classes.name');
-                        }
+            // ->filters([
+            //     SelectFilter::make('Turma')
+            //         ->relationship('student', 'name', function (Builder $query) {
+            //             if (isset(auth()->user()->manager->id)) {
+            //                 return $query
+            //                     ->whereHas(
+            //                         relation: 'school_class',
+            //                         callback: fn (Builder $query) => $query
+            //                             ->join('school_classes', 'school_classes.id', '=', 'students.school_class_id')
+            //                             ->join('schools', 'schools.id', '=', 'school_classes.school_id')
+            //                             ->where('schools.manager_id', auth()->user()->id)
+            //                     )
+            //                     ->orderBy('school_classes.name');
+            //             }
 
-                        return $query
-                            ->select('school_classes.*')
-                            ->join('school_classes', 'school_classes.id', '=', 'students.school_class_id')
-                            ->join('schools', 'schools.id', '=', 'school_classes.school_id')
-                            ->orderBy('school_classes.name');
-                    }),
+            //             if (isset(auth()->user()->coordinator->id)) {
+            //                 return [];
+            //                 return $query
+            //                     ->whereHas(
+            //                         relation: 'school_class',
+            //                         callback: fn (Builder $query) => $query
+            //                             ->select('school_classes.*')
+            //                             ->join('school_classes', 'school_classes.id', '=', 'students.school_class_id')
+            //                             ->join('schools', 'schools.id', '=', 'school_classes.school_id')
+            //                             ->where('schools.coordinator_id', auth()->user()->id)
+            //                     )
+            //                     ->orderBy('school_classes.name');
+            //             }
 
-                SelectFilter::make('Aluno')
-                    // ->relationship('student', 'name')
-                    ->relationship('student', 'name', function (Builder $query) {
-                        if (isset(auth()->user()->coordinator->id)) {
-                            return $query
-                                ->select('students.*')
-                                ->join('school_classes', 'school_classes.id', '=', 'students.school_class_id')
-                                ->join('schools', 'schools.id', '=', 'school_classes.school_id')
-                                ->where('school_id', auth()->user()->coordinator->id)
-                                ->orderBy('school_classes.name');
-                        }
+            //             return $query;
+            //         })
 
-                        return null;
-                    })
-                    ->searchable()
-            ])
+            //         ->relationship('student', 'name', function (Builder $query) {
+            //             // if (isset(auth()->user()->coordinator->id)) {
+            //             //     return $query
+            //             //         ->select('school_classes.*')
+            //             //         ->join('school_classes', 'school_classes.id', '=', 'students.school_class_id')
+            //             //         ->join('schools', 'schools.id', '=', 'school_classes.school_id')
+            //             //         ->where('school_id', auth()->user()->coordinator->id)
+            //             //         ->orderBy('school_classes.name');
+            //             // }
+
+            //             return $query
+            //                 ->select('school_classes.*')
+            //                 ->join('school_classes', 'school_classes.id', '=', 'students.school_class_id')
+            //                 ->join('schools', 'schools.id', '=', 'school_classes.school_id')
+            //                 ->orderBy('school_classes.name');
+            //         }),
+
+            //     SelectFilter::make('Aluno')
+            //         ->relationship('student', 'name', function (Builder $query) {
+            //             if (isset(auth()->user()->manager->id)) {
+            //                 return $query
+            //                     ->whereHas(
+            //                         relation: 'school',
+            //                         callback: fn (Builder $query) => $query->where('schools.manager_id', auth()->user()->id)
+            //                     )
+            //                     ->orderBy('students.name');
+            //             }
+
+            //             if (isset(auth()->user()->coordinator->id)) {
+            //                 return $query
+            //                     ->whereHas(
+            //                         relation: 'school',
+            //                         callback: fn (Builder $query) => $query->where('schools.coordinator_id', auth()->user()->id)
+            //                     )
+            //                     ->orderBy('students.name');
+            //             }
+
+            //             return $query;
+            //         })
+            //         ->searchable()
+            // ])
             ->actions([
                 Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
@@ -354,28 +401,103 @@ class SwapResource extends Resource
 
     public static function getEloquentQuery(): Builder
     {
-        return auth()->user()->hasRole(['Developer', 'Admin'])
-            ? parent::getEloquentQuery()
-            : parent::getEloquentQuery()->whereHas(
+        if (auth()->user()->hasRole(['Developer', 'Admin'])) {
+            return parent::getEloquentQuery();
+        }
+
+        if (auth()->user()->hasRole(['Secretario'])) {
+            return parent::getEloquentQuery()->whereHas(
                 relation: 'student',
                 callback: fn (Builder $query) => $query
                     ->join('school_classes', 'school_classes.id', '=', 'students.school_class_id')
                     ->join('schools', 'schools.id', '=', 'school_classes.school_id')
-                    ->where('school_id', auth()->user()->coordinator->id)
+                    ->join('cities', 'cities.id', '=', 'schools.city_id')
+                    ->where('cities.secretary_id', auth()->user()->id)
+            );
+        }
+
+        if (auth()->user()->hasRole(['Coordenador'])) {
+            // dd([
+            //     'Coordenador' => true,
+            //     'user' => auth()->user()->toArray(),
+            //     '1' => parent::getEloquentQuery()->whereHas(
+            //         relation: 'student',
+            //         callback: fn (Builder $query) => $query->whereHas(
+            //             relation: 'school',
+            //             callback: fn (Builder $query) => $query->where('schools.coordinator_id', auth()->user()->id)
+            //         )
+            //     )->get(),
+            //     // 'builder' => parent::getEloquentQuery()->whereHas(
+            //     //     relation: 'student',
+            //     //     callback: fn (Builder $query) => $query
+            //     //         // ->join('school_classes', 'school_classes.id', '=', 'students.school_class_id')
+            //     //         // ->join('schools', 'schools.id', '=', 'school_classes.school_id')
+            //     //         // ->where('schools.coordinator_id', auth()->user()->id)
+            //     //         ->get()
+            //     // )
+            // ]);
+            // return parent::getEloquentQuery()->whereHas(
+            //     relation: 'student',
+            //     callback: fn (Builder $query) => $query
+            //         ->select('swaps' . '*')
+            //         ->join('school_classes', 'school_classes.id', '=', 'students.school_class_id')
+            //         ->join('schools', 'schools.id', '=', 'school_classes.school_id')
+            //         ->where('schools.manager_id', auth()->user()->id)
+            //         ->orWhere('schools.coordinator_id', auth()->user()->id)
+            // );
+
+            return parent::getEloquentQuery()
+                ->whereHas(
+                    relation: 'student',
+                    callback: fn (Builder $query) => $query->whereHas(
+                        relation: 'school',
+                        callback: fn (Builder $query) => $query->where('schools.coordinator_id', auth()->user()->id)
+                    )
+                );
+        }
+
+        if (auth()->user()->hasRole(['Gerente'])) {
+            // dd([
+            //     'Gerente' => true,
+            //     'user' => auth()->user()->toArray(),
+            //     'builder' => parent::getEloquentQuery()->whereHas(
+            //         relation: 'student',
+            //         callback: fn (Builder $query) => $query
+            //             ->join('school_classes', 'school_classes.id', '=', 'students.school_class_id')
+            //             ->join('schools', 'schools.id', '=', 'school_classes.school_id')
+            //             ->where('schools.manager_id', auth()->user()->id)
+            //     )
+            // ]);
+            return parent::getEloquentQuery()->whereHas(
+                relation: 'student',
+                callback: fn (Builder $query) => $query->whereHas(
+                    relation: 'school',
+                    callback: fn (Builder $query) => $query->where('schools.manager_id', auth()->user()->id)
+                )
             );
 
+            // return parent::getEloquentQuery()->whereHas(
+            //     relation: 'student',
+            //     callback: fn (Builder $query) => $query
+            //         ->join('school_classes', 'school_classes.id', '=', 'students.school_class_id')
+            //         ->join('schools', 'schools.id', '=', 'school_classes.school_id')
+            //         ->where('schools.manager_id', auth()->user()->id)
+            //         ->orWhere('schools.coordinator_id', auth()->user()->id)
+            // );
+        }
 
-        // ->relationship('student', 'name', function (Builder $query) {
-        //     if (isset(auth()->user()->coordinator->id)) {
-        //         return $query
-        //             ->select('students.*')
+
+        // else if (auth()->user()->hasRole(['Coordenador'])) {
+        //     // return parent::getEloquentQuery();
+        //     return parent::getEloquentQuery()->whereHas(
+        //         relation: 'student',
+        //         callback: fn (Builder $query) => $query
         //             ->join('school_classes', 'school_classes.id', '=', 'students.school_class_id')
         //             ->join('schools', 'schools.id', '=', 'school_classes.school_id')
-        //             ->where('school_id', auth()->user()->coordinator->id)
-        //             ->orderBy('school_classes.name');
-        //     }
+        //             ->where('schools.coordinator_id', auth()->user()->id)
+        //     );
+        // }
 
-        //     return null;
-        // })
+        // return parent::getEloquentQuery();
     }
 }

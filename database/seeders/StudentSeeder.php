@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\SchoolClass;
 use App\Models\Student;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\File;
 
 class StudentSeeder extends Seeder
 {
@@ -14,16 +14,27 @@ class StudentSeeder extends Seeder
      */
     public function run(): void
     {
-        $schoolClasses = SchoolClass::all();
+        // $schoolClasses = SchoolClass::all();
 
-        foreach ($schoolClasses as $schoolClass) {
+        // foreach ($schoolClasses as $schoolClass) {
 
-            for ($i = 0; $i <= 10; $i++) {
-                Student::factory()->create([
-                    'school_class_id' => $schoolClass->id,
-                    'name' => Fake()->firstName . ' ' . Fake()->lastName
-                ]);
-            }
+        //     for ($i = 0; $i <= 10; $i++) {
+        //         Student::factory()->create([
+        //             'school_class_id' => $schoolClass->id,
+        //             'name' => Fake()->firstName . ' ' . Fake()->lastName
+        //         ]);
+        //     }
+        // }
+
+        $students = File::json(public_path('data/students.json'));
+        foreach ($students as $student) {
+            Student::factory()->create([
+                'school_id' => $student['school_id'],
+                'school_class_id' => $student['school_class_id'],
+                'registration' => $student['matric'],
+                'name' => $student['nome'],
+                'gender' => $student['sexo']
+            ]);
         }
     }
 }

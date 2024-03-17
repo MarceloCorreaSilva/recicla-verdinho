@@ -1,0 +1,224 @@
+[
+    {
+        "id": 5000609,
+        "state_id": 50,
+        "name": "Amambai",
+        "active": 1
+    },
+    {
+        "id": 5001904,
+        "state_id": 50,
+        "name": "Bataguassu",
+        "active": 1
+    },
+    {
+        "id": 5002100,
+        "state_id": 50,
+        "name": "Bela Vista",
+        "active": 1
+    },
+    {
+        "id": 5002308,
+        "state_id": 50,
+        "name": "Brasil\u00e2ndia",
+        "active": 1
+    },
+    {
+        "id": 5002407,
+        "state_id": 50,
+        "name": "Caarap\u00f3",
+        "active": 1
+    },
+    {
+        "id": 5003256,
+        "state_id": 50,
+        "name": "Costa Rica",
+        "active": 1
+    },
+    {
+        "id": 5003306,
+        "state_id": 50,
+        "name": "Coxim",
+        "active": 1
+    },
+    {
+        "id": 5003702,
+        "state_id": 50,
+        "name": "Dourados",
+        "active": 1
+    },
+    {
+        "id": 5004403,
+        "state_id": 50,
+        "name": "Inoc\u00eancia",
+        "active": 1
+    },
+    {
+        "id": 5005400,
+        "state_id": 50,
+        "name": "Maracaju",
+        "active": 1
+    },
+    {
+        "id": 5005707,
+        "state_id": 50,
+        "name": "Navira\u00ed",
+        "active": 1
+    },
+    {
+        "id": 5005806,
+        "state_id": 50,
+        "name": "Nioaque",
+        "active": 1
+    },
+    {
+        "id": 5006002,
+        "state_id": 50,
+        "name": "Nova Alvorada do Sul",
+        "active": 1
+    },
+    {
+        "id": 5006200,
+        "state_id": 50,
+        "name": "Nova Andradina",
+        "active": 1
+    },
+    {
+        "id": 5006275,
+        "state_id": 50,
+        "name": "Para\u00edso das \u00c1guas",
+        "active": 1
+    },
+    {
+        "id": 5006606,
+        "state_id": 50,
+        "name": "Ponta Por\u00e3",
+        "active": 1
+    },
+    {
+        "id": 5007208,
+        "state_id": 50,
+        "name": "Rio Brilhante",
+        "active": 1
+    },
+    {
+        "id": 5007406,
+        "state_id": 50,
+        "name": "Rio Verde de Mato Grosso",
+        "active": 1
+    },
+    {
+        "id": 5007554,
+        "state_id": 50,
+        "name": "Santa Rita do Pardo",
+        "active": 1
+    },
+    {
+        "id": 5100201,
+        "state_id": 51,
+        "name": "\u00c1gua Boa",
+        "active": 1
+    },
+    {
+        "id": 5101407,
+        "state_id": 51,
+        "name": "Aripuan\u00e3",
+        "active": 1
+    },
+    {
+        "id": 5101605,
+        "state_id": 51,
+        "name": "Bar\u00e3o de Melga\u00e7o",
+        "active": 1
+    },
+    {
+        "id": 5102504,
+        "state_id": 51,
+        "name": "C\u00e1ceres",
+        "active": 1
+    },
+    {
+        "id": 5102678,
+        "state_id": 51,
+        "name": "Campo Verde",
+        "active": 1
+    },
+    {
+        "id": 5102702,
+        "state_id": 51,
+        "name": "Canarana",
+        "active": 1
+    },
+    {
+        "id": 5103056,
+        "state_id": 51,
+        "name": "Cl\u00e1udia",
+        "active": 1
+    },
+    {
+        "id": 5103502,
+        "state_id": 51,
+        "name": "Diamantino",
+        "active": 1
+    },
+    {
+        "id": 5104104,
+        "state_id": 51,
+        "name": "Guarant\u00e3 do Norte",
+        "active": 1
+    },
+    {
+        "id": 5104609,
+        "state_id": 51,
+        "name": "Itiquira",
+        "active": 1
+    },
+    {
+        "id": 5105234,
+        "state_id": 51,
+        "name": "Lambari D'Oeste",
+        "active": 1
+    },
+    {
+        "id": 5105580,
+        "state_id": 51,
+        "name": "Marcel\u00e2ndia",
+        "active": 1
+    },
+    {
+        "id": 5106109,
+        "state_id": 51,
+        "name": "Nossa Senhora do Livramento",
+        "active": 1
+    },
+    {
+        "id": 5106307,
+        "state_id": 51,
+        "name": "Paranatinga",
+        "active": 1
+    },
+    {
+        "id": 5106505,
+        "state_id": 51,
+        "name": "Pocon\u00e9",
+        "active": 1
+    },
+    {
+        "id": 5107248,
+        "state_id": 51,
+        "name": "Santa Carmem",
+        "active": 1
+    },
+    {
+        "id": 5107925,
+        "state_id": 51,
+        "name": "Sorriso",
+        "active": 1
+    },
+    {
+        "id": 5107958,
+        "state_id": 51,
+        "name": "Tangar\u00e1 da Serra",
+        "active": 1
+    }
+]

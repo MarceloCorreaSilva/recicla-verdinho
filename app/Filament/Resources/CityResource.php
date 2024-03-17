@@ -3,9 +3,11 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\CityResource\Pages;
-use App\Filament\Resources\CityResource\RelationManagers;
+use App\Filament\Resources\CityResource\RelationManagers\UsersRelationManager;
 use App\Models\City;
 use App\Models\State;
+use App\Models\User;
+use Closure;
 use Filament\Forms;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
@@ -55,6 +57,23 @@ class CityResource extends Resource
                 Forms\Components\TextInput::make('name')
                     ->label('Cidade')
                     ->required(),
+
+                // Forms\Components\Section::make('Secretario(a)')
+                //     ->columns(1)
+                //     ->schema([
+                //         Forms\Components\Select::make('secretary')
+                //             ->label('Secretario(a)')
+                //             ->relationship(
+                //                 'secretary',
+                //                 'name',
+                //                 // fn (City $record, Builder $query): Builder => $query
+                //                 //     ->whereHas(
+                //                 //         'roles',
+                //                 //         callback: fn (Builder $query) => $query->where('city_id', $record->id)->where('name', 'Secretario')
+                //                 //     )
+                //             ),
+                //     ]),
+
                 Forms\Components\Toggle::make('active')
                     ->label('Ativo')
                     ->required(),
@@ -74,6 +93,9 @@ class CityResource extends Resource
                     ->label('Cidade')
                     ->searchable()
                     ->sortable(),
+                Tables\Columns\TextColumn::make('secretary.name')
+                    // ->boolean()
+                    ->label('Secretario(0)'),
                 Tables\Columns\ToggleColumn::make('active')
                     ->label('Ativo')
                     ->sortable(),
@@ -82,6 +104,27 @@ class CityResource extends Resource
                 //
             ])
             ->actions([
+                Tables\Actions\Action::make('Secretario(a)')
+                    ->icon('heroicon-o-user')
+                    ->form([
+                        Forms\Components\Select::make('secretary')
+                            ->label('Secretario(a)')
+                            ->relationship(
+                                'secretary',
+                                'name',
+                                fn (City $record, Builder $query): Builder => $query
+                                    ->whereHas(
+                                        'roles',
+                                        callback: fn (Builder $query) => $query->where('city_id', $record->id)->where('name', 'Secretario')
+                                    )
+                            ),
+                    ])
+                    ->action(function (array $data, City $record): void {
+                        $record->secretary_id = $data['secretary'];
+                        $record->save();
+                    })
+                    ->visible(auth()->user()->hasRole(['Developer', 'Admin', 'Secretario']) == true),
+
                 Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
@@ -94,7 +137,7 @@ class CityResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            UsersRelationManager::class
         ];
     }
 

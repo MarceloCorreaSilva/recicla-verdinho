@@ -224,6 +224,72 @@ class UserSeeder extends Seeder
         $admin->givePermissionTo('movement_update');
         $admin->givePermissionTo('movement_delete');
 
+        $secretario = Role::factory()->create(['name' => 'Secretario']);
+        $secretario->givePermissionTo('access_admin');
+        $secretario->givePermissionTo('school_access');
+        $secretario->givePermissionTo('school_read');
+        $secretario->givePermissionTo('school_create');
+        $secretario->givePermissionTo('school_update');
+        // $secretario->givePermissionTo('school_delete');
+        $secretario->givePermissionTo('school_class_access');
+        $secretario->givePermissionTo('school_class_read');
+        // $secretario->givePermissionTo('school_class_create');
+        // $secretario->givePermissionTo('school_class_update');
+        // $secretario->givePermissionTo('school_class_delete');
+        $secretario->givePermissionTo('student_access');
+        $secretario->givePermissionTo('student_read');
+        // $secretario->givePermissionTo('student_create');
+        // $secretario->givePermissionTo('student_update');
+        // $secretario->givePermissionTo('student_delete');
+        $secretario->givePermissionTo('swap_access');
+        $secretario->givePermissionTo('swap_read');
+        $secretario->givePermissionTo('swap_create');
+        // $secretario->givePermissionTo('swap_update');
+        // $secretario->givePermissionTo('swap_delete');
+        $secretario->givePermissionTo('financial_access');
+        $secretario->givePermissionTo('financial_read');
+        // $secretario->givePermissionTo('financial_create');
+        // $secretario->givePermissionTo('financial_update');
+        // $secretario->givePermissionTo('financial_delete');
+        $secretario->givePermissionTo('movement_access');
+        $secretario->givePermissionTo('movement_read');
+        // $secretario->givePermissionTo('movement_create');
+        // $secretario->givePermissionTo('movement_update');
+        // $secretario->givePermissionTo('movement_delete');
+
+        $gerente = Role::factory()->create(['name' => 'Gerente']);
+        $gerente->givePermissionTo('access_admin');
+        $gerente->givePermissionTo('school_access');
+        $gerente->givePermissionTo('school_read');
+        // $gerente->givePermissionTo('school_create');
+        // $gerente->givePermissionTo('school_update');
+        // $gerente->givePermissionTo('school_delete');
+        $gerente->givePermissionTo('school_class_access');
+        $gerente->givePermissionTo('school_class_read');
+        // $gerente->givePermissionTo('school_class_create');
+        // $gerente->givePermissionTo('school_class_update');
+        // $gerente->givePermissionTo('school_class_delete');
+        $gerente->givePermissionTo('student_access');
+        $gerente->givePermissionTo('student_read');
+        // $gerente->givePermissionTo('student_create');
+        // $gerente->givePermissionTo('student_update');
+        // $gerente->givePermissionTo('student_delete');
+        $gerente->givePermissionTo('swap_access');
+        $gerente->givePermissionTo('swap_read');
+        $gerente->givePermissionTo('swap_create');
+        // $gerente->givePermissionTo('swap_update');
+        // $gerente->givePermissionTo('swap_delete');
+        $gerente->givePermissionTo('financial_access');
+        $gerente->givePermissionTo('financial_read');
+        // $gerente->givePermissionTo('financial_create');
+        // $gerente->givePermissionTo('financial_update');
+        // $gerente->givePermissionTo('financial_delete');
+        $gerente->givePermissionTo('movement_access');
+        $gerente->givePermissionTo('movement_read');
+        // $gerente->givePermissionTo('movement_create');
+        // $gerente->givePermissionTo('movement_update');
+        // $gerente->givePermissionTo('movement_delete');
+
         $coordinator = Role::factory()->create(['name' => 'Coordenador']);
         $coordinator->givePermissionTo('access_admin');
         $coordinator->givePermissionTo('school_access');
@@ -264,10 +330,23 @@ class UserSeeder extends Seeder
         $userAdmin = User::factory()->create(['name' => 'Admin', 'email' => 'admin@mail.com', 'password' => static::$password]);
         $userAdmin->assignRole($admin);
 
-        // $userCoordinator = User::factory()->create(['name' => 'Coordenador 1', 'email' => 'coordenador@mail.com', 'password' => static::$password]);
-        // $userCoordinator->assignRole($coordinator);
+        $userSecretario = User::factory()->create(['city_id' => '5100201', 'name' => 'Secretario', 'email' => 'secretario@mail.com', 'password' => static::$password]);
+        $userSecretario->assignRole($secretario);
 
-        // $userCoordinator = User::factory()->create(['name' => 'Coordenador 2', 'email' => 'coordenador2@mail.com', 'password' => static::$password]);
-        // $userCoordinator->assignRole($coordinator);
+
+        $userGerente = User::factory()->create(['city_id' => '5100201', 'name' => 'Gerente', 'email' => 'gerente@mail.com', 'password' => static::$password]);
+        $userGerente->assignRole($gerente);
+
+        $userGerente2 = User::factory()->create(['city_id' => '5100201', 'name' => 'Gerente 2', 'email' => 'gerente2@mail.com', 'password' => static::$password]);
+        $userGerente2->assignRole($gerente);
+
+        $userCoordinator = User::factory()->create(['city_id' => '5100201', 'name' => 'Coordenador', 'email' => 'coordenador@mail.com', 'password' => static::$password]);
+        $userCoordinator->assignRole($coordinator);
+
+        $userCoordinator2 = User::factory()->create(['city_id' => '5100201', 'name' => 'Coordenador 2', 'email' => 'coordenador2@mail.com', 'password' => static::$password]);
+        $userCoordinator2->assignRole($coordinator);
+
+        $userCoordinator3 = User::factory()->create(['city_id' => '5100201', 'name' => 'Coordenador 3', 'email' => 'coordenador3@mail.com', 'password' => static::$password]);
+        $userCoordinator3->assignRole($coordinator);
     }
 }
