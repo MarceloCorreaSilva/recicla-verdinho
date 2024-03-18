@@ -330,23 +330,26 @@ class UserSeeder extends Seeder
         $userAdmin = User::factory()->create(['name' => 'Admin', 'email' => 'admin@mail.com', 'password' => static::$password]);
         $userAdmin->assignRole($admin);
 
-        $userSecretario = User::factory()->create(['city_id' => '5100201', 'name' => 'Secretario', 'email' => 'secretario@mail.com', 'password' => static::$password]);
-        $userSecretario->assignRole($secretario);
+        $userAdmin = User::factory()->create(['name' => 'Fábio Schroeter', 'email' => 'fabioschroeter@gmail.com', 'password' => static::$password]);
+        $userAdmin->assignRole($admin);
+
+        // $userSecretario = User::factory()->create(['city_id' => '5100201', 'name' => 'Secretario', 'email' => 'secretario@mail.com', 'password' => static::$password]);
+        // $userSecretario->assignRole($secretario);
 
 
-        $userGerente = User::factory()->create(['city_id' => '5100201', 'name' => 'Gerente', 'email' => 'gerente@mail.com', 'password' => static::$password]);
-        $userGerente->assignRole($gerente);
+        // $userGerente = User::factory()->create(['city_id' => '5100201', 'name' => 'Gerente', 'email' => 'gerente@mail.com', 'password' => static::$password]);
+        // $userGerente->assignRole($gerente);
 
-        $userGerente2 = User::factory()->create(['city_id' => '5100201', 'name' => 'Gerente 2', 'email' => 'gerente2@mail.com', 'password' => static::$password]);
-        $userGerente2->assignRole($gerente);
+        // $userGerente2 = User::factory()->create(['city_id' => '5100201', 'name' => 'Gerente 2', 'email' => 'gerente2@mail.com', 'password' => static::$password]);
+        // $userGerente2->assignRole($gerente);
 
-        $userCoordinator = User::factory()->create(['city_id' => '5100201', 'name' => 'Coordenador', 'email' => 'coordenador@mail.com', 'password' => static::$password]);
-        $userCoordinator->assignRole($coordinator);
+        // $userCoordinator = User::factory()->create(['city_id' => '5100201', 'name' => 'Coordenador', 'email' => 'coordenador@mail.com', 'password' => static::$password]);
+        // $userCoordinator->assignRole($coordinator);
 
-        $userCoordinator2 = User::factory()->create(['city_id' => '5100201', 'name' => 'Coordenador 2', 'email' => 'coordenador2@mail.com', 'password' => static::$password]);
-        $userCoordinator2->assignRole($coordinator);
+        // $userCoordinator2 = User::factory()->create(['city_id' => '5100201', 'name' => 'Coordenador 2', 'email' => 'coordenador2@mail.com', 'password' => static::$password]);
+        // $userCoordinator2->assignRole($coordinator);
 
-        $userCoordinator3 = User::factory()->create(['city_id' => '5100201', 'name' => 'Coordenador 3', 'email' => 'coordenador3@mail.com', 'password' => static::$password]);
-        $userCoordinator3->assignRole($coordinator);
+        // $userCoordinator3 = User::factory()->create(['city_id' => '5100201', 'name' => 'Coordenador 3', 'email' => 'coordenador3@mail.com', 'password' => static::$password]);
+        // $userCoordinator3->assignRole($coordinator);
     }
 }
