@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\UserResource\Pages;
 use App\Filament\Resources\UserResource\RelationManagers;
+use App\Models\City;
 use App\Models\User;
 use Filament\Forms;
 use Filament\Resources\Form;
@@ -39,24 +40,38 @@ class UserResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('name')
                     ->label('Nome Usuário')
-                    ->required(),
+                    ->required()
+                    ->columnSpan(3),
+
+                Forms\Components\Select::make('city_id')
+                    ->label('Cidade')
+                    ->relationship('city', 'id')
+                    ->searchable()
+                    ->preload()
+                    ->getOptionLabelFromRecordUsing(fn (City $record) => "{$record->name} - {$record->state->abbreviation}"),
+
+
                 Forms\Components\TextInput::make('email')
                     ->label('E-mail')
                     ->email()
-                    ->required(),
+                    ->required()
+                    ->columnSpan(2),
                 Forms\Components\TextInput::make('password')
                     ->label('Senha')
                     ->password()
                     ->dehydrateStateUsing(fn ($state) => Hash::make($state))
                     ->dehydrated(fn ($state) => filled($state))
-                    ->required(fn (string $context): bool => $context === 'create'),
+                    ->required(fn (string $context): bool => $context === 'create')
+                    ->columnSpan(1),
 
                 Forms\Components\Select::make('roles')
                     ->label('Função')
                     ->multiple()
                     ->relationship('roles', 'name', fn (Builder $query) =>  auth()->user()->hasRole('Developer') ? null : $query->where('name', '<>', 'Developer'))
-                    ->preload(),
-            ]);
+                    ->preload()
+                    ->columnSpan(1),
+            ])
+            ->columns(4);
     }
 
     public static function table(Table $table): Table

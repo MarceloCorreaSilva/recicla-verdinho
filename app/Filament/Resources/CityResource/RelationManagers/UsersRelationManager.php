@@ -26,14 +26,17 @@ class UsersRelationManager extends RelationManager
     public static function form(Form $form): Form
     {
         return $form
+            ->columns(4)
             ->schema([
                 Forms\Components\TextInput::make('name')
                     ->label('Nome Usuário')
-                    ->required(),
+                    ->required()
+                    ->columnSpanFull(),
                 Forms\Components\TextInput::make('email')
                     ->label('E-mail')
                     ->email()
-                    ->required(),
+                    ->required()
+                    ->columnSpan(2),
                 Forms\Components\TextInput::make('password')
                     ->label('Senha')
                     ->default('verdinho')
