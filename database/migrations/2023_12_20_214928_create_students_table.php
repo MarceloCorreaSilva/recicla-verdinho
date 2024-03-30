@@ -17,9 +17,9 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(School::class);
             $table->foreignIdFor(SchoolClass::class);
-            $table->integer('registration');
+            $table->integer('registration')->nullable();
             $table->string('name');
-            $table->char('gender');
+            $table->char('gender')->nullable();
             $table->timestamps();
         });
     }

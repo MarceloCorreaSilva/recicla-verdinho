@@ -4,7 +4,10 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\StudentResource\Pages;
 use App\Filament\Resources\StudentResource\RelationManagers\SwapsRelationManager;
+use App\Models\School;
+use App\Models\SchoolClass;
 use App\Models\Student;
+use Closure;
 use Filament\Forms;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
@@ -50,19 +53,44 @@ class StudentResource extends Resource
         return $form
             ->schema([
                 Forms\Components\Grid::make()
-                    ->columns(1)
+                    ->columns(4)
                     ->schema([
+                        Forms\Components\Select::make('school_id')
+                            ->label('Escola')
+                            ->relationship('school', 'name')
+                            ->preload()
+                            ->required()
+                            ->searchable()
+                            ->columnSpan(3),
+
                         Forms\Components\Select::make('school_class_id')
                             ->label('Turma')
-                            ->relationship('school_class', 'name')
+                            // ->relationship('school_class', 'name')
+                            ->options(function (Closure $get) {
+                                $school = School::find($get('school_id'));
+                                return $school ? $school->school_classes->pluck('name', 'id') : [];
+                            })
                             ->preload()
                             ->required()
                             ->searchable(),
 
                         Forms\Components\TextInput::make('name')
-                            // ->columnStart(2)
-                            ->columnSpanFull()
                             ->label('Nome Estudante')
+                            ->columnSpan(2)
+                            ->required(),
+
+                        Forms\Components\TextInput::make('registration')
+                            ->label('Matricula')
+                            ->numeric()
+                            ->required(),
+
+                        Forms\Components\Select::make('gender')
+                            ->label('Gênero')
+                            ->options([
+                                'M' => 'Masculino',
+                                'F' => 'Feminino'
+                            ])
+                            ->preload()
                             ->required(),
                     ]),
             ]);
