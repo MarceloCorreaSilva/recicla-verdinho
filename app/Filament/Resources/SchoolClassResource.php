@@ -45,12 +45,26 @@ class SchoolClassResource extends Resource
                         //     ->label('Escolas')
                         //     ->hydrateState(fn (Builder $query) => $query->where('coordinator_id', auth()->id())->first()->name),
 
-                        Forms\Components\Select::make('school_id')
+                        (auth()->user()->hasRole('Coordenador'))
+                            ?
+                            Forms\Components\Select::make('school_id')
                             ->label('Escolas')
-                            ->relationship('school', 'name', fn (Builder $query) => $query->where('coordinator_id', auth()->id()))
+                            ->relationship('school', 'name')
+                            // ->options(School::all()->pluck('name', 'id'))
+                            ->getOptionLabelFromRecordUsing(fn (School $record) => $record->name)
                             ->preload()
                             ->required()
-                            ->searchable(),
+                            ->searchable()
+                            :
+                            Forms\Components\Select::make('school_id')
+                            ->label('Escolas')
+                            // ->relationship('school', 'name')
+                            ->options(School::all()->pluck('name', 'id'))
+                            ->getOptionLabelFromRecordUsing(fn (School $record) => $record->name)
+                            ->preload()
+                            ->required()
+                            ->searchable()
+
                     ]),
 
                 Forms\Components\Grid::make()
