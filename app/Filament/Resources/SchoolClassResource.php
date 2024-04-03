@@ -50,7 +50,7 @@ class SchoolClassResource extends Resource
                             Forms\Components\Select::make('school_id')
                             ->label('Escolas')
                             ->relationship('school', 'name')
-                            // ->options(School::all()->pluck('name', 'id'))
+                            // ->options(School::all()->pluck('name', 'id'), , fn (Builder $query) => $query->where('coordinador_id', auth()->user()->id))
                             ->getOptionLabelFromRecordUsing(fn (School $record) => $record->name)
                             ->preload()
                             ->required()
