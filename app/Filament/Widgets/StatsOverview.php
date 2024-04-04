@@ -114,7 +114,7 @@ class StatsOverview extends BaseWidget
 
             foreach ($schools ?? [] as $school) {
                 $totalStudents += $school->students()->count();
-                $totalBalance += $school->financial->balance;
+                $totalBalance += $school->financial->balance ?? 0;
 
                 foreach ($school->students()->with('swaps')->get() as $student) {
                     foreach ($student->swaps as $swap) {
@@ -286,7 +286,7 @@ class StatsOverview extends BaseWidget
                 ),
 
                 Card::make(
-                    'Verdinhos Distribuídos',
+                    'Verdinhos Distribudos',
                     $this->formatNumberToStat(Swap::totalGreenCoins())
                 ),
             ];
