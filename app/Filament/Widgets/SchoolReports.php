@@ -76,8 +76,8 @@ class SchoolReports extends BaseWidget
         return [
             Tables\Actions\Action::make('Visualisar')
                 ->icon('heroicon-o-document-search')
-                ->action(function (School $record) {
-                })
+                // ->action(function (School $record) {
+                // })
                 ->modalHeading(
                     // function ($arguments, $action, $record) {
                     //     return $record->name;
@@ -98,7 +98,10 @@ class SchoolReports extends BaseWidget
                         'report' => $record->reportToYears()
                     ]);
                 })
-                ->modalFooter(),
+                ->requiresConfirmation(false),
+            // ->modalFooter()
+            // ->modalSubmitAction()
+            // ->modalButton(),
             Tables\Actions\ActionGroup::make([
                 Tables\Actions\Action::make('Relatório')
                     ->icon('heroicon-o-document-download')
