@@ -12,6 +12,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Blade;
 
 class SchoolReports extends BaseWidget
@@ -21,7 +22,7 @@ class SchoolReports extends BaseWidget
 
     public static function canView(): bool
     {
-        return auth()->user()->hasRole(['Developer', 'Admin']);
+        return auth()->user()->hasRole(['Developer', 'Admin', 'Secretario', 'Gerente', 'Coordenador']);
     }
 
     protected function getTableHeader(): View|Htmlable|null
@@ -31,6 +32,19 @@ class SchoolReports extends BaseWidget
 
     protected function getTableQuery(): Builder
     {
+        if (auth()->user()->hasRole(['Secretario'])) {
+            return School::query()->where('city_id', Auth::user()->city_id);
+        }
+        if (auth()->user()->hasRole(['Gerente'])) {
+            return School::query()
+                ->where('city_id', Auth::user()->city_id)
+                ->where('manager_id', Auth::user()->id);
+        }
+        if (auth()->user()->hasRole(['Coordenador'])) {
+            return School::query()
+                ->where('city_id', Auth::user()->city_id)
+                ->where('coordinator_id', Auth::user()->id);
+        }
         return School::query();
     }
 

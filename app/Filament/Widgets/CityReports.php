@@ -9,6 +9,7 @@ use Filament\Widgets\TableWidget as BaseWidget;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Contracts\View\View;
 use Illuminate\Contracts\Support\Htmlable;
+use Illuminate\Support\Facades\Auth;
 
 class CityReports extends BaseWidget
 {
@@ -17,7 +18,7 @@ class CityReports extends BaseWidget
 
     public static function canView(): bool
     {
-        return auth()->user()->hasRole(['Developer', 'Admin']);
+        return auth()->user()->hasRole(['Developer', 'Secretario', 'Gerente', 'Coordenador']);
     }
 
     protected function getTableHeader(): View|Htmlable|null
@@ -27,6 +28,10 @@ class CityReports extends BaseWidget
 
     protected function getTableQuery(): Builder
     {
+        if (auth()->user()->hasRole(['Secretario', 'Gerente', 'Coordenador'])) {
+            return City::query()->where('id', Auth::user()->city_id);
+        }
+
         return City::query();
     }
 
