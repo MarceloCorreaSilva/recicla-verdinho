@@ -97,7 +97,8 @@ class SchoolReports extends BaseWidget
                         'record' => $record,
                         'report' => $record->reportToYears()
                     ]);
-                }),
+                })
+                ->modalFooter(),
             Tables\Actions\ActionGroup::make([
                 Tables\Actions\Action::make('Relatório')
                     ->icon('heroicon-o-document-download')
