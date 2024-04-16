@@ -97,8 +97,7 @@ class SchoolReports extends BaseWidget
                         'record' => $record,
                         'report' => $record->reportToYears()
                     ]);
-                })
-                ->requiresConfirmation(false),
+                }),
             // ->modalFooter()
             // ->modalSubmitAction()
             // ->modalButton(),
