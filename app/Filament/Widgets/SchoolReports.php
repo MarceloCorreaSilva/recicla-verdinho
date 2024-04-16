@@ -76,8 +76,8 @@ class SchoolReports extends BaseWidget
         return [
             Tables\Actions\Action::make('Visualisar')
                 ->icon('heroicon-o-document-search')
-                // ->action(function (School $record) {
-                // })
+                ->action(function (School $record) {
+                })
                 ->modalHeading(
                     // function ($arguments, $action, $record) {
                     //     return $record->name;
