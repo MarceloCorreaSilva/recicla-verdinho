@@ -4,14 +4,11 @@ namespace App\Filament\Widgets;
 
 use App\Models\School;
 use Barryvdh\DomPDF\Facade\Pdf;
-use Closure;
-use Filament\Pages\Actions\CreateAction;
 use Filament\Tables;
 use Filament\Widgets\TableWidget as BaseWidget;
 use Illuminate\Contracts\View\View;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Blade;
 
@@ -98,9 +95,6 @@ class SchoolReports extends BaseWidget
                         'report' => $record->reportToYears()
                     ]);
                 }),
-            // ->modalFooter()
-            // ->modalSubmitAction()
-            // ->modalButton(),
             Tables\Actions\ActionGroup::make([
                 Tables\Actions\Action::make('Relatório')
                     ->icon('heroicon-o-document-download')
@@ -171,8 +165,6 @@ class SchoolReports extends BaseWidget
                             )->stream();
                         }, $record->name . '.pdf');
                     }),
-
-
             ]),
         ];
     }

@@ -6,6 +6,7 @@ use App\Filament\Resources\UserResource\Pages;
 use App\Filament\Resources\UserResource\RelationManagers;
 use App\Models\City;
 use App\Models\User;
+use BladeUI\Icons\Components\Icon;
 use Filament\Forms;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
@@ -14,6 +15,7 @@ use Filament\Tables;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Facades\Hash;
+use Filament\Forms\Components\Actions\Action;
 
 class UserResource extends Resource
 {
@@ -56,12 +58,20 @@ class UserResource extends Resource
                     ->email()
                     ->required()
                     ->columnSpan(2),
+
                 Forms\Components\TextInput::make('password')
                     ->label('Senha')
                     ->password()
                     ->dehydrateStateUsing(fn ($state) => Hash::make($state))
                     ->dehydrated(fn ($state) => filled($state))
                     ->required(fn (string $context): bool => $context === 'create')
+                    ->suffixAction(
+                        fn (?User $record): Action =>
+                        Action::make('status')
+                            ->icon($record?->password ? 'heroicon-s-shield-check' : 'heroicon-s-shield-exclamation')
+                            ->color($record?->password ? 'success' : 'danger')
+                            ->tooltip($record?->password ? 'Senha Cadastrada' : 'Cadastre uma senha'),
+                    )
                     ->columnSpan(1),
 
                 Forms\Components\Select::make('roles')
