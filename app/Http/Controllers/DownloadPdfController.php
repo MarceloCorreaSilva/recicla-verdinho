@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\School;
+use App\Models\Swap;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\Auth;
 
 class DownloadPdfController extends Controller
 {
@@ -104,5 +107,61 @@ class DownloadPdfController extends Controller
         // $job_comp_codes = $cards->pluck('job_comp_code')->sortBy('job_comp_code')->unique();
 
         // return view('report', compact('report', 'job_comp_codes'));
+    }
+
+    function swapsByDate($date)
+    {
+        $swaps = null;
+
+        if (Auth::user()->hasRole(['Secretario'])) {
+            $swaps = Swap::whereHas(
+                relation: 'student',
+                callback: fn (Builder $query) => $query->whereHas(
+                    relation: 'school',
+                    callback: fn (Builder $query) => $query->whereHas(
+                        relation: 'city',
+                        callback: fn (Builder $query) => $query
+                            ->where('cities.secretary_id', Auth::user()->id)
+                    )
+                )
+            )
+                ->where('date', $date)
+                ->orderBy('green_coin', 'desc')
+                ->get();
+        }
+
+        if (Auth::user()->hasRole(['Gerente'])) {
+            $swaps = Swap::whereHas(
+                relation: 'student',
+                callback: fn (Builder $query) => $query->whereHas(
+                    relation: 'school',
+                    callback: fn (Builder $query) => $query
+                        ->where('schools.manager_id', Auth::user()->id)
+                )
+            )
+                ->where('date', $date)
+                ->orderBy('green_coin', 'desc')
+                ->get();
+        }
+
+        if (Auth::user()->hasRole(['Coordenador'])) {
+            $swaps = Swap::whereHas(
+                relation: 'student',
+                callback: fn (Builder $query) => $query->whereHas(
+                    relation: 'school',
+                    callback: fn (Builder $query) => $query
+                        ->where('schools.coordinator_id', Auth::user()->id)
+                )
+            )
+                ->where('date', $date)
+                ->orderBy('green_coin', 'desc')
+                ->get();
+        }
+
+        $pdf = Pdf::loadView('swap-by-day-pdf', ['date' => $date, 'swaps' => $swaps]);
+        Pdf::setOption(['dpi' => 150, 'defaultFont' => 'sans-serif']);
+        return $pdf->stream();
+
+        dd($swaps);
     }
 }

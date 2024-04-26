@@ -21,3 +21,4 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', fn () => redirect()->route('filament.auth.login'));
 
 Route::get('/{record}/pdf', [DownloadPdfController::class, 'download'])->name('school.pdf.download');
+Route::get('/swaps/{date}/pdf', [DownloadPdfController::class, 'swapsByDate'])->name('swapsByDate.pdf.download');
