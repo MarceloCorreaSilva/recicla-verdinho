@@ -84,7 +84,7 @@ class SwapReports extends BaseWidget
     protected function getTableColumns(): array
     {
         return [
-            Tables\Columns\TextColumn::make('id'),
+            // Tables\Columns\TextColumn::make('id'),
             Tables\Columns\TextColumn::make('date')
                 ->dateTime('d/m/Y')
                 ->sortable()
